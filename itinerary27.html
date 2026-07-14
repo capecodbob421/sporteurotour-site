@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>July 2027 Itinerary &amp; Pricing Details | EuroTour</title>
+<style>
+  :root{
+    --navy:#2e4d95;
+    --navy-2:#456bb4;
+    --red:#df202c;
+    --red-dark:#b5121e;
+    --cream:#faf7f2;
+    --ink:#222;
+    --gray:#6b7280;
+    --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:var(--red-dark)}
+  h1,h2,h3{line-height:1.2}
+
+  /* Top utility bar */
+  .topbar{background:var(--navy);color:#fff;font-size:.85rem;padding:.4rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  .topbar a{color:#fff;text-decoration:none}
+  .topbar .reg{background:var(--red);padding:.25rem .9rem;border-radius:4px;font-weight:700;letter-spacing:.04em}
+
+  /* Header / nav */
+  header.site{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .nav-wrap{max-width:1150px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem}
+  .nav-wrap img.logo{height:52px;width:auto}
+  nav.main a{color:var(--navy);text-decoration:none;font-weight:600;margin-left:1.5rem;font-size:.95rem}
+  nav.main a:hover{color:var(--red)}
+
+  /* Hero */
+  .hero{background:linear-gradient(rgba(12,31,77,.78),rgba(12,31,77,.78)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/banner-group-utrecht.webp') center/cover no-repeat;color:#fff;text-align:center;padding:4.5rem 1rem 3.5rem}
+  .hero .since{font-size:1rem;letter-spacing:.25em;text-transform:uppercase;color:#ffd6d6}
+  .hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:.4rem 0;text-transform:uppercase;letter-spacing:.05em}
+  .hero .dates{font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;color:var(--red)}
+  .hero .sub{margin-top:.6rem;font-size:1.05rem;color:#e8edf5}
+  .hero img.badge{max-width:340px;margin:1.5rem auto 0}
+
+  /* Anchor nav */
+  .anchor-nav{background:var(--red);text-align:center;padding:.55rem .5rem;position:sticky;top:69px;z-index:40}
+  .anchor-nav a{color:#fff;text-decoration:none;font-weight:700;margin:0 .9rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em}
+  .anchor-nav a:hover{text-decoration:underline}
+
+  section{padding:3rem 1rem}
+  #itn,#details,#pricing,#gallery,#reg,#top{scroll-margin-top:130px}
+  @media(max-width:760px){#itn,#details,#pricing,#gallery,#reg,#top{scroll-margin-top:20px}}
+  .wrap{max-width:1150px;margin:0 auto}
+  .center{text-align:center}
+  .kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:.85rem}
+  h2.sec{font-size:clamp(1.6rem,4vw,2.4rem);color:var(--navy);margin:.3rem 0 1.2rem;text-transform:uppercase}
+
+  /* Videos */
+  .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+  .vid-grid h3{color:var(--navy);margin-bottom:.5rem;font-size:1.05rem}
+  .vid-frame{position:relative;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#000}
+  .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* Intro / register */
+  .intro-box{background:var(--cream);border-radius:12px;padding:2.2rem 1.5rem;text-align:center}
+  .intro-box h2{color:var(--navy);font-size:clamp(1.7rem,4vw,2.5rem);text-transform:uppercase}
+  .intro-box .wcd{color:var(--red);font-weight:700;font-size:1.15rem;margin:.3rem 0 .8rem}
+  .btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:.85rem 1.6rem;border-radius:6px;margin:.4rem;letter-spacing:.03em;text-transform:uppercase}
+  .btn:hover{background:var(--red-dark)}
+  .btn.soon{background:var(--gray);cursor:default}
+  .btn.ghost{background:var(--navy)}
+  .smallnote{font-size:.85rem;color:var(--gray)}
+
+  /* Testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+  .quote{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:8px;padding:1.2rem}
+  .quote p{font-style:italic;font-size:.95rem}
+  .quote .who{margin-top:.7rem;font-style:normal;font-weight:700;color:var(--navy)}
+
+  /* Itinerary */
+  .day{display:grid;grid-template-columns:340px 1fr;gap:1.5rem;align-items:start;border:1px solid var(--line);border-radius:10px;padding:1.3rem;margin-bottom:1.3rem;background:#fff}
+  .day img{border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%}
+  .day h3{color:var(--navy);text-transform:uppercase;font-size:1.15rem;margin-bottom:.5rem}
+  .day h3 span{color:var(--red)}
+  details.more{margin-top:.8rem;border:1px solid var(--line);border-radius:6px;background:var(--cream)}
+  details.more summary{cursor:pointer;font-weight:700;color:var(--navy);padding:.6rem .9rem;list-style:none}
+  details.more summary::before{content:"▸ ";color:var(--red)}
+  details.more[open] summary::before{content:"▾ "}
+  details.more .inner{padding:.2rem 1rem 1rem}
+  details.more .inner p{margin:.6rem 0}
+  .tip{background:#fff;border-left:4px solid var(--red);padding:.6rem .9rem;margin:.7rem 0;font-size:.92rem}
+  .tip strong{color:var(--navy)}
+
+  /* Accordions (Everything you want to know) */
+  details.acc{border:1px solid var(--line);border-radius:8px;margin-bottom:.7rem;background:#fff}
+  details.acc summary{cursor:pointer;padding:1rem 1.2rem;font-weight:800;color:var(--navy);font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  details.acc summary small{color:var(--gray);font-weight:400}
+  details.acc summary::after{content:"+";color:var(--red);font-size:1.4rem;font-weight:700}
+  details.acc[open] summary::after{content:"–"}
+  details.acc .inner{padding:0 1.2rem 1.2rem}
+  details.acc .inner p, details.acc .inner li{margin:.55rem 0}
+  details.acc .inner ul{padding-left:1.2rem}
+  details.acc .inner h4{color:var(--navy);margin-top:1rem;text-transform:uppercase;font-size:1rem}
+  details.acc .inner img{border-radius:8px;margin:.8rem 0}
+
+  /* Pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin:1rem 0}
+  .price-card{border:2px solid var(--navy);border-radius:12px;padding:1.6rem;text-align:center;background:#fff}
+  .price-card.hot{border-color:var(--red)}
+  .price-card h3{color:var(--navy);text-transform:uppercase;letter-spacing:.1em}
+  .price-card .amt{font-size:3rem;font-weight:900;color:var(--red);margin:.3rem 0}
+  .price-card p{font-size:.92rem;color:var(--gray)}
+  .plan{background:var(--cream);border-radius:10px;padding:1.3rem;font-size:.95rem}
+  .plan h4{color:var(--navy);text-transform:uppercase;margin-bottom:.5rem}
+
+  /* Coaches */
+  .coach{display:grid;grid-template-columns:180px 1fr;gap:1.4rem;align-items:start;margin-bottom:1.6rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.3rem}
+  .coach img{border-radius:50%;aspect-ratio:1/1;object-fit:cover;width:160px}
+  .coach h3{color:var(--navy)}
+  .coach .role{color:var(--red);font-weight:700;margin-bottom:.5rem}
+
+  /* Founder letters */
+  .letter{max-width:850px;margin:0 auto 2.5rem}
+  .letter h2{color:var(--navy);font-size:clamp(1.5rem,3.5vw,2rem);margin-bottom:.8rem}
+  .letter p{margin:.7rem 0}
+  .sig{font-style:italic;color:var(--gray);margin-top:.8rem}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem}
+  .gallery img{aspect-ratio:1/1;object-fit:cover;border-radius:6px;width:100%}
+
+  /* Join */
+  .join{background:var(--navy);color:#fff;text-align:center}
+  .join h2{font-size:clamp(1.8rem,5vw,2.8rem);text-transform:uppercase}
+  .join p{margin:.6rem 0 1rem}
+
+  /* Footer */
+  footer{background:#0c1f4d;color:#cbd5e1;padding:2.5rem 1rem;font-size:.9rem}
+  footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem}
+  footer img.flogo{height:56px;width:auto;margin-bottom:.8rem}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{color:var(--red)}
+  footer ul{list-style:none}
+  footer li{margin:.35rem 0}
+  .legal{max-width:1150px;margin:1.8rem auto 0;border-top:1px solid #24448c;padding-top:1rem;text-align:center;color:#8ba0b8}
+
+  @media(max-width:760px){
+    .day,.coach{grid-template-columns:1fr}
+    .coach img{margin:0 auto}
+    .anchor-nav{top:0;position:static}
+    nav.main a{margin-left:.9rem;font-size:.85rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@SportEuroTour.com</a>
+  <a class="reg" href="https://eurotour.wetravel.com">REGISTER HERE</a>
+</div>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html"><img class="logo" src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/EuroTour-Logo-600-1.webp" alt="Sport EuroTour"></a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="#top">2027 Tour Details</a>
+      <a href="https://lineupfh.com/">The LineUP</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="since">Since 1989 &bull; 38 Years</div>
+  <h1>2027 Tour</h1>
+  <div class="dates">July 22 to 28, 2027 &bull; Amsterdam</div>
+  <p class="sub">Dutch Training Tour &mdash; World Class Development<br>High School Graduates 2028&ndash;2030 &bull; Parents and Family Too</p>
+  <img class="badge" src="https://worldcampusa.wpengine.com/wp-content/uploads/2026/05/EuroTour-with-plane-and-date2027.webp" alt="EuroTour 2027">
+</div>
+
+<nav class="anchor-nav">
+  <a href="#itn">Itinerary</a>
+  <a href="#details">Highlights</a>
+  <a href="#pricing">Details</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reg">Register</a>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="center"><span class="kicker">See It For Yourself</span><h2 class="sec">Watch This</h2></div>
+    <div class="vid-grid">
+      <div><h3>Inside The Spa</h3><div class="vid-frame"><iframe src="https://player.vimeo.com/video/1131760072?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="Inside The Spa"></iframe></div></div>
+      <div><h3>Tour History</h3><div class="vid-frame"><iframe src="https://player.vimeo.com/video/1131759965?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="Tour History"></iframe></div></div>
+      <div><h3>Tour Roundup</h3><div class="vid-frame"><iframe src="https://player.vimeo.com/video/1131759903?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="Tour Roundup"></iframe></div></div>
+      <div><h3>Room Tour</h3><div class="vid-frame"><iframe src="https://player.vimeo.com/video/1131760042?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="Room Tour"></iframe></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="intro-box">
+      <h2>Dutch Training Tour</h2>
+      <div class="wcd">World Class Development</div>
+      <p><strong>AMSTERDAM</strong><br>July 22 to 28, 2027<br>High School Graduates 2028&ndash;2030</p>
+      <p style="margin-top:1rem">
+        <a class="btn soon" href="#reg">SOON &mdash; Athletes Register First</a>
+        <a class="btn soon" href="#reg">SOON &mdash; Family Registers Immediately After</a>
+      </p>
+      <p class="smallnote">Athletes and family members register separately. Athletes always register first.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><span class="kicker">From Our Families</span><h2 class="sec">What Members Say</h2></div>
+    <div class="quotes">
+      <div class="quote">
+        <p>"My daughter and I had an incredible experience! This trip is the best of both worlds: field hockey &amp; vacation! Very well organized, high level training, and the hotel is spectacular. I highly recommend! It was a vacation we will never forget in a place that now forever holds a piece of our hearts."</p>
+        <div class="who">Lacey Barry, Mom, MD</div>
+      </div>
+      <div class="quote">
+        <p>"We had the best time! Thank you so much for the amazing experience! As soon as we were pulling away in the Uber to the airport, Lexi said I want to go again next year." <em>Note: they signed up for 2026.</em></p>
+        <div class="who">Annie Kenney, Mom, NH</div>
+      </div>
+      <div class="quote">
+        <p>"It was an amazing experience for Molly and I. She was able to work on her FH development with incredible coaches and play with super-talented players from across the country! It was a great balance of tourism/group activities too. As a parent chaperone, I had a blast too!"</p>
+        <div class="who">Patricia McDonald, Mom, MA</div>
+      </div>
+      <div class="quote">
+        <p>"This was an incredible experience for athletes and their parents... This trip combines an excellent balance between field hockey experience and some leisure time to explore Amsterdam and its surroundings... The trip was very well organized, the accommodations were great, and the company was great too! Thanks Eurotour!"</p>
+        <div class="who">Ines Calvo, Mom, CT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="itn" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Limited to Just 40 Field Players &amp; 8 Goalies</span>
+      <h2 class="sec">Itinerary</h2>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Bike-Girls.webp" alt="Day 1">
+      <div>
+        <h3><span>Day 1:</span> The Ultimate Parent-Daughter Road Trip</h3>
+        <p>Welcome to Holland! We've crafted a special 'Introduction to Amsterdam' to start your journey on the right note. Prepare for an unforgettable intro into the wonders of "Olympic-Gold" hockey and the charm of Amsterdam. We're set. We're ready. Let's go! Join us!</p>
+        <details class="more"><summary>Details for Day 1 Here</summary><div class="inner">
+          <p>We hope you're ready to dive into the adventure awaiting you right from the moment you land.</p>
+          <p>Upon your arrival, a dedicated staff member and EuroTour bus will be ready at the airport to welcome morning arrivals. For a seamless transition to your adventure, we've organized a group transfer set to depart at 11am. For those arriving outside this window, worry not; our hotel is conveniently located a mere 15-20 minute taxi or Uber ride away.</p>
+          <p>Once at the hotel, take the opportunity to refresh and change, and enjoy some welcoming snacks prepared just for you. Then, at 1:00pm, join us as we embark on an enthralling introduction to Holland, marking the perfect start to your journey with us.</p>
+          <p>Without revealing all the surprises we have in store, let's just say you'll unmistakably feel the essence of Holland upon reaching our carefully chosen destination. Immerse yourself in a leisurely afternoon surrounded by iconic Dutch landscapes&mdash;think historic windmills and charming green wooden houses that seem lifted from a storybook.</p>
+          <p>Our journey then leads us to the vibrant heart of Amsterdam, Vondelpark, the largest and most renowned city park in the Netherlands. It's a beloved spot where locals and visitors alike bask in the sun, engage in a variety of outdoor activities, and simply enjoy the lively atmosphere. Here, nestled among the lush greenery, we'll indulge in a fan favorite, a BBQ at one of the park's cozy cafes, making new friends with our EuroTour traveling companions.</p>
+          <p>As the day winds down, we'll return you to the comfort of your 4-star hotel, where you can relax and reflect on the day's adventures, resting up for a new day of hockey exploration and fun.</p>
+          <div class="tip"><strong>HOTEL TIP</strong><br><em>Parents, take note: Our accommodation, the Hotel &amp; Wellness Zuiver, isn't just a place to stay; it's one of the premier spa destinations in Holland. With luxurious pools, soothing massages, and a full suite of wellness services, it promises relaxation and rejuvenation. For more details on the indulgent experiences awaiting you, we encourage you to visit their website.</em> <a href="https://zuiveramsterdam.nl/en/wellness/">HOTEL LINK</a></div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/thomas-gold-medal.webp" alt="Day 2">
+      <div>
+        <h3><span>Day 2:</span> Masterclass in Motion</h3>
+        <p>Today is a highlight for our athletes! Dedicate this special week to honing your skills with all-day training led by elite FIH coaches. Prepare to be challenged, inspired, and transformed on the field. Mom, dad... this is your vacation too, so enjoy all that our spa hotel and Holland has to offer.</p>
+        <details class="more"><summary>Details for Day 2 Here</summary><div class="inner">
+          <p>ARE YOU READY? We use words like unforgettable, once-in-a-lifetime, and priceless to describe what this week of training holds&mdash;and you'll understand why the moment you step on the field.</p>
+          <p>Day 2 dawns with anticipation&mdash;today is a highlight for our athletes! Kickstart your morning with a hearty breakfast that will fuel your day's adventures. Afterward, we'll embark on a refreshing short walk to pick up your bikes, setting the stage for a picturesque ride. Our journey takes us through the serene Amsterdam Forest, pedaling our way to the club and training pitch where you'll meet our esteemed Dutch coaches.</p>
+          <p>Today's session promises to be an outstanding hockey experience. Prepare to be inspired as you learn new skills and techniques in a way that only the Dutch can offer&mdash;making hockey not just a sport but a fun-filled adventure.</p>
+          <p>For our adult members, the adventure begins in earnest once we've seen the athletes off to their training. We'll guide you to the bike center, where you'll be outfitted with your bike for the week. This isn't just any bike&mdash;it's your passport to freedom, allowing you to glide effortlessly to the pitch to cheer on your daughter or venture into the heart of the city for some exploration. The choice is yours, and the possibilities are endless. It's your vacation, after all!</p>
+          <p>Once you're comfortable with your bikes, the adults&mdash;or "fans," as we affectionately call you&mdash;will hop on a bus into the city center for an orientation tour. We'll begin with a leisurely walk starting from the Anne Frank House, continuing to Dam Square, strolling through the charming boutiques and shops of the Nine Streets area, and then exploring the vibrant Floating Flower Market. We'll conclude our journey at the beautiful outer canal ring near Leidseplein, returning to the hotel before your daughters finish their training session.</p>
+          <p>From then on and throughout the week, the freedom to explore is entirely in your hands&mdash;whether you prefer to cycle, take the bus, or hail an Uber, you choose your mode of transportation.</p>
+          <p>This evening, if the weather is on our side, we will all embark on a scenic bike ride to a traditional farmhouse. There, we'll enjoy a special dinner; authentic Dutch pancakes&mdash;a perfect ending to a wonderful day.</p>
+          <div class="tip"><strong>BIKING TIP</strong><br><em>Biking into the city is a breeze, thanks to mostly flat bike paths leading the way. A brief stint on the road brings you to Vondel Park, where you can enjoy a ride through the park right to the city's edge. Once there, it's wise to lock up your bike and continue on foot.</em></div>
+          <div class="tip"><strong>AMSTERDAM ON FOOT</strong><br><em>Experiencing Amsterdam is truly best on foot. Its easy-to-navigate layout, guided by the distinctive horseshoe-shaped canal system, makes exploring and orienting yourself a simple pleasure.</em></div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Training3.webp" alt="Day 3">
+      <div>
+        <h3><span>Day 3:</span> Where Talent Meets Transformation</h3>
+        <p>Brace yourself for another day on the field that promises to challenge, inspire, and transform you in a new way. Continue your immersion in excellence with your second day of FIH Dutch training. Today's intensive session is designed as the perfect 'warm-up,' setting the stage for you to internalize and own your new skills.</p>
+        <details class="more"><summary>Details for Day 3 Here</summary><div class="inner">
+          <p>Today is when you begin to internalize and master the game.</p>
+          <p>We begin with an energizing breakfast, setting the stage for a refreshing bike ride to the club. <em>Brace yourself for a day on the field that promises to challenge, inspire, and transform you in a new way.</em></p>
+          <p>Parents, the day is yours to shape as you wish. Feel free to visit the pitch and watch the action, take this opportunity to explore Amsterdam, or even do a bit of both. The choice is entirely yours.</p>
+          <p>This evening is yours to enjoy as you please, with dinner being an open choice. Whether you prefer the convenience of dining at the hotel, exploring the local eateries nearby, or venturing into the city for a culinary adventure, the decision is yours to make.</p>
+          <div class="tip"><strong>PRO TIP</strong><br><em>With the sun setting just before 10pm, you're afforded ample daylight to extend your day and fully immerse in the visual splendor of this city. And as dusk falls, the transition is seamless into a magical atmosphere, where the lights come alive, casting a luminous glow over the streets and canals, inviting you to experience the enchantment of the evening.</em><br><br><em>Want to eat like a Dutchie? Then try either croquettes or bitterballen. Don't ask what's in them. When they're hot, really hot, just get some mustard and smear it all in on white bread! Mmmm.</em><br><br><em>During your stay, try to get to Winkel 43. It's near the Anne Frank House. Known for its apple cake (Kruimelkoek), this lively cafe/bar (small) serves hearty European snacks, lunch and dinner too. But we go for the apple cake and coffee. Double Mmmmm!</em> <a href="https://winkel43.nl/">Winkel 43 LINK</a></div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/amst-houses.webp" alt="Day 4">
+      <div>
+        <h3><span>Day 4:</span> Time to Explore</h3>
+        <p>Dutch delights... today we take a break from the field and immerse ourselves in the rich culture and breathtaking landscapes of Holland. Today is all about exploration and adventure in this beautiful country. Get ready as we take you beyond the pitch and into the heart of Dutch heritage &ndash; stroll along Utrecht's charming pedestrian walkways that wind gently beside its intimate canals, filled with shops and restaurants.</p>
+        <details class="more"><summary>Details for Day 4 Here</summary><div class="inner">
+          <p><strong>OUR DAY TO VISIT UTRECHT</strong></p>
+          <p>Fuel up with breakfast, because a fresh adventure awaits us today! While we imagine you've already enjoyed wandering through Amsterdam's enchanting streets, there's still much more to explore beyond the city limits.</p>
+          <p>Today, our private charter bus will comfortably transport us to Utrecht, a distinguished city known for its medieval core that whispers fascinating tales of the past. You'll soon discover tree-lined canals, notable Christian monuments, and a prestigious university, each contributing uniquely to Utrecht's vibrant tapestry. It's a wonderful city to explore at leisure, strolling along charming pedestrian streets that follow picturesque canals lined with inviting shops and restaurants.</p>
+          <p>Tonight, dinner is yours to design. Here's your chance to return to a favorite spot you discovered, explore a missed gem, or enjoy the hotel's convenience&mdash;your culinary journey awaits your choice.</p>
+          <div class="tip"><strong>UTRECHT SIGHTSEEING TIP</strong><br><em>Key highlights to see for the day (all close): Buurkerk (Neighbor Church), Maartensbrug (Martin's Bridge), Domtoren (Dom Tower), Domplein (Cathedral Square), Domkerk (Dom Church/St Martin's Cathedral), Pandhof Garden, Paushuize (Papal House), and the Nieuwegracht (New Canal) &amp; Oudegracht (Old Canal), offering scenic walks and waterside cafes. ENJOY!</em></div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Training1.webp" alt="Day 5">
+      <div>
+        <h3><span>Day 5:</span> Training with Purpose</h3>
+        <p>Athletes return to the club and pitch for a third day of FIH top coaching. Literally the best!!! Parents and fans, the day is yours to conceive. Watch your daughter train or see the sights, shop, or just relax with a massage at the hotel; it's up to you.</p>
+        <details class="more"><summary>Details for Day 5 Here</summary><div class="inner">
+          <p>Return to the pitch for Day 3 of your MasterClass, featuring world-class coaching&mdash;truly the best! Train with Purpose and Play with Power. Make it count!</p>
+          <p>During this week, our featured guest coaches, Tjerk van Herwaarden, Head Coach at Harvard University, and Thomas Tichelman, Technical Trainer and Field Coach for the 2024 Olympic Gold Medal-winning women's team, will each share their unique approach to skills and drills.</p>
+          <p>This experience promises to be incredibly special!</p>
+          <p>Parents, again the day is yours. Watch your daughter train or see the sights or just relax, it's up to you. As is the evening and dinner to dine where you wish.</p>
+          <div class="tip"><strong>SIGHTSEEING TIPS</strong><br>
+            Spotlight Rijks Museum: Only open from 9am to 5pm. Adults: &euro;22,50 and free for ages 18 and under. <a href="https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices">Rijks Museum LINK</a><br><br>
+            Spotlight Van Gogh Museum: Open daily from 9am to 6pm, Fridays from 9am to 9pm. Adults: &euro;22,50 and free for ages 18 and under. <a href="https://www.vangoghmuseum.nl/en">Van Gogh Museum LINK</a><br><br>
+            Spotlight Anne Frank House: Open daily from 9am to 10pm. Adults: &euro;16,00 and for ages 17 and under &euro;7,00. <a href="https://www.annefrank.org/nl/">Anne Frank House LINK</a><br><br>
+            Most Dutch museums require you to buy a ticket in advance with an entry time. Check before you go. Note too: all three museums are within a bike ride of our hotel, approximately 3 miles, 4 miles to Anne Frank. Flat, easy ride. Rijks and Van Gogh are virtually next to each other.
+          </div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_4691-copy.webp" alt="Day 6">
+      <div>
+        <h3><span>Day 6:</span> From Skill to Mastery</h3>
+        <p>Dive back into action for another full day dedicated to taking your game to the next level&mdash;with coaches that will get you there. Embrace this final opportunity to reconnect deeply with the game you love&mdash;and return home refreshed, inspired, and ready to tackle preseason! Last, but not least, tonight's another big EuroTour highlight&mdash;our Farewell Dinner celebration awaits!</p>
+        <details class="more"><summary>Details for Day 6 Here</summary><div class="inner">
+          <p>COACHING CONNECTIONS CONTINUED!</p>
+          <p>Dive back into action for your final day of training, experiencing firsthand what it truly means to train with the highest caliber of coaching and attaining next-level skills.</p>
+          <p>You'll spend the day immersed in elite coaching with top-tier Dutch trainers at world-class facilities, giving you an unparalleled opportunity to elevate your game. Absorb every moment, so you return home energized, inspired, and fully prepared to lead your team into an outstanding preseason. This is your chance to learn from the best, refine your skills, and reignite your passion&mdash;make every second count!</p>
+          <p>Parents, today marks your final opportunity to uncover any treasures and experiences you might have missed throughout the week. It's a chance to complete your personal checklist of Amsterdam's wonders, ensuring you leave with a collection of memories as rich and fulfilling as the city itself.</p>
+          <p>Tonight, we'll gather for a special farewell dinner at the hotel, marking a memorable conclusion to our journey together.</p>
+          <div class="tip"><strong>PRO TIPS</strong><br>
+            The Best Friteshuis... Did you know the Dutch have perfected French Fries to a science, maybe even an art form? The best French fries can be found in the center of the city at Vlaams Friteshuis Vleminckx near the flower market and behind the main pedestrian shopping street, Kalverstraat. <a href="https://vleminckxdesausmeester.nl/">Friteshuis Vleminckx LINK</a><br><br>
+            The Best Cigar Room and Shop... For aficionados of cigars or those with a family member who appreciates tobacco, a visit to P.G.C. Hajenius is a must. Revered as the 'old master' of Dutch cigar stores since 1826, Hajenius offers an unparalleled selection within the elegant confines of an Art D&eacute;co masterpiece on Amsterdam's Rokin. Insider tip: upon purchasing a cigar, request a cup of coffee and take advantage of the invitation to relax in their exclusive back lounge for a smoke. <a href="https://www.hajenius.com/en/">P.G.C. Hajenius LINK</a>
+          </div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="day">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/tulip-girls-scaled.webp" alt="Day 7">
+      <div>
+        <h3><span>Day 7:</span> It Doesn't Have to End</h3>
+        <p>As our U.S. staff bid their final goodbyes, the journey doesn't have to end for you. Seize the opportunity to extend your experience with another day of top-tier power hockey training. This optional full-day session is your chance to further refine your skills, absorb more of the Dutch approach to hockey excellence, and wrap up your adventure on a super high note.</p>
+        <details class="more"><summary>Details for Day 7 Here</summary><div class="inner">
+          <p><strong>OPTIONAL DUTCH TRAINING</strong><br>Fond Farewells and Optional Excellence. As our U.S. coaches and staff bid their goodbyes, the journey doesn't have to end for you. Seize the opportunity to extend your experience with another day of top-tier Dutch training. This optional session is your chance to further refine your skills, absorb more of the Dutch approach to excellence, and wrap up your adventure on a high note.</p>
+          <p><strong>OPTIONAL DETAILS</strong><br>You can book this Dutch training option at the time of registration, or later at your convenience. Note that there may be a threshold for the number of athletes who participate &ndash; our Dutch partner will determine this and let us know &ndash; we will then confirm all with you at that time. If their threshold is not met, we will refund all of your money paid for this option. Price $275.</p>
+          <p><strong>THERE'S MORE</strong><br>While we've meticulously planned each day of our tour, anticipate a few surprises along the way. With years of experience, we still have some tricks up our sleeve to enchant and excite you further.</p>
+          <p>And almost forgot, one evening at the hotel, we'll host an exclusive 'College Prep' session&mdash;a special EuroTour event designed to be intimate, informative and impactful.</p>
+          <p>There are two guarantees we are confident in making &ndash; and that is &ndash; you'll return home with new friendships and enduring memories that will last a lifetime. And for athletes who put the effort in, you'll return home dramatically better skilled, energized, inspired, and ready to dominate preseason.</p>
+          <p><strong>JOIN US!</strong> <em>If not now &ndash; when?</em></p>
+        </div></details>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="details">
+  <div class="wrap">
+    <div class="center"><span class="kicker">Must-Read</span><h2 class="sec">Why Consider This for Hockey?</h2></div>
+
+    <img src="images/cup-drill-2025.webp" alt="2025 tour: training games with our Dutch coaches" style="border-radius:10px;margin:0 0 1.5rem;width:100%">
+
+    <div class="letter" style="overflow:auto">
+      <img src="images/celebration-2025.webp" alt="2025 tour: celebrating on the training pitch" style="float:right;width:38%;margin:0 0 1rem 1.4rem;border-radius:10px">
+      <p>This experience stands out from any other field hockey event&hellip; &mdash;and it starts with NEXT-LEVEL SKILL TRAINING!</p>
+      <p>We kick things off with World-Class Development. Where Talent Meets Transformation.</p>
+      <p>Our goal is simple: to help elevate your game while giving you direct access to the best coaches in Holland, and maybe the world. We keep it small&mdash;just 10 field players and 2 goalies per session&mdash;so you get a level of attention that's impossible to find elsewhere.</p>
+      <p>Expect full training days, typically from 9:30am to 4:30pm. Sometimes we may even run a little longer&mdash;because when you're working at this level, every extra moment counts.</p>
+      <p>This cannot be compared to a U.S. camp&mdash;it's a transformative experience that pushes you beyond basic skills and into true mastery.</p>
+      <p class="sig">Bob Whitcher, Founder, Sport EuroTour</p>
+    </div>
+
+    <div class="center"><span class="kicker">A MasterClass in Hockey &mdash; "Beyond Technical Skills"</span><h2 class="sec">Our Dutch FIH &amp; Olympic Coaches</h2>
+      <p style="max-width:760px;margin:0 auto 1.5rem">This is next-level hockey. Training with the best in the world. You'll return absolutely stronger&mdash;energized, inspired, and ready to dominate preseason. Learn from the minds behind the most successful program in our sport! It's Elite Training&mdash;driven by vision, mindset, and mastery. FIH World Class Training.</p>
+    </div>
+
+    <div class="coach">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/04/tjerk-circle.webp" alt="Tjerk van Herwaarden">
+      <div>
+        <h3>Tjerk van Herwaarden</h3>
+        <div class="role">Harvard Head Coach &mdash; Featured Guest Coach</div>
+        <p>Tjerk van Herwaarden, who won five national championships in seven seasons on the coaching staff at Maryland, took over as head coach at Harvard in 2012, and has won four Ivy League titles (2016, 2018, 2021, 2023), earning four NCAA Tournament berths, including a trip to the NCAA Semifinals in 2021. Tjerk is 115-59 at Harvard.</p>
+        <p>Note too, he is from Holland. Prior to coming to the USA, Tjerk served as head coach of the Gooische women's team in the Netherlands, considered to have the best field hockey competition in the world. His main focus was on development of technical and tactical skills.</p>
+      </div>
+    </div>
+
+    <div class="coach">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/thomas-throphy-1.webp" alt="Thomas Tichelman">
+      <div>
+        <h3>Thomas Tichelman</h3>
+        <div class="role">FIH Master</div>
+        <p>Technical trainer of the 2024 Olympic Gold Medal Dutch Women's National Team and founder of the SportWays group. In 2025, USA Field Hockey brought Thomas in to help train our U.S. Women's National Team and present at the 2025 Summit. He is literally the best of the best!</p>
+        <p>The Dutch have a passion for the game and it is truly infectious, but it's their coaches' keen ability to analyze and fine-tune even the smallest details&mdash;like hand placement on the stick or body movement adjustments&mdash;that can make a huge difference in elevating your game and how a college coach will evaluate you.</p>
+        <p>Thomas and his staff do this like no others. Join us in Holland!!!</p>
+      </div>
+    </div>
+
+    <div class="coach">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/bert-1.webp" alt="Bert Remmerswaal">
+      <div>
+        <h3>Bert Remmerswaal</h3>
+        <div class="role">FIH Educator &mdash; Technical Director</div>
+        <p>In 2025, Bert was invited by USA Field Hockey to present a Tactical Session at the 2025 High Performance Summit. Get ready for an exceptional training experience led by none other than your Technical Director and FIH Educator, Bert Remmerswaal! With years of dedication to our program, Bert is a true powerhouse of expertise and inspiration. His leadership and dynamic approach have shaped our technical training team, delivering impactful and engaging sessions every time. We're thrilled to have him at the helm &ndash; don't miss the chance to train under one of the best!</p>
+      </div>
+    </div>
+
+    <div class="coach">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Martijn-1.webp" alt="Martijn Drijver">
+      <div>
+        <h3>Martijn Drijver</h3>
+        <div class="role">Goalie Guru</div>
+        <p>For our goalies, we bring you the ultimate "Goalie Guru," Martijn Drijver! With an incredible legacy coaching legends like Jaap Stockmann and Maddie Hinch, Martijn's experience is unparalleled. His r&eacute;sum&eacute;?&hellip; Four Olympic Games, ten EuroHockey Nations Championships, six World Cups, eleven Champions Trophies, and an FIH Pro League under his belt! Enough said!</p>
+      </div>
+    </div>
+
+    <div class="center" style="margin:1.5rem 0">
+      <h2 class="sec" style="margin-bottom:.5rem">Get ready to train with true masters of their craft!</h2>
+      <p><strong>We Back Up Our Claims:</strong></p>
+      <div class="vid-grid" style="margin-top:1rem">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/04/thomas-usfha-copy.webp" alt="Thomas with USA Field Hockey" style="border-radius:8px">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/04/image-12-copy.webp" alt="Coaching credentials" style="border-radius:8px">
+        <img src="images/scoreboard-drill-2025.webp" alt="2025 tour: small-group training session" style="border-radius:8px">
+      </div>
+    </div>
+
+    <div class="letter">
+      <h2>The Ultimate Parent-Daughter Road Trip</h2>
+      <p>One minute you're packing the car for a tournament, the next you're wondering where the years went. The early mornings, the road trips, the sidelines&mdash;they blur together&mdash;suddenly, it's the final season, the last game, and you realize this chapter is over. But a new one, with a stronger bond, can now begin.</p>
+      <p>This is a shared hockey adventure, where you'll create unforgettable moments with your daughter you'll both treasure forever.</p>
+    </div>
+
+    <div class="letter">
+      <h2>Value. Why This Trip Matters?</h2>
+      <p>I designed this program based on 35 years of professional hockey and travel experience in the Netherlands&mdash;and I can't wait to share it with you.</p>
+      <p>I understand that <em>value</em> means something different to every family. But when I built this experience, I kept three core priorities at the heart of it&mdash;what I believe truly matters on a trip like this:</p>
+      <p><strong>1. World-Class Skill Development</strong><br>There's a reason both the Dutch men's and women's national teams have stood atop the Olympic podium. Their love of the game is contagious&mdash;but what truly sets them apart is their coaching philosophy: detailed, precise, and deeply insightful. A simple adjustment to your grip or body positioning can completely change your game&mdash;and how a college coach sees you. That's the level we're working at. It's not just training&mdash;it's transformation.</p>
+      <p><strong>2. A Parent-Child Adventure to Remember</strong><br>I've been to just about every tournament and program you can name&mdash;Festival, Disney, RCC/NCC, Nexus&mdash;with both of my daughters. Most of them felt like something we <em>had</em> to do. They were packed with pressure, competition, and stress&mdash;and not a whole lot of joy.</p>
+      <p>This trip is different. Amsterdam flips the script. It's a sports vacation designed to reignite your love for the game and your connection as a family. You'll share training, meals, laughter, exploration&mdash;and walk away with stories and moments that stick. I can honestly say: you'll feel it from the first day.</p>
+      <p><strong>3. Culture, Confidence, and Perspective</strong><br>Traveling to Holland is more than a change of scenery&mdash;it's a change in perspective. For many athletes, it's their first time abroad, and that alone is transformative. From navigating new territory by bike to trying new foods or simply being part of daily life in another country, these moments build confidence, independence, and curiosity. They shape who we are&mdash;on and off the field. It's an experience your family will talk about for years.</p>
+      <p><strong>Value isn't just about the price tag.</strong> It ultimately comes down to prioritizing what matters most. For me, that priority was helping my two girls get into the best academic programs possible, which led them to Yale and Richmond. This program follows my approach.</p>
+      <p>If the three values we've outlined resonate with you, then joining us should be an easy decision. If you connect with two or just one, that's perfectly okay too; it simply means you must weigh which set of values is worth this investment.</p>
+      <p class="sig">Bob Whitcher, Founder, Sport EuroTour</p>
+    </div>
+
+    <div class="letter">
+      <h2>Family Shared Experience!</h2>
+      <p>Okay, we get it. There's nothing better than watching your child play hockey. I've been there.</p>
+      <p>But being part of that experience, and creating new, shared experiences, is something truly unique.</p>
+      <p>Some of my most cherished memories are from traveling with my two daughters as they played hockey in Holland. Those moments I'll hold onto forever. And they still talk about it fondly too.</p>
+      <p>Have you looked over our itinerary? You should. Here are just a few of the shared experiences outside of hockey you'll have that will make this trip extremely special for you, too:</p>
+      <p><strong>Visiting Working Windmills:</strong> On our first day you'll step into the heart of Dutch culture as you explore centuries-old windmills that are still in operation. You'll see firsthand how these iconic structures have shaped the country's history and watch traditional techniques in action.</p>
+      <p><strong>Discovering the Art of Wooden Shoe Making:</strong> We'll visit a local workshop where craftsmen keep the art of clog-making alive. It's fascinating to see how a simple block of wood transforms into one of the Netherlands' most recognizable symbols.</p>
+      <p><strong>Wandering through Amsterdam's Parks:</strong> On day one, we'll take you on a leisurely stroll through the sprawling park that frames this vibrant city. Vondelpark is a favorite for Dutch singles, couples and families soaking in the beauty of the surroundings. Awesome people watching.</p>
+      <p><strong>Exploring Utrecht's Historic Charm:</strong> On our day of sightseeing we visit the city of Utrecht. Known for its medieval architecture and winding canals, Utrecht offers a cozy yet vibrant atmosphere. Walk freely down its picturesque pedestrian streets, discovering hidden cafes and boutiques, or enjoy a meal in a canal-side restaurant.</p>
+      <p><strong>Experiencing the Lively Nightlife:</strong> After a day of games and training, head out together for a memorable evening. Whether it's a family dinner at a bustling restaurant, sampling local street food, or taking in the lively city energy, there's something magical about Holland's evening vibe.</p>
+      <p><strong>Seeing the Canals Come Alive at Night:</strong> As the sun sets, the city transforms. The canals, illuminated by soft, glowing lights, create a dreamy backdrop for an evening boat ride or a leisurely walk along the water's edge. This is when you should visit the city and take advantage of the late sunsets here in July.</p>
+      <p><strong>Indulging in Dutch Pancakes:</strong> On day two, we'll take you to a farmhouse that specializes in authentic Dutch pancakes. Thick, fluffy, and served with a variety of toppings&mdash;from sweet powdered sugar to savory bacon and cheese&mdash;Dutch pancakes are a must-try.</p>
+      <p><strong>Riding Bikes Together:</strong> Join the locals in one of the Netherlands' most beloved pastimes. Bike to grab a late-night snack of ice cream or crispy French fries, or simply pedal through town, taking in the sights and sounds. It's a fun way to experience the city together, just like real Dutchies.</p>
+      <p>These shared experiences aren't just about sightseeing&mdash;they're about bonding, creating memories, and having those special moments together that will last long after the trip is over.</p>
+      <p>So yes, you'll watch your daughter play, she'll get better, make friends and network with our coaches. But you'll also share an adventure that's as much yours as it is hers. And you'll call it "Ours"!</p>
+      <p class="sig">Bob Whitcher, Founder, Sport EuroTour</p>
+    </div>
+
+    <div class="letter">
+      <h2>What Will Parents Do?</h2>
+      <p>Plenty.</p>
+      <p>We know there's nothing better than watching your child play&mdash;and trust me, you'll get to see every moment in this special setting, if that's what you want.</p>
+      <p>But we also believe this is your time too.</p>
+      <p>With up to 8 hours of free time during each training day, you can turn this trip into a vacation of your own.</p>
+      <p>You'll have plenty of opportunities to relax and recharge. Enjoy the hotel's spa, explore the local city, or take a scenic tour through the countryside. It's all about creating an experience that works for YOU!</p>
+      <p>Our hotel is specifically designed for relaxation&mdash;quiet, comfortable, and even a bit luxurious, with soothing spa treatments and sport courts to keep you active if you choose.</p>
+      <p>And then there's the food. The <a href="https://blog.dwellworks.com/13-traditional-foods-in-the-netherlands-to-try">cuisine in Holland</a> is nothing short of amazing, offering every flavor you can imagine. Start your day with a near-perfect hotel breakfast and fresh coffee, setting the tone for your own adventure.</p>
+      <p>Ready to explore? The city center is just a short ride away, and in true Dutch style, you can get there on two wheels. We've got a bike waiting for you, or if you prefer, take an Uber. With flat, scenic paths, cycling through town is an experience in itself.</p>
+      <p>Stroll through the <a href="https://www.iamsterdam.com/en/whats-on/calendar/shopping/shops/de-9-straatjes-the-9-streets">boutique shops on 9-streets</a>, wander the <a href="https://www.amsterdam.net/en/things-to-do-amsterdam/bloemenmarkt/">vibrant flower market</a>, or lose yourself in the art at the <a href="https://www.rijksmuseum.nl/nl">Rijksmuseum</a>. And for dad too, like the <a href="https://www.heinekenexperience.com/en/">Heineken Tour</a> or <a href="https://www.hajenius.com/en/">PGC Hajenius'</a> art deco cigar room. Feel like going further? Venture out to the picturesque countryside towns like <a href="https://www.holland.com/global/tourism/discover-the-netherlands/visit-the-cities/delft">Delft</a> or <a href="https://www.introducingamsterdam.com/marken">Marken</a> and <a href="https://www.introducingamsterdam.com/volendam">Volendam</a> for an unforgettable day trip.</p>
+      <p>The point is, this is your time too&mdash;so make it yours and enjoy every moment. You know your daughter will be doing the same, building memories, honing her skills, and forming connections with new friends and coaches. It's a win-win experience for the whole family.</p>
+      <p class="sig">Bob Whitcher, Founder, Sport EuroTour</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Tour Dates: July 22 to 28, 2027</span>
+      <h2 class="sec">Pricing &amp; Details</h2>
+      <p style="max-width:760px;margin:0 auto 1.5rem"><strong>WHO:</strong> Open to any and all female field hockey athletes who graduate high school in 2028 through 2030. Parents and family too.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card hot">
+        <h3>Athletes</h3>
+        <div class="amt">$2995</div>
+        <p>per Athlete<br>Based on 2 in a Room<br>Athlete with Athlete or Athlete with Mom<br><em>Price is Not Per Room</em></p>
+      </div>
+      <div class="price-card">
+        <h3>Family</h3>
+        <div class="amt">$1995</div>
+        <p>Each Family Member<br>Based on 2 in a Room<br>Mom with Athlete or Family with Family<br><em>Price is Not Per Room</em></p>
+      </div>
+    </div>
+
+    <div class="price-grid">
+      <div class="plan">
+        <h4>Athlete Payment Plan</h4>
+        <p>$295 Deposit &ndash; <em>non-refundable deposit at time of registration*</em></p>
+        <p>$700 &ndash; November 15, 2025<br>$1000 &ndash; March 15, 2026<br>$1000 &ndash; May 1, 2026</p>
+      </div>
+      <div class="plan">
+        <h4>Family Payment Plan</h4>
+        <p>$295 Deposit &ndash; <em>non-refundable deposit at time of registration*</em></p>
+        <p>$566.66 &ndash; November 15, 2025<br>$566.66 &ndash; March 15, 2026<br>$566.66 &ndash; May 1, 2026</p>
+      </div>
+    </div>
+
+    <p style="max-width:850px;margin:1rem auto;font-size:.95rem">Each athlete is required to travel with at least one parent OR an appointed guardian. This guardian must be over the age of 21 and can be a family friend who has agreed to chaperone. While it is not mandatory for the parent to accompany the athlete, the guardian must be explicitly designated by the parent or legal guardian to assume responsibility for the athlete during the trip. <em>Typically this is done when another parent is traveling with a friend of their daughter.</em></p>
+    <p style="max-width:850px;margin:1rem auto;font-size:.95rem">Athletes will register using a separate link from parents and family members. See registration and cancellation grace period details in the "Cancellation Policy" section. *72 hour grace period to cancel with a full refund. Credit cards are accepted. However, we cannot accept American Express.</p>
+    <p style="max-width:850px;margin:1rem auto;font-size:.95rem"><strong>Save the CC Service Fee: Pay by "US Checking Account" (ACH).</strong> At the end of the registration process you will be brought to payment and payment method. There you can select "US Checking Account". This form of payment will negate the 2.99% service fee you will be charged when using a credit card.</p>
+
+    <div class="center" style="margin:2.5rem 0 1.2rem"><h2 class="sec">Everything You Want To Know</h2></div>
+
+    <details class="acc">
+      <summary>Our Hotel <small>Excelling in all Categories</small></summary>
+      <div class="inner">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/zuiver-x-1.webp" alt="Hotel Zuiver">
+        <h4>Hotel &amp; Wellness Spa Zuiver</h4>
+        <p>Staying in a great hotel elevates any vacation, and Zuiver is a perfect example. Located on the outskirts of Amsterdam in the serene Amsterdamse Bos, Zuiver offers the ultimate wellness experience. It uniquely combines peace and relaxation with close proximity to the vibrant beauty of Amsterdam. At Zuiver, your stay is all about enjoying utmost comfort and safety. Best of all &ndash; it's next to our training club and pitch.</p>
+        <p>With over 140,000 sq. ft. of luxury facilities, Zuiver has everything it takes to completely unplug from your busy life. Inspired by rituals from all over the world for the wide range of luxury treatments and massages. Mom, let yourself be completely pampered and return home reborn.</p>
+        <p><a class="btn" href="https://zuiveramsterdam.nl/en/">Visit the Hotel</a></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Our Coaches <small>FIH Educators</small></summary>
+      <div class="inner">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/dutch-coaches1.webp" alt="Dutch coaches">
+        <p><strong>This is where talent meets transformation.</strong> Our coaching begins and ends with Thomas Tichelman's SportWays camps &amp; clinics, which are acknowledged nationally and internationally for the outstanding quality of the hockey programs.</p>
+        <p>We take this unique experience beyond borders! With EuroTour, we go right to their home club in Amsterdam &ndash; where we have exclusive access to their top coaches! See the full coach profiles in the Highlights section above.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Guardian Required <small>All Athletes Must Travel With an Adult</small></summary>
+      <div class="inner">
+        <h4>Parent or Guardian Is Required to Travel</h4>
+        <p>Think this trip is just for your daughter? Think again. With luxury hotel amenities, a full-service spa, and time built in for you to relax and explore, this experience is designed just as much for you as it is for your athlete.</p>
+        <p>Each athlete is required to travel with at least one parent or an appointed guardian. This guardian must be over the age of 21 and can be a family friend who has agreed to chaperone. While it is not mandatory for a parent to accompany the athlete, the guardian must be explicitly designated by the parent or legal guardian to assume responsibility for the athlete during the trip. Typically this is when a parent or family is supervising a friend of their daughter.</p>
+        <h4>Limited Capacity: 40-45 Athletes Only</h4>
+        <p>To provide an exceptionally intimate experience for athletes and families alike, we will limit participation to only 40-48 athletes. Depending on room availability we hope to open this up to a fairly large family contingent. However, note that each athlete attending must have a family member or designated guardian joining them for the duration of the program. Again, ALL athletes must travel with a parent or guardian.</p>
+        <h4>3 Traveling: Mom, Dad and Athlete (Siblings Too)</h4>
+        <p>Let's see if we can room the athlete with another member in a similar situation. That way mom and dad can room together &ndash; the athlete has a roommate and family saves paying for a single supplement. Win-Win!</p>
+        <h4>Eligibility</h4>
+        <p><strong>ATHLETES:</strong> Open to any and all female field hockey athletes who graduate high school in 2027 through 2029. We recommend that interested athletes are serious about their intention to play hockey in college.</p>
+        <p><strong>ADULTS | PRIMARY GUARDIAN:</strong> Any adult over 21 designated as the primary guardian for a registered athlete during the tour week. The adult designated as the primary guardian should consider appropriate rooming arrangements with their athlete, such as female with female, etc. Sport EuroTour reserves the right to approve, accept, or deny all rooming arrangements.</p>
+        <p><strong>FAMILY:</strong> Spouses and partners are welcome to join. They would share a superior room with a single bed alongside the primary guardian, while we'll make every effort to assign the athlete a bed &amp; room with another member athlete in a similar situation. Triple rooms or rooms with roll-away beds are not available at this hotel.</p>
+        <p>Additional family members, such as siblings, aunts, uncles, and close friends, are also welcome. However, the availability of rooms and their bed configurations may limit the number of participants in any one party. Sport EuroTour reserves the right to approve, accept, or deny any additional family members based on available accommodations.</p>
+        <p>Our priority for room and bed allotment is given to athletes, their primary guardians, and the guardians' spouses or partners.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Rooming <small>Athletes, Mom &amp; Family Arrangement</small></summary>
+      <div class="inner">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/superior2-1-1.webp" alt="Superior room">
+        <p><strong>Parent &amp; Child:</strong> Most of our bookings involve a parent (typically the mother) and daughter traveling together. They will always be placed in a room with two beds unless otherwise prearranged and specified.</p>
+        <p>We strive to finalize rooming arrangements at the time of registration. However, should adjustments be necessary, we will collaborate with you post-registration to ensure satisfaction. As an example: if both parents intend to travel with their daughter, the parents will be assigned a superior room together with one bed and the athlete will be assigned a double room, with another member athlete in a similar position. For parents traveling with their athlete, we will endeavor to pair your athlete with another in a similar situation for room sharing.</p>
+        <p><strong>Couples Accommodation:</strong> Parents &amp; Partners will be placed in a Superior room featuring a full-size bed. Superior Room bed width: 180cm / 70.86 inches / 5'11" wide. That's almost 11 inches wider than a queen &ndash; 5.25 inches less than a King.</p>
+        <p><strong>Single Rooms:</strong> Availability of single rooms is limited due to the boutique size and nature of the hotel, which ultimately restricts the number of single rooms available. There is a single room supplement.</p>
+        <p><strong>Rooming Policy:</strong> Per the hotel, there are no triples or three-to-a-room options available.</p>
+        <p><strong>Pricing Policy:</strong> All prices are based on two to a room &ndash; double occupancy.</p>
+        <p>Again, the hotel is small, with limited capacity. Some of our rooms are Standard two-bedded and some Superior with only one large 2-person bed. Rooms will be assigned by first to book, room/bed availability. However, within this hierarchy, 2-bedded room priority will be given to: <strong>Guardian &amp; Athlete sharing a room.</strong> Parents/couples traveling together as chaperones will be automatically assigned a Superior room with one double bed. If a parent or guardian ends up in a room on their own, by themselves, because of the number of athletes they are chaperoning or family members they are traveling with, they will need to purchase the single supplement. As previously stated, these single rooms are in limited supply.</p>
+        <p>If two-bedded rooms are unavailable as outlined above, we will discuss alternatives with you. If for any reason you are not satisfied with the bed configuration, we will offer a full refund at the time of booking or within the registration grace period. Please understand we are limited in our options and flexibility.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>What's Included <small>A Lot</small></summary>
+      <div class="inner">
+        <h4>What's Included</h4>
+        <ul>
+          <li>6 nights: 4-star hotel &ndash; 2 to a room (double occupancy)</li>
+          <li>4 full days of FIH educators, World Class Training!!!</li>
+          <li>A special training session presented by Harvard Head Coach, Tjerk van Herwaarden</li>
+          <li>Super small training groups of 10 or less</li>
+          <li>Pitch and hockey facility rental for all hockey events</li>
+          <li>Athletes lunch during 4 days of training sessions (optional session too)</li>
+          <li>College Prep session with our college coaches</li>
+          <li>6 buffet style breakfasts</li>
+          <li>3 evening meals including authentic Dutch Pancakes</li>
+          <li>5 days bike rentals (We ride like the Dutchies)</li>
+          <li>Morning of arrival (Day 1) bus shuttle from Amsterdam Airport Schiphol &ndash; one shuttle will depart for the hotel at 11AM on Day 1 for airline arrivals</li>
+          <li>Arrival welcome snacks</li>
+          <li>Two separate days of sightseeing</li>
+          <li>Workout facility and machines</li>
+          <li>And more than a few surprises</li>
+        </ul>
+        <h4>What's Not Included</h4>
+        <ul>
+          <li>Airfare is not included &ndash; we can help direct you to a qualified travel agent if help is needed for airline booking</li>
+          <li>Some lunches and dinners through the week are not included &ndash; lunches for athletes only on the 4 training days; no lunches for family members are included</li>
+          <li>Hotel incidentals not included &ndash; this is a full service hotel with pools and spa service. These services are available at an extra cost and can be booked at the hotel welcome desk. Massage treatments, spa and pool services are not included</li>
+          <li>Gratuities and items not expressly mentioned above are not included</li>
+        </ul>
+        <p><em>Please note, while we do not expect changes, minor modifications sometimes do occur, therefore this itinerary is subject to change.</em></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Bikes &amp; Biking <small>We Ride Like Dutchies</small></summary>
+      <div class="inner">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Bike-Girls.webp" alt="Bikes for everyone">
+        <h4>Bikes for Everyone &ndash; Just Like the Dutch</h4>
+        <p>In Amsterdam, biking isn't just transportation&mdash;it's a way of life. With flat terrain and bike paths everywhere, most Dutch people get around by bike&hellip; and so do we!</p>
+        <p>All athletes and family members will have their own bike for the week. Athletes will ride from the hotel to our training facility&mdash;just 1.5 miles each way along a safe, flat path through a park (no cars!).</p>
+        <p>Family members can use their bikes to visit the pitch, explore the city, and join us for a fun group ride to dinner at the famous Pancake House&mdash;about 2 miles away, again on flat bike paths.</p>
+        <p>If biking isn't for you, that's totally okay! But it will make things a little harder and maybe more expensive. You'll have to walk the 1.5 miles to training or hop in an Uber. Biking isn't mandatory, but it's definitely the best way to experience the local culture&mdash;and it's part of the fun of our program.</p>
+        <p><em>Note too, we'll also use our private bus when it makes sense: on Day 1 for sightseeing, Day 2 for a city orientation visit for our "fans" (while athletes are at their first day of training), and on our family exploration day to Utrecht.</em></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>How to Apply <small>Separate Bookings For Athletes &amp; Family</small></summary>
+      <div class="inner">
+        <h4>Booking Instructions</h4>
+        <p><strong>Registering:</strong> To register, visit our WeTravel platform. When you click through to register or view tour details there, you will be asked to create an account. Initially, only your name and email are required to create a login.</p>
+        <p><strong>Athlete Registration:</strong> Please register your athlete before adding your guardian and/or other party members. This ensures smooth processing of your registration and finalizes the athlete's confirmation.</p>
+        <p><strong>Multiple Athletes:</strong> You may register two athletes simultaneously, but payment will be made from a single account. For friends traveling together under one guardian, it's advisable to register them separately when the friend is paying their own way.</p>
+        <p><strong>Parent/Guardian Booking:</strong> It is crucial to book the traveling chaperone or guardian immediately after registering the athlete, as this is essential for confirming the athlete's registration.</p>
+        <p><strong>Booking Family Members:</strong> We recommend booking all accompanying family members at the same time as the primary guardian registration. This is due to limited room availability. Please note that at minimum, all reservations must be secured with a deposit, and space cannot be held without one.</p>
+        <p><strong>Registration links:</strong> Athletes register using a separate link from parents and family members. These booking links can be found at the bottom of the specific tour page.</p>
+        <p><strong>Save the CC Service Fee: Pay by "US Checking Account" (ACH).</strong> At the end of the registration process you will be brought to payment and payment method. There you can select "US Checking Account". This form of payment will negate the 2.99% service fee you will be charged when using a credit card.</p>
+        <p><strong>Waivers &amp; Additional Info:</strong> In addition to signed waivers, a questionnaire specific to the tour will be sent to you at a later date, after registration. This is required and will help us provide for a great experience for one and all.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Cancellation Policy <small>Fair and Equitable</small></summary>
+      <div class="inner">
+        <p>First and foremost, we recommend cancellation insurance. It can provide full refunds for all travel expenses if an issue arises prior to departure. Once we secure your position on tour, we then lock your spot with our hotel and Dutch coach sessions. This requires non-refundable payments we will need to pay in your absence. Therefore, we have established the following cancellation policy to be fair and transparent to all parties involved:</p>
+        <h4>Cancellation Grace Period</h4>
+        <p>We want to ensure you're confident in your decision. If you register before March 15, 2026, you have a 3-day (72 hour) grace period during which you can rescind your registration for any reason and receive a full refund from Sport EuroTour. Should you cancel after this 3-day period, cancellation fees will then apply.</p>
+        <h4>Cancellation Policy</h4>
+        <p>All cancellations must be received in writing via email to info@sporteurotour.com. The date on which the email is received will be used to determine the applicable cancellation date and charges.</p>
+        <p><strong>Cancellation Deadlines &amp; Charges &ndash; If you cancel:</strong></p>
+        <ul>
+          <li>Prior to 120 days before departure: We will retain the deposit only.</li>
+          <li>119 to 60 days before departure: 30% of the total program cost will be charged.</li>
+          <li>59 to 45 days before departure: 50% of the total program cost will be charged.</li>
+          <li>44 to 31 days before departure: 75% of the total program cost will be charged.</li>
+          <li>30 days or less before departure: 100% of the total program cost will be charged.</li>
+        </ul>
+        <p><strong>A $295 non-refundable deposit is required at the time of booking to secure your place. <em>72 hour grace period applies.</em></strong></p>
+        <p>Cancellation by EuroTour: In the rare event that we must cancel a tour due to circumstances beyond our control (Force Majeure, e.g., natural disasters, political instability), we will offer a full refund of all monies paid to us by the members, less your required deposit.</p>
+        <p>Our cancellation policy and fees apply regardless of the reason for cancellation. Itinerary changes or specific coaching changes on the tour are not eligible for refunds. The cancellation policy and associated fees apply to all participants, whether registered as a parent, athlete, coach, fan, family member, friend, team, or any other designation. Refunds will be processed strictly according to the refund policy, regardless of the reason for cancellation.</p>
+        <p>Modifications: If you need to change your booking (e.g., changing dates or participants), we will do our best to accommodate your needs. However, changes are subject to availability and may incur additional costs.</p>
+        <p>This cancellation policy is for each registered person joining the program. Please note that this cancellation policy is part of our terms and conditions. By booking a tour with us, you agree to these terms. We understand that plans can change, and we strive to be as flexible as possible. If you have any questions or need to discuss your situation, please don't hesitate to contact us.</p>
+        <p><strong>Note: When issues occur, we've seen travel insurance help defray costs and cover travel expenses.</strong></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Insurance <small>Highly Suggested For Athletes</small></summary>
+      <div class="inner">
+        <h4>Travel Insurance</h4>
+        <p>As we cannot offer refunds beyond the terms stated above, we strongly recommend that you purchase comprehensive travel insurance at the time of booking. Your insurance should cover all travel expenses, including cancellation due to illness, injury, or other unforeseen circumstances.</p>
+        <p>This is a page from a trusted source providing a list of companies that provide this type of protection: <strong><a href="https://www.forbes.com/advisor/l/best-travel-insurance/">TRAVEL PROTECTION CLICK HERE</a></strong></p>
+        <p><strong>Please note too, that we do not endorse nor profit from the purchase of any travel insurance.</strong></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Maps <small>Get Oriented</small></summary>
+      <div class="inner">
+        <p><a class="btn ghost" href="https://www.google.com/maps/@52.3310368,4.8509993,524m/data=!3m1!1e3!5m1!1e2">Hotel Pin</a> <a class="btn ghost" href="https://www.google.com/maps/place/Amsterdam,+Netherlands/@52.3547607,4.7391514,11z">City Wide View</a></p>
+        <p><strong>City Overview</strong></p>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2024/04/amsterdam-map.gif" alt="Amsterdam map">
+        <p><strong>Hotel to Training &amp; Club (by Bike)</strong></p>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2024/04/zuiver-map1.gif" alt="Hotel to club map">
+      </div>
+    </details>
+
+    <p class="center" style="margin-top:1.5rem"><a class="btn" href="mailto:info@sporteurotour.com?subject=EuroTour Question">Questions? Email Us</a></p>
+
+    <div id="contact" style="max-width:720px;margin:1rem auto 0">
+      <details class="acc">
+        <summary>Stay in the Loop <small>Join Our Mailing List</small></summary>
+        <div class="inner">
+          <p>Want tour updates, registration reminders, or an answer to a question? Drop your info below. We read every message and reply fast.</p>
+          <script src="https://js.hsforms.net/forms/embed/50478954.js" defer></script>
+          <div class="hs-form-frame" data-region="na1" data-form-id="fc92f7fa-a6f5-401a-87c2-7fcf4deeeed8" data-portal-id="50478954"></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="center"><span class="kicker">Moments From Our Tours</span><h2 class="sec">Gallery</h2></div>
+    <div class="gallery">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Girls1-sq.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/c-sightsee-8.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-7.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-47.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-4.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-43.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-41.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-2.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-37.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-50.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-33.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-35.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-48.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Thomas4-e1741731967963.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_9347-2.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/SemperGreenwall-Hotel-Zuiver-Amsterdam-1-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_0317-1-2.webp" alt="EuroTour gallery photo">
+      <img src="images/drill-slalom-2025.webp" alt="2025 tour: slalom drill at the Amsterdam training pitch">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_0060-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_0317-1-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_8708-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/c-sightsee-2-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/20170514_110534-scaled-e1734200169645-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_0349-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/IMG_0070-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/good-for-web-7-2.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/GK-17-3-1.webp" alt="EuroTour gallery photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/banner-group-utrecht.webp" alt="EuroTour gallery photo">
+      <img src="images/team-2025.webp" alt="2025 Sport EuroTour team with SportWays coaches">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/momand-daughter-square-1.webp" alt="Mom and daughter on tour">
+    </div>
+  </div>
+</section>
+
+<section id="reg" class="join">
+  <div class="wrap">
+    <h2>Join Us!</h2>
+    <p>Athletes must register first, before family members.<br>Registration links open soon.</p>
+    <a class="btn" href="https://eurotour.wetravel.com">Register Here</a>
+    <a class="btn ghost" href="mailto:info@sporteurotour.com?subject=EuroTour Question">Email Us a Question</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img class="flogo" src="images/eurotour-logo.png" alt="Sport EuroTour" style="background:#fff;padding:.55rem .8rem;border-radius:6px;height:76px">
+      <p>Showcasing a 38 Year Legacy: Successfully Hosting Over 5000 Athletes to Holland.</p>
+      <p style="margin-top:.6rem"><strong>The College Ride Tour</strong><br>For College Bound Athletes</p>
+    </div>
+    <div>
+      <p><strong>Navigate</strong></p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#top">2027 Tour Details</a></li>
+        <li><a href="https://lineupfh.com/">The LineUP</a></li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Contact Us</strong></p>
+      <ul>
+        <li><a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@sporteurotour.com</a></li>
+        <li><a href="https://www.instagram.com/sporteurotour/">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a><br>
+    &copy; Expanding Horizons, Inc. dba Sport EuroTour
+  </div>
+</footer>
+
+</body>
+</html>

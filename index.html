@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EuroTour | Field Hockey Camps</title>
+<style>
+  :root{
+    --navy:#2e4d95;
+    --navy-2:#456bb4;
+    --red:#df202c;
+    --red-dark:#b5121e;
+    --cream:#faf7f2;
+    --ink:#222;
+    --gray:#6b7280;
+    --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:var(--red-dark)}
+
+  .topbar{background:var(--navy);color:#fff;font-size:.85rem;padding:.4rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  .topbar a{color:#fff;text-decoration:none}
+  .topbar .reg{background:var(--red);padding:.25rem .9rem;border-radius:4px;font-weight:700;letter-spacing:.04em}
+
+  header.site{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .nav-wrap{max-width:1150px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem}
+  .nav-wrap img.logo{height:52px;width:auto}
+  nav.main a{color:var(--navy);text-decoration:none;font-weight:600;margin-left:1.5rem;font-size:.95rem}
+  nav.main a:hover{color:var(--red)}
+
+  .hero{background:linear-gradient(rgba(8,20,40,.55),rgba(8,20,40,.75)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/MOManddaughter-webpage-long.webp') center/cover no-repeat;color:#fff;text-align:center;padding:5rem 1rem 4rem}
+  .hero .since{font-size:1rem;letter-spacing:.25em;text-transform:uppercase;color:#ffd6d6}
+  .hero h1{font-size:clamp(2.4rem,7vw,4.5rem);margin:.3rem 0;text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
+  .hero h1 span{color:var(--red)}
+  .hero .yr{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;margin-top:.4rem}
+  .hero .open{display:inline-block;background:var(--red);color:#fff;font-weight:800;padding:.5rem 1.4rem;border-radius:6px;margin-top:1rem;letter-spacing:.06em;text-transform:uppercase}
+  .hero img.plane{max-width:420px;margin:2rem auto 0}
+
+  section{padding:3.5rem 1rem}
+  .wrap{max-width:1150px;margin:0 auto}
+  .center{text-align:center}
+  .kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:.85rem}
+  h2.sec{font-size:clamp(1.7rem,4.5vw,2.6rem);color:var(--navy);margin:.3rem 0 1rem;text-transform:uppercase;line-height:1.15}
+  h2.sec span{color:var(--red)}
+
+  .btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:.85rem 1.6rem;border-radius:6px;margin-top:1rem;letter-spacing:.03em;text-transform:uppercase}
+  .btn:hover{background:var(--red-dark)}
+
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin-bottom:3.5rem}
+  .feature img{border-radius:12px;width:100%;aspect-ratio:4/3;object-fit:cover}
+  .feature.flip .txt{order:2}
+  .feature.flip img{order:1}
+  .feature p{margin-top:.6rem}
+
+  .strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem}
+  .strip img{aspect-ratio:1/1;object-fit:cover;border-radius:6px;width:100%}
+
+  footer{background:#0c1f4d;color:#cbd5e1;padding:2.5rem 1rem;font-size:.9rem}
+  footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem}
+  footer img.flogo{height:56px;width:auto;margin-bottom:.8rem}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{color:var(--red)}
+  footer ul{list-style:none}
+  footer li{margin:.35rem 0}
+  .legal{max-width:1150px;margin:1.8rem auto 0;border-top:1px solid #24448c;padding-top:1rem;text-align:center;color:#8ba0b8}
+
+  @media(max-width:760px){
+    .feature{grid-template-columns:1fr}
+    .feature.flip .txt{order:1}
+    .feature.flip img{order:2}
+    nav.main a{margin-left:.9rem;font-size:.85rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@SportEuroTour.com</a>
+  <a class="reg" href="https://eurotour.wetravel.com">REGISTER HERE</a>
+</div>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html"><img class="logo" src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/EuroTour-Logo-600-1.webp" alt="Sport EuroTour"></a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="itinerary27.html">2027 Tour Details</a>
+      <a href="https://lineupfh.com/">The LineUP</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="since">Since 1989</div>
+  <h1>Hockey <span>Holland</span></h1>
+  <div class="yr">2027 | 38 yrs</div>
+  <a class="open" href="itinerary27.html">Registration is Open</a>
+  <img class="plane" src="images/eurotour-logo.png" alt="Sport EuroTour">
+</div>
+
+<section>
+  <div class="wrap center">
+    <span class="kicker">A MasterClass in Hockey</span>
+    <h2 class="sec">Next Level&hellip; <span>the Dutch</span> Training Tour</h2>
+    <p style="max-width:720px;margin:0 auto">This is next-level hockey. Training with the best in the world. Return absolutely stronger&mdash;energized, inspired, and ready to dominate preseason.</p>
+    <a class="btn" href="itinerary27.html">Learn More</a>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+
+    <div class="feature">
+      <div class="txt">
+        <span class="kicker">World Class</span>
+        <h2 class="sec">FIH Top Coaching</h2>
+        <p>Learn from the minds behind the most successful program in our sport! Featuring world-class FIH hockey educators. Spotlighting Thomas Tichelman, an FIH luminary and former trainer for the #1 rated Dutch Ladies National Team, as our esteemed collaborator.</p>
+        <a class="btn" href="itinerary27.html">Learn More</a>
+      </div>
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Thomas2-e1741731839672.webp" alt="Thomas Tichelman coaching">
+    </div>
+
+    <div class="feature flip">
+      <div class="txt">
+        <span class="kicker">Shared Memories</span>
+        <h2 class="sec">The Ultimate Family Road Trip</h2>
+        <p>One minute you're packing the car for a tournament, the next you're wondering where the years went. The early mornings, the drives, the sidelines&mdash;they blur&mdash;suddenly, it's the final season, the last game, and you realize this chapter is over. But a new one, with a stronger bond, will now begin.</p>
+        <a class="btn" href="itinerary27.html">Learn More</a>
+      </div>
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-2.webp" alt="Family road trip in Holland">
+    </div>
+
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="strip">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-6.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/GK-17-3-1.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-7.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-32.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-43.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/Thomas4-e1741731967963.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-48.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-33.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/passport-girls-good1-2.webp" alt="EuroTour photo">
+      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/web-8.webp" alt="EuroTour photo">
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--cream)">
+  <div class="wrap" style="max-width:720px;text-align:center">
+    <span class="kicker">Questions? Updates?</span>
+    <h2 class="sec">Stay in the Loop</h2>
+    <p style="margin-bottom:1.5rem">Want tour updates, registration reminders, or an answer to a question? Drop your info below. We read every message and reply fast.</p>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:2rem 1.5rem;text-align:left;box-shadow:0 2px 10px rgba(12,31,77,.06)">
+      <script src="https://js.hsforms.net/forms/embed/50478954.js" defer></script>
+      <div class="hs-form-frame" data-region="na1" data-form-id="fc92f7fa-a6f5-401a-87c2-7fcf4deeeed8" data-portal-id="50478954"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img class="flogo" src="images/eurotour-logo.png" alt="Sport EuroTour" style="background:#fff;padding:.55rem .8rem;border-radius:6px;height:76px">
+      <p>Showcasing a 38 Year Legacy: Successfully Hosting Over 5000 Athletes to Holland.</p>
+      <p style="margin-top:.6rem"><strong>The College Ride Tour</strong><br>For College Bound Athletes</p>
+    </div>
+    <div>
+      <p><strong>Navigate</strong></p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="itinerary27.html">2027 Tour Details</a></li>
+        <li><a href="https://lineupfh.com/">The LineUP</a></li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Contact Us</strong></p>
+      <ul>
+        <li><a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@sporteurotour.com</a></li>
+        <li><a href="https://www.instagram.com/sporteurotour/">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a><br>
+    &copy; Expanding Horizons, Inc. dba Sport EuroTour
+  </div>
+</footer>
+
+</body>
+</html>
