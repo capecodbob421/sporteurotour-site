@@ -34,7 +34,8 @@
   .hero{background:linear-gradient(rgba(8,20,40,.45),rgba(8,20,40,.72)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/MOManddaughter-webpage-long.webp') center 20%/cover no-repeat;color:#fff;text-align:center;padding:1.5rem 1rem;min-height:calc(100vh - 118px);min-height:calc(100svh - 118px);display:flex;flex-direction:column;justify-content:center;align-items:center}
   .hero .since{font-size:1rem;letter-spacing:.25em;text-transform:uppercase;color:#ffd6d6}
   .hero h1{font-size:clamp(1.9rem,6vw,3.9rem);margin:.3rem 0;text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
-  .hero h1 span{color:var(--red)}
+  .hero h1 span{color:var(--red);white-space:nowrap}
+  .hero .since .date{white-space:nowrap}
   .hero .yr{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;margin-top:.4rem}
   .hero .open{display:inline-block;background:var(--red);color:#fff;font-weight:600;padding:.5rem 1.4rem;border-radius:6px;margin-top:1rem;letter-spacing:.06em;text-transform:uppercase}
   .hero .sub{font-size:clamp(.98rem,2.2vw,1.25rem);margin-top:.6rem;color:#eef2fa;line-height:1.6}
@@ -72,6 +73,9 @@
   .legal{max-width:1150px;margin:1.8rem auto 0;border-top:1px solid #24448c;padding-top:1rem;text-align:center;color:#8ba0b8}
 
   @media(max-width:760px){
+    .hero .since{letter-spacing:.15em;font-size:.85rem}
+    .hero .since .dot{display:none}
+    .hero .since .date{display:block}
     .feature p{font-size:1.05rem}
     .strip img:nth-child(n+4){display:none}
     .feature{grid-template-columns:1fr}
@@ -100,7 +104,7 @@
 </header>
 
 <div class="hero">
-  <div class="since">Amsterdam &bull; July 22 to 28, 2027</div>
+  <div class="since">Amsterdam <span class="dot">&bull;</span> <span class="date">July 22 to 28, 2027</span></div>
   <h1>The Trip of <span>Her Life.</span><br>Yours Too.</h1>
   <p class="sub">Elite Dutch field hockey training for her.<br>A world-class spa hotel for you.<br>A week in Amsterdam together.<br>One unforgettable summer.</p>
   <a class="open" href="itinerary27.html">See the 2027 Tour</a>
