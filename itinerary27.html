@@ -35,12 +35,16 @@
   nav.main a:hover{color:var(--red)}
 
   /* Hero */
-  .hero{background:linear-gradient(rgba(12,31,77,.78),rgba(12,31,77,.78)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/banner-group-utrecht.webp') center/cover no-repeat;color:#fff;text-align:center;padding:4.5rem 1rem 3.5rem}
-  .hero .since{font-size:1rem;letter-spacing:.25em;text-transform:uppercase;color:#ffd6d6}
-  .hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:.4rem 0;text-transform:uppercase;letter-spacing:.05em}
-  .hero .dates{font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;color:var(--red)}
-  .hero .sub{margin-top:.6rem;font-size:1.05rem;color:#e8edf5}
-  .hero img.badge{max-width:340px;margin:1.5rem auto 0}
+  .hero{background:linear-gradient(rgba(12,31,77,.5),rgba(12,31,77,.75)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/banner-group-utrecht.webp') center/cover no-repeat;color:#fff;text-align:center;padding:1.5rem 1rem;min-height:calc(100vh - 160px);min-height:calc(100svh - 160px);display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .hero .since{font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:#ffd6d6}
+  .hero h1{font-size:clamp(1.9rem,5.5vw,3.7rem);margin:.4rem 0;text-transform:uppercase;letter-spacing:.05em;line-height:1.12}
+  .hero h1 span{color:var(--red);white-space:nowrap}
+  .hero .sub{margin-top:.5rem;font-size:clamp(.98rem,2.2vw,1.2rem);color:#e8edf5;line-height:1.6}
+  .hero .sub strong{font-size:1.1em;white-space:nowrap}
+  .hero .ctas{margin-top:1.1rem}
+  .hero .ctas .btn{margin:.3rem .35rem 0;font-weight:600;padding:.6rem 1.4rem}
+  .hero img.badge{max-width:min(260px,62vw);max-height:14vh;width:auto;height:auto;margin:1.2rem auto 0}
+  .hero .yeartag{font-weight:800;letter-spacing:.45em;margin-top:.45rem;font-size:1.05rem;text-indent:.45em}
 
   /* Anchor nav */
   .anchor-nav{background:var(--red);text-align:center;padding:.55rem .5rem;position:sticky;top:69px;z-index:40}
@@ -58,7 +62,7 @@
   /* Videos */
   .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
   .vid-grid h3{color:var(--navy);margin-bottom:.5rem;font-size:1.05rem}
-  .vid-frame{position:relative;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#000}
+  .vid-frame{position:relative;padding-top:177.78%;border-radius:8px;overflow:hidden;background:#000}
   .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
   /* Intro / register */
@@ -148,6 +152,8 @@
     .day,.coach{grid-template-columns:1fr}
     .coach img{margin:0 auto}
     .anchor-nav{top:0;position:static}
+    .vid-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
+    .vid-grid h3{font-size:.9rem}
     nav.main a{margin-left:.9rem;font-size:.85rem}
   }
 </style>
@@ -171,11 +177,15 @@
 </header>
 
 <div class="hero" id="top">
-  <div class="since">Since 1989 &bull; 38 Years</div>
-  <h1>2027 Tour</h1>
-  <div class="dates">July 22 to 28, 2027 &bull; Amsterdam</div>
-  <p class="sub">Dutch Training Tour &mdash; World Class Development<br>High School Graduates 2028&ndash;2030 &bull; Parents and Family Too</p>
-  <img class="badge" src="https://worldcampusa.wpengine.com/wp-content/uploads/2026/05/EuroTour-with-plane-and-date2027.webp" alt="EuroTour 2027">
+  <div class="since">The Trip of Her Life. Yours Too.</div>
+  <h1>The 2027 <span>Dutch Training Tour</span></h1>
+  <p class="sub"><strong>Amsterdam &bull; July 22 to 28, 2027</strong><br>For female field hockey athletes, graduating classes of 2028 to 2030.<br>Parents and family welcome. Encouraged, actually.</p>
+  <div class="ctas">
+    <a class="btn" href="#itn">See the Itinerary</a>
+    <a class="btn ghost" href="#pricing">Pricing &amp; Details</a>
+  </div>
+  <img class="badge" src="images/eurotour-logo-white.png" alt="Sport EuroTour">
+  <div class="yeartag">2027 TOUR</div>
 </div>
 
 <nav class="anchor-nav">
@@ -222,7 +232,7 @@
         <div class="who">Lacey Barry, Mom, MD</div>
       </div>
       <div class="quote">
-        <p>"We had the best time! Thank you so much for the amazing experience! As soon as we were pulling away in the Uber to the airport, Lexi said I want to go again next year." <em>Note: they signed up for 2026.</em></p>
+        <p>"We had the best time! Thank you so much for the amazing experience! As soon as we were pulling away in the Uber to the airport, Lexi said I want to go again next year." <em>Note: they signed up for 2027.</em></p>
         <div class="who">Annie Kenney, Mom, NH</div>
       </div>
       <div class="quote">
@@ -317,7 +327,6 @@
         <p>Athletes return to the club and pitch for a third day of FIH top coaching. Literally the best!!! Parents and fans, the day is yours to conceive. Watch your daughter train or see the sights, shop, or just relax with a massage at the hotel; it's up to you.</p>
         <details class="more"><summary>Details for Day 5 Here</summary><div class="inner">
           <p>Return to the pitch for Day 3 of your MasterClass, featuring world-class coaching&mdash;truly the best! Train with Purpose and Play with Power. Make it count!</p>
-          <p>During this week, our featured guest coaches, Tjerk van Herwaarden, Head Coach at Harvard University, and Thomas Tichelman, Technical Trainer and Field Coach for the 2024 Olympic Gold Medal-winning women's team, will each share their unique approach to skills and drills.</p>
           <p>This experience promises to be incredibly special!</p>
           <p>Parents, again the day is yours. Watch your daughter train or see the sights or just relax, it's up to you. As is the evening and dinner to dine where you wish.</p>
           <div class="tip"><strong>SIGHTSEEING TIPS</strong><br>
@@ -389,23 +398,15 @@
     </div>
 
     <div class="coach">
-      <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/04/tjerk-circle.webp" alt="Tjerk van Herwaarden">
-      <div>
-        <h3>Tjerk van Herwaarden</h3>
-        <div class="role">Harvard Head Coach &mdash; Featured Guest Coach</div>
-        <p>Tjerk van Herwaarden, who won five national championships in seven seasons on the coaching staff at Maryland, took over as head coach at Harvard in 2012, and has won four Ivy League titles (2016, 2018, 2021, 2023), earning four NCAA Tournament berths, including a trip to the NCAA Semifinals in 2021. Tjerk is 115-59 at Harvard.</p>
-        <p>Note too, he is from Holland. Prior to coming to the USA, Tjerk served as head coach of the Gooische women's team in the Netherlands, considered to have the best field hockey competition in the world. His main focus was on development of technical and tactical skills.</p>
-      </div>
-    </div>
-
-    <div class="coach">
       <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/thomas-throphy-1.webp" alt="Thomas Tichelman">
       <div>
         <h3>Thomas Tichelman</h3>
         <div class="role">FIH Master</div>
-        <p>Technical trainer of the 2024 Olympic Gold Medal Dutch Women's National Team and founder of the SportWays group. In 2025, USA Field Hockey brought Thomas in to help train our U.S. Women's National Team and present at the 2025 Summit. He is literally the best of the best!</p>
-        <p>The Dutch have a passion for the game and it is truly infectious, but it's their coaches' keen ability to analyze and fine-tune even the smallest details&mdash;like hand placement on the stick or body movement adjustments&mdash;that can make a huge difference in elevating your game and how a college coach will evaluate you.</p>
-        <p>Thomas and his staff do this like no others. Join us in Holland!!!</p>
+        <p>Thomas is the technical force behind the Sport EuroTour training experience. A technical trainer for the 2024 Olympic Gold Medal-winning Dutch Women’s National Team and founder of the SportWays group, Thomas has shaped the program’s coaching philosophy, training standards, and curriculum.</p>
+        <p>He has coordinated and trained the staff to deliver the detailed Dutch approach that can transform an athlete’s game, from stick position and hand placement to footwork and body movement.</p>
+
+<p>Thomas may join us on the field, depending on his coaching commitments. Whether or not he is there in person, his vision, expertise, and influence are at the heart of the entire training program.</p>
+        <p>Join us in Holland and experience the Dutch Olympic Gold difference!</p>
       </div>
     </div>
 
@@ -505,7 +506,7 @@
       <div class="price-card hot">
         <h3>Athletes</h3>
         <div class="amt">$2995</div>
-        <p>per Athlete<br>Based on 2 in a Room<br>Athlete with Athlete or Athlete with Mom<br><em>Price is Not Per Room</em></p>
+        <p>per Athlete<br>Based on 2 in a Room<br>Athlete with Mom or Athlete with Athlete<br><em>Price is Not Per Room</em></p>
       </div>
       <div class="price-card">
         <h3>Family</h3>
@@ -518,12 +519,12 @@
       <div class="plan">
         <h4>Athlete Payment Plan</h4>
         <p>$295 Deposit &ndash; <em>non-refundable deposit at time of registration*</em></p>
-        <p>$700 &ndash; November 15, 2025<br>$1000 &ndash; March 15, 2026<br>$1000 &ndash; May 1, 2026</p>
+        <p>$700 &ndash; December 1, 2026<br>$1000 &ndash; March 15, 2027<br>$1000 &ndash; May 1, 2027</p>
       </div>
       <div class="plan">
         <h4>Family Payment Plan</h4>
         <p>$295 Deposit &ndash; <em>non-refundable deposit at time of registration*</em></p>
-        <p>$566.66 &ndash; November 15, 2025<br>$566.66 &ndash; March 15, 2026<br>$566.66 &ndash; May 1, 2026</p>
+        <p>$566.66 &ndash; December 1, 2026<br>$566.66 &ndash; March 15, 2027<br>$566.66 &ndash; May 1, 2027</p>
       </div>
     </div>
 
@@ -564,7 +565,7 @@
         <h4>3 Traveling: Mom, Dad and Athlete (Siblings Too)</h4>
         <p>Let's see if we can room the athlete with another member in a similar situation. That way mom and dad can room together &ndash; the athlete has a roommate and family saves paying for a single supplement. Win-Win!</p>
         <h4>Eligibility</h4>
-        <p><strong>ATHLETES:</strong> Open to any and all female field hockey athletes who graduate high school in 2027 through 2029. We recommend that interested athletes are serious about their intention to play hockey in college.</p>
+        <p><strong>ATHLETES:</strong> Open to any and all female field hockey athletes who graduate high school in 2028 through 2030. We recommend that interested athletes are serious about their intention to play hockey in college.</p>
         <p><strong>ADULTS | PRIMARY GUARDIAN:</strong> Any adult over 21 designated as the primary guardian for a registered athlete during the tour week. The adult designated as the primary guardian should consider appropriate rooming arrangements with their athlete, such as female with female, etc. Sport EuroTour reserves the right to approve, accept, or deny all rooming arrangements.</p>
         <p><strong>FAMILY:</strong> Spouses and partners are welcome to join. They would share a superior room with a single bed alongside the primary guardian, while we'll make every effort to assign the athlete a bed &amp; room with another member athlete in a similar situation. Triple rooms or rooms with roll-away beds are not available at this hotel.</p>
         <p>Additional family members, such as siblings, aunts, uncles, and close friends, are also welcome. However, the availability of rooms and their bed configurations may limit the number of participants in any one party. Sport EuroTour reserves the right to approve, accept, or deny any additional family members based on available accommodations.</p>
@@ -594,7 +595,6 @@
         <ul>
           <li>6 nights: 4-star hotel &ndash; 2 to a room (double occupancy)</li>
           <li>4 full days of FIH educators, World Class Training!!!</li>
-          <li>A special training session presented by Harvard Head Coach, Tjerk van Herwaarden</li>
           <li>Super small training groups of 10 or less</li>
           <li>Pitch and hockey facility rental for all hockey events</li>
           <li>Athletes lunch during 4 days of training sessions (optional session too)</li>
@@ -652,7 +652,7 @@
       <div class="inner">
         <p>First and foremost, we recommend cancellation insurance. It can provide full refunds for all travel expenses if an issue arises prior to departure. Once we secure your position on tour, we then lock your spot with our hotel and Dutch coach sessions. This requires non-refundable payments we will need to pay in your absence. Therefore, we have established the following cancellation policy to be fair and transparent to all parties involved:</p>
         <h4>Cancellation Grace Period</h4>
-        <p>We want to ensure you're confident in your decision. If you register before March 15, 2026, you have a 3-day (72 hour) grace period during which you can rescind your registration for any reason and receive a full refund from Sport EuroTour. Should you cancel after this 3-day period, cancellation fees will then apply.</p>
+        <p>We want to ensure you're confident in your decision. If you register before March 15, 2027, you have a 3-day (72 hour) grace period during which you can rescind your registration for any reason and receive a full refund from Sport EuroTour. Should you cancel after this 3-day period, cancellation fees will then apply.</p>
         <h4>Cancellation Policy</h4>
         <p>All cancellations must be received in writing via email to info@sporteurotour.com. The date on which the email is received will be used to determine the applicable cancellation date and charges.</p>
         <p><strong>Cancellation Deadlines &amp; Charges &ndash; If you cancel:</strong></p>
