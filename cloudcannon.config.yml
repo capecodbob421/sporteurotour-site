@@ -1,10 +1,11 @@
 paths:
-  uploads: uploads
+  uploads: images
   static: ''
 collections_config:
   pages:
     path: ''
     icon: wysiwyg
+    url: '/[full_slug].html'
     disable_url: false
     disable_add: false
     disable_add_folder: false
