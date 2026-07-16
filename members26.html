@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Members Info 2026 | EuroTour</title>
+<style>
+  :root{
+    --navy:#2e4d95;
+    --navy-2:#456bb4;
+    --red:#df202c;
+    --red-dark:#b5121e;
+    --cream:#faf7f2;
+    --ink:#222;
+    --gray:#6b7280;
+    --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:var(--red-dark)}
+
+  .topbar{background:var(--navy);color:#fff;font-size:.85rem;padding:.4rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  .topbar a{color:#fff;text-decoration:none}
+  .topbar .reg{background:var(--red);padding:.25rem .9rem;border-radius:4px;font-weight:700;letter-spacing:.04em}
+
+  header.site{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .nav-wrap{max-width:1150px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem}
+  .nav-wrap img.logo{height:52px;width:auto}
+  nav.main a{color:var(--navy);text-decoration:none;font-weight:600;margin-left:1.5rem;font-size:.95rem}
+  nav.main a:hover{color:var(--red)}
+
+  .hero{background:linear-gradient(rgba(12,31,77,.55),rgba(12,31,77,.8)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/bikes-webpage.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:1.5rem 1rem;min-height:calc(100vh - 118px);min-height:calc(100svh - 118px);display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .hero .since{font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:#ffd6d6}
+  .hero h1{font-size:clamp(1.9rem,5.5vw,3.2rem);margin:.4rem 0;text-transform:uppercase;letter-spacing:.05em;line-height:1.12}
+  .hero h1 span{color:#ffd6d6}
+  .hero .dates{font-size:clamp(1.1rem,2.6vw,1.5rem);font-weight:700}
+  .hero .priv{margin-top:.6rem;font-size:.78rem;letter-spacing:.03em;color:#b7c6e8}
+
+  section{padding:2.5rem 1rem}
+  .wrap{max-width:1000px;margin:0 auto}
+  .center{text-align:center}
+  .kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:.85rem}
+  h2.sec{font-size:clamp(1.5rem,4vw,2.1rem);color:var(--navy);margin:.3rem 0 1.2rem;text-transform:uppercase}
+
+  details.acc{border:1px solid var(--line);border-radius:8px;margin-bottom:.7rem;background:#fff}
+  details.acc summary{cursor:pointer;padding:.9rem 3rem .9rem 1.2rem;font-weight:800;color:var(--navy);font-size:1.05rem;list-style:none;position:relative}
+  details.acc summary small{display:block;color:var(--gray);font-weight:400;font-size:.85rem;margin-top:.1rem}
+  details.acc summary::after{content:"+";color:var(--red);font-size:1.4rem;font-weight:700;position:absolute;right:1.2rem;top:50%;transform:translateY(-50%)}
+  details.acc[open] summary::after{content:"\2013"}
+  details.acc .inner{padding:0 1.2rem 1.2rem}
+  details.acc .inner p, details.acc .inner li{margin:.55rem 0}
+  details.acc .inner ul, details.acc .inner ol{padding-left:1.3rem}
+  details.acc .inner h4{color:var(--navy);margin-top:1.1rem;text-transform:uppercase;font-size:1rem}
+  details.acc .inner img{border-radius:8px;margin:.8rem 0;max-width:520px}
+  .note{background:var(--cream);border-left:4px solid var(--red);padding:.6rem .9rem;margin:.7rem 0;font-size:.95rem}
+  .btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:600;padding:.6rem 1.3rem;border-radius:6px;margin:.4rem .2rem;letter-spacing:.03em;text-transform:uppercase;font-size:.9rem}
+  .btn:hover{background:var(--red-dark)}
+  .btn.ghost{background:var(--navy)}
+
+  table.rooms{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+  table.rooms th, table.rooms td{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+  table.rooms th{background:var(--cream);color:var(--navy)}
+  table.rooms tr.zone td{background:var(--navy);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+
+  .staff{display:grid;grid-template-columns:repeat(auto-fit,190px);justify-content:center;gap:1.2rem;margin:1rem 0}
+  .staff .card{width:190px;text-align:center}
+  .staff img{border-radius:50%;width:140px;height:140px;object-fit:cover;display:block;margin:0 auto .6rem}
+  .staff .nm{font-weight:700;color:var(--navy)}
+  .staff .ph{font-size:.9rem;color:var(--gray)}
+
+  footer{background:#0c1f4d;color:#cbd5e1;padding:2.5rem 1rem;font-size:.9rem}
+  footer .wrap{max-width:1150px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem}
+  footer img.flogo{height:56px;width:auto;margin-bottom:.8rem}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{color:var(--red)}
+  footer ul{list-style:none}
+  footer li{margin:.35rem 0}
+  .legal{max-width:1150px;margin:1.8rem auto 0;border-top:1px solid #24448c;padding-top:1rem;text-align:center;color:#8ba0b8}
+
+  @media(max-width:760px){
+    nav.main a{margin-left:.9rem;font-size:.85rem}
+    table.rooms{font-size:.82rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="mailto:Info@sporteurotour.com?subject=Member question">Info@SportEuroTour.com</a>
+  <a class="reg" href="https://eurotour.wetravel.com" target="_blank" rel="noopener">REGISTER HERE</a>
+</div>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html"><img class="logo" src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/EuroTour-Logo-600-1.webp" alt="Sport EuroTour"></a>
+    <nav class="main">
+      <a href="index.html">Home</a>
+      <a href="itinerary27.html">2027 Tour Details</a>
+      <a href="https://lineupfh.com/" target="_blank" rel="noopener">The LineUP</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="since">Since 1989 &bull; 2026 | 37 Years</div>
+  <h1>2026 <span>Members Page</span></h1>
+  <div class="dates">July 23 to 29, 2026 &bull; Amsterdam</div>
+  <p class="priv">Private page for registered tour members. Details and announcements live here.</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Tour Dates: July 23 to 29, 2026</span>
+      <h2 class="sec">2026 Member Details &amp; Announcements</h2>
+      <p style="max-width:700px;margin:0 auto 1.5rem">All information contained here is subject to change. Please double-check before making plans. <a href="mailto:info@sporteurotour.com?subject=Member question">Email us</a> if you are unsure.</p>
+    </div>
+
+    <details class="acc">
+      <summary>Announcements <small>What you need to know</small></summary>
+      <div class="inner">
+        <p><strong>Announcements prior to, and during the tour are posted here.</strong></p>
+        <p>While we do our best to keep changes to a minimum, please note that the itinerary and times listed may shift slightly. We'll post and announce all daily meeting times, so just keep an eye out and listen for updates to stay in the loop!</p>
+
+        <h4>EuroTour Itinerary (PDF)</h4>
+        <p><a class="btn" href="docs/EuroTour-2026-Tour-Itinerary.pdf" target="_blank" rel="noopener">Itinerary PDF &mdash; Download Here</a></p>
+
+        <h4>Entry/Exit System (EES) &mdash; Schiphol Airport Arrival</h4>
+        <p><strong>Crossing the EU border at Schiphol with a non-EU passport.</strong></p>
+        <p><strong>European Entry/Exit System (EES):</strong> The Schengen area is collecting entry/exit data (biometrics like fingerprints/face) under the Entry/Exit System (EES); this is separate from visa rules and DOES NOT require prior application.</p>
+        <p><strong>ETIAS (coming later):</strong> ETIAS will start operations in the last quarter of 2026. No action is required from travellers at this point. The European Union will inform about the specific date for the start of ETIAS several months prior to its launch. Once active, most U.S. travelers will need to apply online before entering any Schengen/associated country.</p>
+        <p><strong>Upon arrival:</strong></p>
+        <ol>
+          <li><strong>Follow the signs:</strong> Walk towards passport control and follow the signs for "Non-EU Passports".</li>
+          <li><strong>Use the kiosk:</strong> Passengers aged 12 and older will be directed to an EES self-service kiosk. Scan your passport, have your photo taken, and provide fingerprints (usually four of your right hand).</li>
+          <li><strong>Pass through border control:</strong> After registering at the kiosk, you will be directed to either an automated eGate or a manned border control booth to finalize entry with an officer.</li>
+          <li><strong>Exceptions:</strong> Children under the age of 12 and passengers with specific disabilities cannot use the kiosks and must go directly to a staffed border control booth for assistance.</li>
+        </ol>
+        <p><strong>Helpful instructions:</strong></p>
+        <p><strong>Step 1.</strong> Put the passport on the upper glass panel; the lower is only for fingerprints. After putting the passport on the panel, the process will begin. Use only your right hand's four fingers, not the thumb. Press firmly against the glass (it is greasy and not wiped often). Keep the fingers together, not splayed apart. You may get a retry message here. Very important: DO NOT MOVE YOUR FINGERS WHILE IT SCANS. Hold them hard against the glass, fingers closed, zero movement. <em>You will not see any light under them.</em> Once it finishes, it will instruct you to follow route 1 or 2. One of these will force a human border guard check-in; the other will fast-track you to the actual entry machine.</p>
+        <p><strong>Step 2.</strong> If you are fortunate, you get the machine track (it's supposedly faster). Feed your passport in as shown on the machine's diagram (it doesn't have the same glass panel as the first machine). Then it asks for fingerprints: same procedure. Right hand, 4 fingers, closed, pressed tight on glass. I FAILED THAT CHECK TWICE! Again, I think the glass is dirty, as I was very careful. But I refused to join the long human line. I tried a third time, very careful hand placement, zero movement, and SUCCESS! Alternatively, try swapping to the machine in the next aisle.</p>
+        <p>Once through immigration, you can go to the luggage carousel to collect your luggage, then proceed to the general terminal.</p>
+        <p><a class="btn ghost" href="https://travel-europe.europa.eu/pub" target="_blank" rel="noopener">EES Details</a> <a class="btn ghost" href="https://www.government.nl/topics/holidays-and-travels/etias" target="_blank" rel="noopener">ETIAS (Not Required Yet)</a></p>
+
+        <div class="note"><strong>Room chart has been updated and posted.</strong> Look for it here in the "Members List" section below.</div>
+        <div class="note"><strong>Have all family members registered for the tour?</strong> This is necessary to finalize and confirm the athlete's room and registration.</div>
+        <div class="note"><strong>Have you completed the questionnaire? Due by the end of February.</strong> See the Questionnaire section below.</div>
+
+        <h4>Our Hotel</h4>
+        <p><strong>Hotel &amp; Wellness Zuiver</strong><br>Koenenkade 8, 1081 KH Amsterdam<br>Phone: +31 20 301 0700</p>
+
+        <h4>Extra Hotel Nights Registration</h4>
+        <p>Hotel &amp; Wellness Zuiver &mdash; CODE: <strong>EUROTOUR26</strong></p>
+        <p><a class="btn" href="https://app.mews.com/distributor/e33d498d-b6e7-45f4-bd81-afa900882e15?mewsVoucherCode=EUROTOUR26" target="_blank" rel="noopener">Extra Nights Hotel Booking Link</a></p>
+
+        <h4>Weather &amp; Packing</h4>
+        <p>For the most part, you can expect warm days; however, the weather can be unpredictable. Best to plan on bringing a sweater/sweatshirt and a light rain jacket.</p>
+        <p>Athletes will receive a training shirt. Not mandatory, but an item you shouldn't have to worry about cleaning if you wear it to training. The hotel offers a laundry service for a fee.</p>
+
+        <h4>Hockey Gear</h4>
+        <p>Athletes, goalies too, must bring their own equipment. Minimum for field players is stick, mouthguard and shin guards. Goalies, make sure you are protected. Training will be serious in Holland.</p>
+        <p>There is a hockey store close to our hotel if items are needed.</p>
+
+        <h4>American Consulate in Amsterdam</h4>
+        <p>Museumplein 19 &mdash; Phone: 0 20 57 55309 &mdash; Open 8:30-12 &amp; 1:30-5:15</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Travel <small>Planning</small></summary>
+      <div class="inner">
+        <h4>Travel from the USA</h4>
+        <p>For flights, you're welcome to choose your preferred airline and departure airport&mdash;this is yours to arrange, secure, and purchase. Since summer is a popular travel season, we recommend booking sooner rather than later. Don't forget about your passport: your expiration date should extend 6 months past your return date. If you need a new passport or to renew one, best to do that now so you avoid wait times. <a href="https://travel.state.gov/content/travel/en/passports.html" target="_blank" rel="noopener">PASSPORT APP HERE</a></p>
+        <p>To ensure you arrive in time, you'll need to book your flight from the U.S. to depart no later than Wednesday, July 22, 2026. Most flights departing the U.S. will arrive at Amsterdam's Schiphol Airport early on the morning of Thursday, July 23.</p>
+        <p>The official end of our scheduled program of planned events will be after dinner, late evening on July 29, with final hotel departure/check-out on <strong>Wednesday, July 29</strong>. If you secured a spot for optional training on our departure day (July 29th) you may want to stay in this hotel longer.</p>
+
+        <h4>Hotel &amp; Wellness Spa Zuiver</h4>
+        <p>Zuiver has everything it takes to completely unplug from your busy life. Inspired by rituals from all over the world for the wide range of luxury treatments and massages.</p>
+        <p><a class="btn ghost" href="https://zuiveramsterdam.nl/en/" target="_blank" rel="noopener">Visit the Hotel</a></p>
+        <p>Hotel &amp; Wellness Zuiver<br>Koenenkade 8, 1081 KH Amsterdam, Netherlands<br>Phone: +31 20 301 0700<br><a href="https://zuiveramsterdam.nl/en/hotel/" target="_blank" rel="noopener">zuiveramsterdam.nl/en/hotel</a></p>
+        <p>The main hotel and spa, where the front desk, breakfast, spa, and gym are located, has two-bedded rooms numbered 1 through 32, reserved for athletes staying together or athletes rooming with their moms. Rooms 56&ndash;311 are located just next door (approximately 200 ft away) in the "Annex", and these rooms are single bedded and reserved for families.</p>
+        <p>All of our programs will start in the main hotel building and all of our group meetings will be held here as well.</p>
+        <p><strong>Please keep in mind that some assigned rooms may not be ready immediately upon our noon arrival. We appreciate your patience and understanding as the hotel works to get everyone settled as quickly as possible. Your key may not be issued until after we return from sightseeing and dinner.</strong></p>
+
+        <h4>Booking Extra Nights</h4>
+        <p>If you'd like to arrive in Amsterdam early or extend your stay at our hotel, you're in good company! Several group members plan to stay later to participate in optional Dutch training on Wednesday July 29. We have rooms on hold for pre- and post-tour dates, and we've finally received the hotel's instructions on how you can book these extra nights.</p>
+        <p>Please note that any additional nights will be booked directly with the hotel by each member, as the EuroTour office will not be handling pre- or post-arrival arrangements.</p>
+        <p><strong>PRE &amp; POST TOUR ROOM BOOKING CODE: "EUROTOUR26"</strong></p>
+        <p><a class="btn" href="https://app.mews.com/distributor/e33d498d-b6e7-45f4-bd81-afa900882e15?mewsVoucherCode=EUROTOUR26" target="_blank" rel="noopener">Book Extra Nights Here</a></p>
+        <p>Booking notes:<br>1) You may have to book twice, or two separate times, if you intend to have a room both before and again after the tour.<br>2) You can book two rooms (add rooms) after you select your room type.<br>3) There's a button on the top right of your computer screen that allows you to switch to English.<br>4) We've secured EuroTour members a discounted rate that should not exceed $200 USD per room per night (approximately, after euro exchange rate), and that figure includes all federal and local taxes.</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Thursday Arrival &mdash; Day 1 <small>What to expect</small></summary>
+      <div class="inner">
+        <h4>Schiphol Airport Morning Arrival, Thursday July 23: 11AM Optional Bus to Hotel</h4>
+        <p>Optional, for families arriving on Thursday morning, we'll have a private bus waiting at Schiphol to take us all to the hotel. This bus will leave exactly at 11:00 AM (no later, and cannot wait for late arrivals).</p>
+        <p>If our bus timing doesn't work for you, whether it's too early or too late, no worries! Schiphol is well-connected, and taxis and Ubers are readily available. A ride to our hotel takes about 15 to 20 minutes.</p>
+        <h4>Meet Our Staff at the Schiphol Airport Meeting Point</h4>
+        <p>We will meet members who are taking our airport shuttle with us to the hotel in Schiphol Airport's main terminal at the "Meeting-Point", which is located in Schiphol Plaza, near the Burger King. Look for our staff there. <strong>At the SQUARE sign in the image.</strong></p>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/06/Schiphol-Meeting3.webp" alt="Schiphol meeting point">
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/06/Schiphol-Meeting2.webp" alt="Schiphol meeting point sign">
+        <p><a class="btn ghost" href="https://www.youtube.com/watch?v=zijn6QyGtJc" target="_blank" rel="noopener">Video of Meet-up Location</a></p>
+        <p><strong>We're staying at: Hotel &amp; Wellness Zuiver</strong><br>Koenenkade 8, 1081 KH Amsterdam<br>Phone: +31 20 301 0700</p>
+        <h4>Official Program Start</h4>
+        <p>11:30AM light snack &bull; 12:30PM welcome meeting</p>
+        <p>Once at the hotel, we'll kick off with light snacks at 11:30 AM for all our arriving travelers. This is when our program officially begins, so come and get ready to meet everyone. Light snacks will then be followed by a <strong>member welcome meeting at 12:30PM</strong>, and afterwards we'll head out together by private coach on an afternoon of Dutch sightseeing.</p>
+        <p><strong>Please keep in mind that some assigned rooms may not be ready immediately upon our noon arrival. We appreciate your patience and understanding as the hotel works to get everyone settled as quickly as possible. Your key may not be issued until after we return from sightseeing and dinner.</strong></p>
+        <h4>Today's Itinerary</h4>
+        <p>11:00am Shuttle from airport to hotel<br>11:30am Light snacks/brunch<br>12:30pm Welcome words<br>1:00pm On bus for afternoon sightseeing<br>4:30-5pm Approximate return to hotel<br>7:00pm Dinner at our hotel<br>8:00pm Group meeting "Rules of the Road" (<em>mandatory</em>)</p>
+        <div class="note"><strong>Not going to make the 1PM departure?</strong> If you're unable to join us before we head out for sightseeing this afternoon, we'll provide details about times and places where you can easily meet up with the group later this day.</div>
+        <h4>Hotel Amenities &mdash; Not Included</h4>
+        <ul>
+          <li>Hotel incidentals not included. This is a full-service hotel with pools and spa service. These services are available at an extra cost and can be booked at the hotel welcome desk. Massage treatments are not included; spa and pool services are not included.</li>
+          <li>Gratuities and items not expressly mentioned above are not included.</li>
+        </ul>
+        <p><strong>INCLUDED:</strong> The extensive workout facility and machines.</p>
+        <p><em>Please note, while we do not expect changes, minor modifications sometimes do occur, therefore this itinerary is subject to change.</em></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Friday &mdash; Day 2 <small>BIG DAY. Read carefully.</small></summary>
+      <div class="inner">
+        <h4>Training &amp; Fans Into the City &mdash; Training With Dutch Coaches</h4>
+        <p>Breakfast opens at 7:00 (and closes at 10:00am).</p>
+        <h4>Athletes 8:30AM</h4>
+        <p>8:30am Meet our staff and Athlete Liaison in the main hotel lobby. Be dressed in your hockey gear and ready for training. All athletes will walk as a group to get their bikes and, from there, immediately head to the club for training.</p>
+        <p><strong>GOALIES:</strong> BE READY WITH ALL YOUR GEAR. We will have a car to meet us and transport your goalie bags to the club before we get our bikes.</p>
+        <ul>
+          <li>For athletes, lunch will be served at the club</li>
+          <li>Expect to be back at the hotel by 4:30 to 5pm</li>
+        </ul>
+        <h4>Fans (Parents &amp; Families) 9:30AM</h4>
+        <p>We kindly ask that you allow your daughters to join their fellow athletes as a group, without mom or dad, for today's training. We believe this approach will help them acclimate more comfortably, minimize family distractions, and foster stronger team bonding. Helping both the player and the coach.</p>
+        <p><strong>Our plans for the family:</strong></p>
+        <ol>
+          <li>8:30 AM: Meet Phoebe &amp; Chie in the main hotel lobby. We'll have an orientation from the Spa staff about the Spa services.</li>
+          <li>9:30 AM: We'll head out together for a short walk to pick up your bikes, then return right back to the hotel.</li>
+          <li>10:30 AM: Bus to the city center! Meet again in the hotel lobby. Once in the city, we'll start with an orientation stroll and make our way over to Dam Square, then enjoy some free time to explore the charming "Nine Streets" district. Afterward, we'll wander through the beautiful Flower Market and wrap up our walk at lively Leidseplein.</li>
+          <li>3:30 PM: Meet the bus at Hotel NH Amsterdam Leidseplein. There, we'll hop back on the bus and return to the hotel by 4:30 PM.</li>
+        </ol>
+        <p>Local area <a href="docs/nine-streets-shopping-map.pdf" target="_blank" rel="noopener">SHOPPING MAP</a></p>
+        <p>This is totally optional. You are more than welcome to stay back at the hotel and relax or make your own plans for the day.</p>
+        <p><strong>Regardless of how you plan your day, please be back at the hotel by 4:30 p.m. to meet your daughter.</strong></p>
+        <h4>Everyone: Tonight Pancake Dinner</h4>
+        <p>6:00 pm Meet your staff in the main lobby for a short, easy, flat bike ride to an original farmhouse for a pancake dinner.</p>
+        <p>All optional. But we hope you'll join us.</p>
+        <p><em>No more EuroTour planning. Your night is open.</em></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Saturday &mdash; Day 3 <small>Let's check out the club!</small></summary>
+      <div class="inner">
+        <h4>Training &amp; Fans Have Day Free &mdash; Training With Dutch Coaches</h4>
+        <p>Breakfast opens at 7:00 (and closes at 10:00am).</p>
+        <h4>Athletes 9:00AM</h4>
+        <p>9:00am Meet our staff in the main hotel lobby. Be dressed in your hockey gear and ready for training.</p>
+        <ul>
+          <li>Lunch will be served at the club</li>
+          <li>Expect to be back at the hotel by 4:30 to 5:00 pm</li>
+        </ul>
+        <h4>Fans 9:30AM</h4>
+        <p>One of our staff members will escort "Fans" round-trip this morning to help you get oriented to the route to and from the club. Meet our staff in the main hotel lobby. From then on, you are free to come and go, to and from the club, as you please.</p>
+        <p><strong>9:30am:</strong> Biking, hotel to club<br><strong>11:30am:</strong> Biking, club to hotel</p>
+        <p>If you intend to take an Uber or taxi, the club address is:<br><strong>PINOKE HC, Jan Tooroplaan 46, 1182 AE Amstelveen</strong></p>
+        <p>This is completely optional. You are welcome to stay at the hotel and relax or make your own plans for the day.</p>
+        <p><strong>Again, regardless of how you plan your day, please be back at the hotel by 5 p.m. to meet your daughter.</strong></p>
+        <p><strong>Dinner is on your own... ENJOY!</strong></p>
+        <p><em>End EuroTour planning. Your night is open.</em></p>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2024/04/zuiver-map1.gif" alt="Hotel to club bike route">
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Sunday &mdash; Day 4 <small>Utrecht day + College Workshop tonight</small></summary>
+      <div class="inner">
+        <h4>Visit Utrecht &mdash; No Training Today</h4>
+        <p><strong>Everyone 10:00AM &mdash; Bus to Utrecht.</strong> 10:00 am we meet in the main lobby. We're off to Utrecht by bus for the day. We'll be in the city center pedestrian walkway. Wear comfortable shoes!</p>
+        <p>We will be dropped off and walk together into the old city's pedestrian zone, where you will have about 4 hours of free time to explore, shop, and eat. Below, in the image of Utrecht center, in yellow, is the primary area we will walk through. The Tower Bridge will be our meeting point before heading back to the bus.</p>
+        <p>We will return to the hotel at approximately 5pm.</p>
+        <h4>Everyone: Tonight</h4>
+        <p><strong>5:30 pm Parent College Recruiting Workshop (Optional). Ends by 7:00pm.</strong></p>
+        <p><strong>Dinner is on your own... ENJOY!</strong></p>
+        <h4>Utrecht</h4>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2026/04/utrecht-pedestrian.webp" alt="Utrecht pedestrian zone map">
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Monday &mdash; Day 5 <small>Training day</small></summary>
+      <div class="inner">
+        <h4>Training &amp; Fans Have Day Free &mdash; Training With Dutch Coaches</h4>
+        <p>Breakfast opens at 7:00 (and closes at 10:00am).</p>
+        <h4>Athletes 9:00AM</h4>
+        <p>9:00am Meet our staff in the main hotel lobby. Be dressed in your hockey gear and ready for training.</p>
+        <ul>
+          <li>Lunch will be served at the club</li>
+          <li>Expect to be back at the hotel by 4:30 to 5:00 pm</li>
+        </ul>
+        <h4>Fans</h4>
+        <p>Your day is yours to plan. Enjoy!</p>
+        <p><strong>Again, regardless of how you plan your day, please be back at the hotel by 5 p.m. to meet your daughter.</strong></p>
+        <p><em>Dinner is on your own.</em></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Tuesday &mdash; Day 6 <small>Farewell dinner</small></summary>
+      <div class="inner">
+        <h4>Training &amp; Fans Have Day Free &mdash; Training With Dutch Coaches</h4>
+        <p>Breakfast opens at 7:00 (and closes at 10:00am).</p>
+        <h4>Athletes 9:00AM</h4>
+        <p>9:00am Meet our staff in the main hotel lobby. Be dressed in your hockey gear and ready for training.</p>
+        <ul>
+          <li>Lunch will be served at the club</li>
+          <li>Expect to be back at the hotel by 4:30 to 5:00 pm</li>
+        </ul>
+        <h4>Fans</h4>
+        <p>Your day is yours to plan. Enjoy!</p>
+        <div class="note"><strong>RETURN BIKES &mdash; no later than 5PM</strong></div>
+        <h4>Everyone 6:00PM &mdash; Farewell Dinner</h4>
+        <p>Meet in the main hotel lobby for a short walk. We should be done by 8pm.</p>
+        <p><em>Prepare for tomorrow's goodbye: check out and departure.</em></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Wednesday &mdash; Day 7 <small>Incidentals and Optional Training</small></summary>
+      <div class="inner">
+        <h4>Day of Departure</h4>
+        <p>Our staff will depart before noon today, except for Emma Leppert, who will be accompanying the 'optional' athletes to and from the club for training.</p>
+        <p><strong>Before you leave, please stop by the reception desk to settle any extra charges you may have.</strong></p>
+        <h4>Booking Extra Nights</h4>
+        <p>If you'd like to arrive in Amsterdam early or extend your stay at our hotel, you're in good company! Several group members plan to stay later to participate in optional Dutch training on Wednesday July 29. We have rooms on hold for pre- and post-tour dates. Any additional nights will be booked directly with the hotel by each member, as the EuroTour office will not be handling pre- or post-arrival arrangements.</p>
+        <p><strong>PRE &amp; POST TOUR ROOM BOOKING CODE: "EUROTOUR26"</strong></p>
+        <p><a class="btn" href="https://app.mews.com/distributor/e33d498d-b6e7-45f4-bd81-afa900882e15?mewsVoucherCode=EUROTOUR26" target="_blank" rel="noopener">Book Extra Nights Here</a></p>
+        <h4>Optional Training <em>(Not Guaranteed)</em></h4>
+        <p>An extra Dutch training day on July 29 ($275, training and lunch only) is available as an option. This Dutch training option is able to accept every athlete who is participating in the program with us.</p>
+        <p>This option is an all-day training clinic operated by our Dutch partners from 9 a.m. to 4:30 p.m.</p>
+        <p>These directions should work for adding this to your account. Let me know if you have issues: if you have already booked a trip but want to add something to it, it's easy to do. You can do it at any point, even after paying the full balance.</p>
+        <p><strong><a href="https://www.wetravel.com/users/sign_in?return_to=%2Fuser%2Fprofile" target="_blank" rel="noopener">LOG IN by clicking here</a> using the email you registered with. Then go to 'My Trips' and click 'Manage Booking'.</strong></p>
+        <div class="note"><strong>NOTE:</strong> An additional Dutch training day on July 29 ($275 for training and lunch only) will be finalized only if enough athletes participate. This is not guaranteed, and a full refund will be made if this cannot take place.</div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Fun Stuff, Food &amp; Shopping <small>What to do and eat</small></summary>
+      <div class="inner">
+        <h4>Canal Cruise</h4>
+        <p>If you're looking for a canal cruise, I'd suggest doing it later in the evening, probably booking it at about 9:00 pm to experience the city lights on the canals (about an hour and a half ride) and booking with one of the smaller custom cruises. This is the one I use: Email <a href="mailto:info@sloephurenamsterdam.nl">info@sloephurenamsterdam.nl</a> | Website: <a href="http://www.sloephurenamsterdam.nl/" target="_blank" rel="noopener">sloephurenamsterdam.nl</a>. A little pricey, but with a small group, definitely worth it.</p>
+        <p style="margin-top:16px;font-size:1.15rem"><a href="https://observer.com/list/amsterdam-best-restaurants-bars-cafes-guide/" target="_blank" rel="noopener"><strong>15 Best Restaurants, Bars and Cafes</strong></a></p>
+
+        <h4>Restaurant Recommendations Near the Hotel</h4>
+        <p><strong>Anno1890 | 1.3km, 4 min by bike</strong><br>Amstelveenseweg 1124, Amsterdam (just a 5 minute walk from the hotel). The dish of the day for just &euro;11.00. Every second and last day of the month: live music. Lunch, dinner &amp; drinks.<br><a href="https://www.anno1890.nl/" target="_blank" rel="noopener">anno1890.nl</a></p>
+        <p><strong>Abina | 3.1km, 10 min by bike</strong><br>Amsterdamseweg 193. French cuisine. Price range &euro;16,50. Lunch, dinner &amp; drinks.<br><a href="https://www.abina.nl/" target="_blank" rel="noopener">abina.nl</a></p>
+        <p><strong>Alexandros | 3.4km, 12 min by bike</strong><br>Kostverlorenhof 48-50, Amstelveen. Greek specialties. Price range &euro;21. Dinner.<br><a href="https://alexandros.nl/" target="_blank" rel="noopener">alexandros.nl</a></p>
+        <p><strong>Restaurant aan de Poel | 4.2km, 14 min by bike</strong><br>Handweg 1, Amstelveen. French/international cuisine. Price range &euro;54. Lunch &amp; dinner.<br><a href="https://aandepoel.nl/" target="_blank" rel="noopener">aandepoel.nl</a></p>
+
+        <h4>Unique Shopping</h4>
+        <p>Nine Streets: <a href="https://www.amsterdamsights.com/amsterdam/maps/jordaanshopping-map.pdf" target="_blank" rel="noopener">SHOPPING MAP</a></p>
+
+        <h4>Dutch Specialties</h4>
+        <p><strong>Apple Cake (Dutch Appeltaart) &mdash; WINKEL 43:</strong> Noordermarkt 43, 1015 NA Amsterdam, in Amsterdam's ever-popular de Jordaan quarter. The crumb in this cake is light, flaky and moist. It is NOT a sweet cake. Served with whipped cream. They serve meals here too. Small venue with outdoor seating. Be careful where you sit; there's another cafe next to it.</p>
+        <p><strong>Kroket/Croquet (or Bitterballen):</strong> Try CAFE PAR HASARD, located in one of Amsterdam's most beautiful neighborhoods on Ceintuurbaan 113-115, a 1.5 km walk south of the Rijksmuseum. Or EETSALON VAN DOBBEN near the Flower Market &amp; Rembrandt Square, Korte Reguliersdwarsstraat 5-7-9.</p>
+        <p>If you are planning a trip to the Netherlands, there is one gastronomic delicacy you absolutely must try: the famous kroket. This Dutch delicacy is an irresistible croquette made from a combination of finely selected meats and enriched with a creamy roux, meat broth, spices and herbs. Eat it with mustard on white bread! But watch out, they're hot when first served. <em>The Dutch version of pizza burn.</em></p>
+        <p><strong>French Fries &mdash; Vlaams Friteshuis Vleminckx, the best Friteshuis:</strong> The best French fries can be found in the center of the city at Vlaams Friteshuis Vleminckx near the flower market and behind the main pedestrian shopping street, Kalverstraat 33, Amsterdam. Just fries! <a href="https://vleminckxdesausmeester.nl/" target="_blank" rel="noopener">vleminckxdesausmeester.nl</a></p>
+        <p><strong>De Frietfabriek (near our hotel):</strong> If you don't want to travel to the city, here's one very close to our hotel and training club: De Frietfabriek, Nieuwe Kalfjeslaan 1, 1181 CA Amstelveen. Excellent fries and snacks. <a href="https://www.defrietfabriek.com/" target="_blank" rel="noopener">defrietfabriek.com</a></p>
+        <p><strong>Stroopwafel:</strong> If not fresh at a bakery, believe it or not, the best stroopwafel can be found at supermarkets.</p>
+        <p><strong>Tulip Bulbs:</strong> There are two clearly marked kinds of bulbs for sale: those that can be imported to the US, and those that cannot. Some may claim that their bulbs are legal to take to the USA. However, they must have a metal tag that shows up on a scanner.</p>
+
+        <h4>Popular Museums <em>(book online, in advance)</em></h4>
+        <p><strong>Rijks Museum:</strong> Only open 9am to 5pm. Adults &euro;22,50, free for ages 18 and under. <a href="https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices" target="_blank" rel="noopener">Rijks Museum LINK</a></p>
+        <p><strong>Van Gogh Museum:</strong> Open daily 9am to 6pm, Fridays 9am to 9pm. Adults &euro;22,50, free for ages 18 and under. <a href="https://www.vangoghmuseum.nl/en" target="_blank" rel="noopener">Van Gogh Museum LINK</a></p>
+        <p><strong>Anne Frank House:</strong> Open daily 9am to 10pm. Adults &euro;16,00, ages 17 and under &euro;7,00. <a href="https://www.annefrank.org/nl/" target="_blank" rel="noopener">Anne Frank House LINK</a></p>
+        <p><strong>Heineken Tour:</strong> Open daily 10:30am to 7:30pm. Adults &euro;23,00. <a href="https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour/" target="_blank" rel="noopener">Heineken LINK</a></p>
+        <p>It's not a museum, but worth a look... <strong>The Best Cigar Room and Shop (Art Deco motif):</strong> For aficionados of cigars or those with a family member who appreciates tobacco, a visit to P.G.C. Hajenius is a must. Revered as the 'old master' of Dutch cigar stores since 1826, Hajenius offers an unparalleled selection within the elegant confines of an Art D&eacute;co masterpiece on Amsterdam's Rokin. Insider tip: upon purchasing a cigar, request a cup of coffee and take advantage of the invitation to relax in their exclusive back lounge for a smoke. <a href="https://www.hajenius.com/en/" target="_blank" rel="noopener">P.G.C. Hajenius LINK</a></p>
+        <p><strong>Aalsmeer Flower Auction:</strong> Bloemenveiling Aalsmeer. Tickets for the Royal FloraHolland Aalsmeer flower auction, the world's largest, can be purchased directly on the Royal FloraHolland website or at the visitor center, with adult prices starting around &euro;11.50. The auction is open for visits Monday&ndash;Wednesday and Friday from 7 a.m. to 11 a.m. (Thursday until 9 a.m.), with early arrival recommended. About 15 miles from our hotel, near the airport. <a href="https://www.royalfloraholland.com/en/about-us/the-cooperative/visit-the-floriculture-marketplace" target="_blank" rel="noopener">royalfloraholland.com</a></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Maps <small>Get Oriented</small></summary>
+      <div class="inner">
+        <p><a class="btn ghost" href="https://www.google.com/maps/@52.3310368,4.8509993,524m/data=!3m1!1e3!5m1!1e2" target="_blank" rel="noopener">Hotel Pin</a> <a class="btn ghost" href="https://www.google.com/maps/place/Amsterdam,+Netherlands/@52.3547607,4.7391514,11z" target="_blank" rel="noopener">City Wide View</a></p>
+        <p><strong>City Overview</strong></p>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2024/04/amsterdam-map.gif" alt="Amsterdam map">
+        <p><strong>Hotel to Training &amp; Club (by Bike)</strong></p>
+        <img src="https://worldcampusa.wpengine.com/wp-content/uploads/2024/04/zuiver-map1.gif" alt="Hotel to club map">
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Questionnaire <small>Please complete by Feb. 28</small></summary>
+      <div class="inner">
+        <h4>Now Available</h4>
+        <p>Please complete and submit by February 28.</p>
+        <p><a class="btn" href="questions.html">Open Questionnaire</a></p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Members List <small>With room assignments</small></summary>
+      <div class="inner">
+        <ul>
+          <li>Rooms 1&ndash;32 are located in the main hotel and are reserved for athletes staying together or athletes rooming with their moms.</li>
+          <li>Rooms 56&ndash;311 are located just next door (approximately 200 ft away) in the Annex, and these rooms are reserved for families as well as athlete overflow.</li>
+        </ul>
+        <p><em><strong>Room assignments are subject to change.</strong></em></p>
+        <table class="rooms">
+          <tr><th>Room #</th><th>Name</th><th>Designation</th></tr>
+          <tr class="zone"><td colspan="3">Main Hotel</td></tr>
+          <tr><td>1</td><td>Anne Drabbe</td><td>Staff</td></tr>
+          <tr><td>1</td><td>Emma Leppert</td><td>Staff</td></tr>
+          <tr><td>2</td><td>Avery Hilton</td><td>Athlete</td></tr>
+          <tr><td>2</td><td>Caroline Hilton</td><td>Athlete</td></tr>
+          <tr><td>3</td><td>Embrey Zola</td><td>Athlete</td></tr>
+          <tr><td>3</td><td>Tracey Zola</td><td>Mom</td></tr>
+          <tr><td>4</td><td>Anja Seyler</td><td>Athlete</td></tr>
+          <tr><td>4</td><td>Sebastian Seyler</td><td>Brother</td></tr>
+          <tr><td>5</td><td>Lexi Goncalves</td><td>Athlete</td></tr>
+          <tr><td>5</td><td>Madison Goncalves</td><td>Athlete</td></tr>
+          <tr><td>6</td><td>Alethea Cragin Padilla</td><td>Athlete</td></tr>
+          <tr><td>6</td><td>Rebekah Cragin</td><td>Mom</td></tr>
+          <tr><td>7</td><td>Ava Guarino</td><td>Athlete</td></tr>
+          <tr><td>7</td><td>Andrea Guarino</td><td>Mom</td></tr>
+          <tr><td>8</td><td>Nichol Recio</td><td>Athlete</td></tr>
+          <tr><td>8</td><td>Maria Lataczewski Recio</td><td>Mom</td></tr>
+          <tr><td>9</td><td>Olive Blouin</td><td>Athlete</td></tr>
+          <tr><td>9</td><td>Catherine Adams</td><td>Mom</td></tr>
+          <tr><td>10</td><td>Coraline Mann</td><td>Athlete</td></tr>
+          <tr><td>10</td><td>Eloise Mann</td><td>Athlete</td></tr>
+          <tr><td>11</td><td>Aasya Kidambi</td><td>Athlete</td></tr>
+          <tr><td>11</td><td>Hilkat Kidambi</td><td>Mom</td></tr>
+          <tr><td>12</td><td>Ava Helon</td><td>Athlete</td></tr>
+          <tr><td>12</td><td>Mila Helon</td><td>Sibling</td></tr>
+          <tr><td>13</td><td>does not exist (rm 13)</td><td></td></tr>
+          <tr><td>14</td><td>Amaya Ruiz</td><td>Athlete</td></tr>
+          <tr><td>14</td><td>Heidi Braun</td><td>Mom</td></tr>
+          <tr><td>15</td><td>Izzy Jordan</td><td>Athlete</td></tr>
+          <tr><td>15</td><td>Gabby Haley</td><td>Athlete</td></tr>
+          <tr><td>16</td><td>Courtney Lawrence</td><td>Athlete</td></tr>
+          <tr><td>16</td><td>Hana Mercado</td><td>Athlete</td></tr>
+          <tr><td>17</td><td>Brennan Kneller</td><td>Athlete</td></tr>
+          <tr><td>17</td><td>Andrea DeFlorio</td><td>Mom</td></tr>
+          <tr><td>18</td><td>Layla Vandertoorn</td><td>Athlete</td></tr>
+          <tr><td>18</td><td>Tara Vandertoorn</td><td>Mom</td></tr>
+          <tr><td>19</td><td>Riley O'Neill</td><td>Athlete</td></tr>
+          <tr><td>19</td><td>Kelly O'Neill</td><td>Mom</td></tr>
+          <tr><td>20</td><td>Maggie Fraser</td><td>Athlete</td></tr>
+          <tr><td>20</td><td>Mary Fraser</td><td>Mom</td></tr>
+          <tr><td>21</td><td>Rylie Meagher</td><td>Athlete</td></tr>
+          <tr><td>21</td><td>Bonni Hansen</td><td>Grandma</td></tr>
+          <tr><td>22</td><td>Ella Loparco</td><td>Athlete</td></tr>
+          <tr><td>22</td><td>Jack Loparco</td><td>Brother</td></tr>
+          <tr><td>23</td><td>Ellicott Smith</td><td>Athlete</td></tr>
+          <tr><td>23</td><td>Missy Smith</td><td>Mom</td></tr>
+          <tr><td>24</td><td>Rosie Blake</td><td>Athlete</td></tr>
+          <tr><td>24</td><td>Timothy Blake</td><td>Dad</td></tr>
+          <tr><td>25</td><td>Natalie Moniz</td><td>Athlete</td></tr>
+          <tr><td>25</td><td>Nicole Moniz</td><td>Mom</td></tr>
+          <tr><td>26</td><td>Sasha Barnett</td><td>Athlete</td></tr>
+          <tr><td>26</td><td>Tanya Barnett</td><td>Mom</td></tr>
+          <tr><td>27</td><td>Kate Robinson</td><td>Athlete</td></tr>
+          <tr><td>27</td><td>Prairie Robinson</td><td>Mom</td></tr>
+          <tr><td>28</td><td>Alexis Schmidt</td><td>Athlete</td></tr>
+          <tr><td>28</td><td>Kara Schmidt</td><td>Mom</td></tr>
+          <tr><td>29</td><td>Tatiana Uviedo</td><td>Athlete</td></tr>
+          <tr><td>29</td><td>Callia Uviedo</td><td>Athlete</td></tr>
+          <tr><td>30</td><td>Brinley Vaughan</td><td>Athlete</td></tr>
+          <tr><td>30</td><td>Erika Vaughan</td><td>Mom</td></tr>
+          <tr><td>31</td><td>Zorah Randhawa</td><td>Athlete</td></tr>
+          <tr><td>31</td><td>Jennifer Stanford</td><td>Mom</td></tr>
+          <tr><td>32</td><td>Alexis Powell</td><td>Athlete</td></tr>
+          <tr><td>32</td><td>Carla Powell</td><td>Mom</td></tr>
+          <tr class="zone"><td colspan="3">Annex</td></tr>
+          <tr><td>56</td><td>Phoebe Hopkins</td><td>Staff</td></tr>
+          <tr><td>56</td><td>Chie Togami</td><td>Staff</td></tr>
+          <tr><td>59</td><td>Tjerk van Hewaarden</td><td>Staff</td></tr>
+          <tr><td>60</td><td>Jayna Whitcher</td><td>Staff</td></tr>
+          <tr><td>61</td><td>Bob Whitcher</td><td>Staff</td></tr>
+          <tr><td>101</td><td>Michael Jordan</td><td>Dad</td></tr>
+          <tr><td>102</td><td>Matt Loparco</td><td>Mom</td></tr>
+          <tr><td>102</td><td>Rachel Balloch</td><td>Dad</td></tr>
+          <tr><td>103</td><td>Judy Balloch</td><td>Gandmother</td></tr>
+          <tr><td>103</td><td>Steve Balloch</td><td>Grandfather</td></tr>
+          <tr><td>104</td><td>Mary Haley</td><td>Mom</td></tr>
+          <tr><td>105</td><td>Julianne Mann</td><td>Mom</td></tr>
+          <tr><td>105</td><td>Britton Mann</td><td>Dad</td></tr>
+          <tr><td>106</td><td>Andrea Adams</td><td>Grandmother</td></tr>
+          <tr><td>107</td><td>Tiffany Hilton</td><td>Mom</td></tr>
+          <tr><td>108</td><td>Corin Inderbitzin Uviedo</td><td>Mom</td></tr>
+          <tr><td>109</td><td>Chimae Goncalves</td><td>Mom</td></tr>
+          <tr><td>110</td><td>Bette Luhman</td><td>Gandmother</td></tr>
+          <tr><td>111</td><td>Nancy Hopkins</td><td>Gandmother</td></tr>
+          <tr><td>201</td><td>Mako Aoki</td><td>Mom</td></tr>
+          <tr><td>201</td><td>Anthony Mercado</td><td>Dad</td></tr>
+          <tr><td>202</td><td>SHARON Lawrence</td><td>Mom</td></tr>
+          <tr><td>202</td><td>Jenna Lawrence</td><td>Sibling</td></tr>
+          <tr><td>203</td><td>Tasha Seyler</td><td>Mom</td></tr>
+          <tr><td>203</td><td>Thorsten Seyler</td><td>Dad</td></tr>
+          <tr><td>204</td><td>Emma Wiley</td><td>Athlete</td></tr>
+          <tr><td>204</td><td>Sabrina Wiley</td><td>Mom</td></tr>
+          <tr><td>205</td><td>Julia Baker</td><td>Athlete</td></tr>
+          <tr><td>205</td><td>Jodilyn Baker</td><td>Mom</td></tr>
+          <tr><td>206</td><td>Maggie Helon</td><td>Mom</td></tr>
+          <tr><td>206</td><td>Chris Helon</td><td>Dad</td></tr>
+          <tr><td>207</td><td>Erin Meagher</td><td>Adult Sibling</td></tr>
+          <tr><td>207</td><td>Kyle Wines</td><td>Fiance</td></tr>
+          <tr><td>208</td><td>Daniel O'Neill</td><td>Dad</td></tr>
+          <tr><td>208</td><td>Caragh O'Neill</td><td>Sibling</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary>Staff &amp; Helpers <small>Our watchful eyes</small></summary>
+      <div class="inner">
+        <h4 style="text-align:center">Our 2026 Hosting Members</h4>
+        <p style="text-align:center;max-width:560px;margin:.55rem auto"><strong>Family and Fans:</strong> Helping family &amp; fans navigate their time and experience with us in Holland. We're using WhatsApp to connect with each other.</p>
+        <div class="staff">
+          <div class="card"><img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/phoebe2-1-1.webp" alt="Phoebe Hopkins"><div class="nm">Phoebe Hopkins</div><div class="ph">+1 (215) 796-7207</div></div>
+          <div class="card"><img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/chie1-1.webp" alt="Chie Togami"><div class="nm">Chie Togami</div><div class="ph">+1 (859) 608-2259</div></div>
+        </div>
+        <p style="text-align:center;max-width:560px;margin:1.2rem auto .55rem"><strong>Athletes:</strong> Leading &amp; chaperoning athletes to, during and from club training.</p>
+        <div class="staff">
+          <div class="card"><img src="https://worldcampusa.wpengine.com/wp-content/uploads/2025/03/emma-1.webp" alt="Emma Leppert"><div class="nm">Emma Leppert</div><div class="ph">+1 (484) 319-5514</div></div>
+          <div class="card"><img src="https://worldcampusa.wpengine.com/wp-content/uploads/2026/02/annedrabbe.webp" alt="Anne Drabbe"><div class="nm">Anne Drabbe</div><div class="ph">+31 6 42 55 73 17</div></div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img class="flogo" src="images/eurotour-logo.png" alt="Sport EuroTour" style="background:#fff;padding:.55rem .8rem;border-radius:6px;height:76px">
+      <p>Showcasing a 38 Year Legacy: Successfully Hosting Over 5000 Athletes to Holland.</p>
+      <p style="margin-top:.6rem"><strong>Dutch Training Tour</strong><br>A MasterClass in Hockey</p>
+    </div>
+    <div>
+      <p><strong>Navigate</strong></p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="itinerary27.html">2027 Tour Details</a></li>
+        <li><a href="https://lineupfh.com/" target="_blank" rel="noopener">The LineUP</a></li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Contact Us</strong></p>
+      <ul>
+        <li><a href="mailto:Info@sporteurotour.com?subject=Member question">Info@sporteurotour.com</a></li>
+        <li><a href="https://www.instagram.com/sporteurotour/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a><br>
+    &copy; Expanding Horizons, Inc. dba Sport EuroTour
+  </div>
+</footer>
+
+</body>
+</html>
