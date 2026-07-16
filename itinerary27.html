@@ -38,7 +38,8 @@
   .hero{background:linear-gradient(rgba(12,31,77,.5),rgba(12,31,77,.75)),url('https://worldcampusa.wpengine.com/wp-content/uploads/2025/08/banner-group-utrecht.webp') center/cover no-repeat;color:#fff;text-align:center;padding:1.5rem 1rem;min-height:calc(100vh - 160px);min-height:calc(100svh - 160px);display:flex;flex-direction:column;justify-content:center;align-items:center}
   .hero .since{font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:#ffd6d6}
   .hero h1{font-size:clamp(1.9rem,5.5vw,3.7rem);margin:.4rem 0;text-transform:uppercase;letter-spacing:.05em;line-height:1.12}
-  .hero h1 span{color:var(--red);white-space:nowrap}
+  .hero h1 span{color:var(--red)}
+  .mbr{display:none}
   .hero .sub{margin-top:.5rem;font-size:clamp(.98rem,2.2vw,1.2rem);color:#e8edf5;line-height:1.6}
   .hero .sub strong{font-size:1.1em;white-space:nowrap}
   .hero .ctas{margin-top:1.1rem}
@@ -152,6 +153,15 @@
     .day,.coach{grid-template-columns:1fr}
     .coach img{margin:0 auto}
     .anchor-nav{top:0;position:static}
+    .mbr{display:inline}
+    .hero h1 span{white-space:nowrap}
+    .hero{padding:1rem}
+    .hero .since{font-size:.78rem;letter-spacing:.14em}
+    .hero h1{font-size:2rem}
+    .hero .sub{font-size:.95rem;line-height:1.55}
+    .hero .ctas .btn{padding:.5rem 1.1rem;font-size:.85rem}
+    .hero img.badge{max-height:11vh;margin-top:.9rem}
+    .hero .yeartag{font-size:.9rem;letter-spacing:.35em;text-indent:.35em}
     .vid-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
     .vid-grid h3{font-size:.9rem}
     nav.main a{margin-left:.9rem;font-size:.85rem}
@@ -178,7 +188,7 @@
 
 <div class="hero" id="top">
   <div class="since">The Trip of Her Life. Yours Too.</div>
-  <h1>The 2027 <span>Dutch Training Tour</span></h1>
+  <h1>The 2027 <span>Dutch Training<br class="mbr">Tour</span></h1>
   <p class="sub"><strong>Amsterdam &bull; July 22 to 28, 2027</strong><br>For female field hockey athletes, graduating classes of 2028 to 2030.<br>Parents and family welcome. Encouraged, actually.</p>
   <div class="ctas">
     <a class="btn" href="#itn">See the Itinerary</a>
