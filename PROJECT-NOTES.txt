@@ -1,0 +1,78 @@
+SPORT EUROTOUR WEBSITE REBUILD - PROJECT NOTES
+Updated July 14, 2026. Paste this into Claude to resume the project with full context.
+
+CURRENT STATUS: LIVE ON PREVIEW URL
+Preview site (share with reviewers): https://sporteurotour-site.bob-377.workers.dev
+Real site sporteurotour.com still runs WordPress on WP Engine. DNS still at GoDaddy. Nothing public has changed.
+
+THE SITE (6 pages, all in this folder)
+- index.html      = homepage ("The Trip of Her Life. Yours Too." full-screen hero, credibility strip, feature blocks, JotForm interest form)
+- itinerary27.html = 2027 tour page (full-screen hero + red anchor band, vertical videos, itinerary, pricing w/ Dec 1 2026 payment start, accordions, JotForm interest form; Tjerk removed; grad years 2028-2030 everywhere)
+- members26.html  = PRIVATE 2026 members page (noindex, not in nav; day-by-day matching itinerary PDF, room list, staff cards, local PDFs)
+- questions.html  = PRIVATE questionnaire page (JotForm 260015286241145 embedded; noindex, not in nav)
+- terms.html      = Terms & Conditions
+- privacy.html    = Privacy Policy
+- images/         = local site images (vector-quality logos: full color, white w/ red plane + fading trail; tour photos)
+- docs/           = EuroTour-2026-Tour-Itinerary.pdf + nine-streets-shopping-map.pdf (site-hosted)
+- wrangler.jsonc  = Cloudflare deploy settings (do not delete)
+- 404.html = branded not-found page (Cloudflare serves it automatically)
+- images/favicon-48.png + apple-touch-icon.png = favicons, linked on every page
+- robots.txt + sitemap.xml = SEO/AEO layer (public pages also carry meta descriptions, canonicals to sporteurotour.com, Open Graph, and JSON-LD schema: Organization + WebSite on homepage, SportsEvent on tour page). At cutover: verify Cloudflare allows AI crawlers (Security > Bots) and set up Google Search Console + submit sitemap.
+- Loose .jpg/.gif/.pdf files in the root are raw source material, not site files.
+- Brand: red #df202c (logo red #e92532), blues from logo (#2e4d95/#456bb4). Vector logo .ai is the master; keep it backed up.
+
+INFRASTRUCTURE
+- GitHub repo: capecodbob421/sporteurotour-site (the master copy of the site)
+- Cloudflare: Workers & Pages project "sporteurotour-site", auto-deploys from GitHub main branch
+- Forms are all JotForm now: EuroTour Interest 261973062785164 (homepage + tour page mailing list), 2027 Questionnaire 261972697237169 (questions.html). HubSpot embed removed July 16, 2026.
+- Branding: red #df202c (logo red is #e92532 if exact match wanted), blues from logo (#2e4d95 / #456bb4)
+
+THE SYNC MODEL (one master, no confusion)
+GitHub is the MASTER COPY, always. The live site = whatever GitHub main has.
+- CloudCannon: day-to-day edits by Bob and staff, any device. Syncs with GitHub both ways
+  automatically. WHEN TRAVELING, USE ONLY CLOUDCANNON (or the GitHub pencil edit). Never
+  keep site file copies on a laptop.
+- Desktop folder + Claude: the workshop for design/structural work. SESSION RITUAL: start by
+  telling Claude "sync from GitHub" (Claude pulls current files from
+  raw.githubusercontent.com/capecodbob421/sporteurotour-site/main/ and refreshes this folder),
+  end by uploading changed files to GitHub.
+- GitHub pencil edit (fallback): github.com > file > pencil > edit text > Commit. Live in ~1 min.
+
+EDIT WORKFLOW (the routine)
+1. Tell Claude what to change. Claude edits files in this folder directly.
+2. Review locally: double-click index.html, or refresh the browser tab.
+3. Publish: go to github.com > sporteurotour-site > Add file > Upload files > drag the changed file(s) in > Commit changes. Cloudflare republishes automatically in about a minute.
+
+REMAINING STEPS BEFORE CUTOVER (in order)
+1. Reviewer feedback round on the preview URL. Test the JotForm interest form submits correctly there.
+2. IMAGE MIGRATION: DONE July 16, 2026. All 60 WordPress images now live in images/ and every
+   page references local copies only. Zero wpengine.com references remain. The site no longer
+   depends on WordPress for anything. (The media_library_export zip in the folder is raw source
+   material - do NOT upload it to GitHub.)
+3. CloudCannon: 54 editable regions wired into the HTML (data-editable="source" attributes)
+   covering nearly all text and photos on all 6 pages: heroes, features, pricing, accordions,
+   FAQ, gallery, testimonials, coach cards, legal docs, members page tabs incl. rooms table.
+   NOT editable (by design): nav bars, footers, HubSpot/JotForm embeds, videos, hero background
+   photos (CSS), page titles/SEO tags. Those remain Bob+Claude edits.
+   NOTE: if staff edit FAQ answers, ask Claude to re-sync the FAQ schema in the page head.
+   STATUS July 16: CloudCannon connected to GitHub and WORKING. Site synced, build configured
+   (SSG "Custom", output path /, Building Locked = off), cloudcannon.config.yml in repo with
+   url: '/[full_slug].html' on the pages collection (that line is what makes the Visual Editor
+   work - do not remove it). Visual Editor confirmed rendering members26.
+   NEXT: Bob tests one edit end-to-end (edit Announcements in Visual Editor > Save > verify on
+   preview URL in ~1 min), then invites staff as Editors under site Sharing settings.
+   Bob connects CloudCannon to the GitHub repo, picks "Static" as the SSG
+   (no build step), and invites staff as Editors. Staff edits save as commits to GitHub main,
+   which Cloudflare publishes automatically in about a minute.
+   IMPORTANT NEW RULE once staff start editing: GitHub may be NEWER than this folder. Before an
+   editing session with Claude, download the repo (GitHub > Code > Download ZIP) and copy the
+   HTML files into this folder so staff changes are not overwritten.
+4. Content decisions still open: homepage "Registration is Open" button wording (2027 registration is SOON on tour page); athlete/family register buttons are SOON placeholders pending WeTravel 2027 links; eligibility years conflict on live site (2028-2030 vs 2027-2029) was replicated as-is.
+5. Cutover: point DNS at GoDaddy to the Cloudflare site (custom domain sporteurotour.com added in Cloudflare first). Rollback = point DNS back to WP Engine.
+6. Keep WP Engine active about a month after cutover, confirm nothing breaks, then cancel.
+
+EXISTING SYSTEMS (do not rebuild)
+HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
+
+STYLE
+Conversational, professional, friendly. Direct, no fluff, no buzzwords, no em dashes. Promo copy short and punchy.
