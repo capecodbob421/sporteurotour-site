@@ -1,0 +1,53 @@
+SPORT EUROTOUR WEBSITE - OPERATING PLAYBOOK
+Updated July 16, 2026. Share the staff sections with anyone who edits the site.
+
+THE ONE RULE
+GitHub is the master copy. CloudCannon writes to it automatically. Bob and Claude
+sync with it deliberately. The live site publishes from it in about a minute.
+If you are unsure whether a copy is current, it is not - sync first.
+
+WHO EDITS WHAT, WHERE
+- Staff: CloudCannon only. Text and photos inside the yellow editable regions.
+- Bob day-to-day (and all travel): CloudCannon, from any device. No laptop file copies.
+- Bob bigger work: Claude + the desktop folder (design, new pages, pricing, nav, locked areas).
+
+WORKFLOW 1 - ROUTINE EDIT (staff or Bob, ~2 min)
+CloudCannon > Pages > open page > click a yellow region > edit > Save.
+Live in about a minute. Locked areas (nav, forms, pricing structure, code) cannot be
+broken by editors.
+
+WORKFLOW 2 - WORKSHOP SESSION (Bob + Claude)
+1. Start: tell Claude "sync from GitHub" (Claude refreshes the folder from
+   raw.githubusercontent.com/capecodbob421/sporteurotour-site/main/).
+2. Work and review locally as usual.
+3. End: upload changed files to GitHub (drag and drop). Never skip step 1 once staff
+   are actively editing.
+
+WORKFLOW 3 - TRAVELING
+CloudCannon in the laptop browser. Nothing else. Fallback: GitHub pencil edit
+(github.com > file > pencil > edit text only > Commit).
+
+WORKFLOW 3B - CLAUDE ON THE ROAD (when travel edits need the workshop)
+One-time prep: install the Claude desktop app on the laptop and sign in. Keep
+PROJECT-NOTES.txt and WEBSITE-PLAYBOOK.txt uploaded to GitHub.
+When needed:
+1. Open Claude on the laptop, start a Cowork session, connect a new empty folder.
+2. First message: "Fetch
+   https://raw.githubusercontent.com/capecodbob421/sporteurotour-site/main/PROJECT-NOTES.txt
+   and follow it. Then sync the site files from GitHub into this folder."
+3. Work as usual; publish by dragging changed files to github.com in the browser.
+4. Back home, first words to desktop Claude: "sync from GitHub".
+Questions only (no files): Claude phone app or claude.ai in any browser.
+
+SAFETY NETS
+- GitHub keeps full history of every save, by every person. Any page can be restored
+  to any previous version - ask Claude ("revert members26 to yesterday").
+- Publishing is automatic. Nobody touches Cloudflare.
+- Never delete wrangler.jsonc or cloudcannon.config.yml from GitHub.
+
+STAFF ONBOARDING (per person, ~20 min)
+1. CloudCannon > site > Sharing > add their email as Editor.
+2. They make one practice edit on a members-page announcement, save, see it live, undo it.
+3. House rules: (a) edit only what you can click into; (b) Save publishes to the real
+   site - read before saving; (c) if something looks wrong, stop and tell Bob. Never
+   try to fix code.
