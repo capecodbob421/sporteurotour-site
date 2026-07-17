@@ -258,6 +258,14 @@
   details.acc .inner ul{padding-left:1.2rem}
   details.acc .inner h4{color:var(--navy);margin-top:1rem;text-transform:uppercase;font-size:1rem}
   details.acc .inner img{border-radius:8px;margin:.8rem 0}
+  #contact details.acc{border:none;border-radius:12px;overflow:hidden;box-shadow:0 4px 8px rgba(12,31,77,.22),0 14px 32px rgba(12,31,77,.3),0 28px 60px rgba(12,31,77,.22);transform:translateY(-2px);transition:transform .2s,box-shadow .2s;margin-top:1.6rem}
+  #contact details.acc:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(12,31,77,.25),0 20px 44px rgba(12,31,77,.34),0 36px 80px rgba(12,31,77,.25)}
+  #contact details.acc summary{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;font-size:1.2rem;padding:1.2rem 1.4rem;transition:filter .2s}
+  #contact details.acc summary:hover{filter:brightness(1.12)}
+  #contact details.acc summary small{color:#ffd6d6;font-weight:600}
+  #contact details.acc summary::after{content:"+";color:#fff;background:var(--red);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-size:1.5rem;line-height:1}
+  #contact details.acc[open] summary::after{content:"\2013"}
+  #contact details.acc .inner{padding-top:1rem}
 
   /* Pricing */
   .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin:1rem 0}
