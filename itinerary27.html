@@ -189,10 +189,11 @@
   .mbr{display:none}
   .hero .sub{margin-top:.5rem;font-size:clamp(.98rem,2.2vw,1.2rem);color:#e8edf5;line-height:1.6}
   .hero .sub strong{font-size:1.1em;white-space:nowrap}
-  .hero .ctas{margin-top:1.1rem}
+  .hero .ctas{margin-top:.9rem}
+  .hero .reg-ctas{margin-top:.7rem}
   .hero .ctas .btn{margin:.3rem .35rem 0;font-weight:600;padding:.6rem 1.4rem}
-  .hero img.badge{max-width:min(260px,62vw);max-height:14vh;width:auto;height:auto;margin:1.2rem auto 0}
-  .hero .yeartag{font-weight:800;letter-spacing:.45em;margin-top:.45rem;font-size:1.05rem;text-indent:.45em}
+  .hero img.badge{max-width:min(260px,62vw);max-height:12vh;width:auto;height:auto;margin:.8rem auto 0}
+  .hero .yeartag{font-weight:800;letter-spacing:.45em;margin-top:.3rem;font-size:1rem;text-indent:.45em}
 
   /* Anchor nav */
   .anchor-nav{background:var(--red);text-align:center;padding:.55rem .5rem;position:sticky;top:69px;z-index:40}
@@ -319,8 +320,10 @@
     .hero h1{font-size:2rem}
     .hero .sub{font-size:.95rem;line-height:1.55}
     .hero .ctas .btn{padding:.5rem 1.1rem;font-size:.85rem}
-    .hero img.badge{max-height:11vh;margin-top:.9rem}
-    .hero .yeartag{font-size:.9rem;letter-spacing:.35em;text-indent:.35em}
+    .hero img.badge{max-height:9vh;margin-top:.6rem}
+    .hero .yeartag{font-size:.85rem;letter-spacing:.35em;text-indent:.35em}
+    .hero .reg-ctas{margin-top:.5rem}
+    .hero .reg-ctas .btn{padding:.5rem .9rem;font-size:.82rem}
     .vid-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
     .vid-grid h3{font-size:.9rem}
     nav.main a{margin-left:.9rem;font-size:.85rem}
@@ -355,6 +358,10 @@
   </div>
   <img loading="lazy" class="badge" src="images/eurotour-logo-white.png" alt="Sport EuroTour">
   <div class="yeartag">2027 TOUR</div>
+  <div class="ctas reg-ctas">
+    <a class="btn ghost" href="https://tri.ps/JUuOo" target="_blank" rel="noopener">Athlete Registration</a>
+    <a class="btn" href="https://tri.ps/MjcPd" target="_blank" rel="noopener">Family Registration</a>
+  </div>
 </div>
 
 <nav class="anchor-nav">
@@ -970,7 +977,7 @@
     <p>Athletes must register first &mdash; family members register immediately after.</p>
     <a class="btn" href="https://tri.ps/JUuOo" target="_blank" rel="noopener">Athlete Registration</a>
     <a class="btn" href="https://tri.ps/MjcPd" target="_blank" rel="noopener">Family Registration</a>
-    <a class="btn ghost" href="mailto:info@sporteurotour.com?subject=EuroTour Question">Email Us a Question</a>
+    <div style="margin-top:.5rem"><a class="btn ghost" href="mailto:info@sporteurotour.com?subject=EuroTour Question">Email Us a Question</a></div>
   </div>
 </section>
 
