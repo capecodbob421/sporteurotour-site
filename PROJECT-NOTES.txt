@@ -1,15 +1,22 @@
 SPORT EUROTOUR WEBSITE REBUILD - PROJECT NOTES
 Updated July 14, 2026. Paste this into Claude to resume the project with full context.
 
-CURRENT STATUS: LIVE ON PREVIEW URL
-Preview site (share with reviewers): https://sporteurotour-site.bob-377.workers.dev
-Real site sporteurotour.com still runs WordPress on WP Engine. DNS still at GoDaddy. Nothing public has changed.
+CURRENT STATUS: LIVE ON SPORTEUROTOUR.COM (cutover completed July 17, 2026)
+The new site is the real site: https://sporteurotour.com and https://www.sporteurotour.com
+DNS runs through Cloudflare (nameservers kyle/lia.ns.cloudflare.com; GoDaddy still the registrar).
+Email (Google MX), HubSpot DKIM, and pay links verified working post-cutover. Search Console
+verified + sitemap submitted. WordPress still runs untouched at WP Engine until ~Aug 20, then cancel.
+ROLLBACK if ever needed: in Cloudflare DNS, re-add A @ 141.193.213.10 and .11
+(full pre-cutover record list in DNS-SNAPSHOT-2026-07-17.txt).
 
 THE SITE (6 pages, all in this folder)
 - index.html      = homepage ("The Trip of Her Life. Yours Too." full-screen hero, credibility strip, feature blocks, JotForm interest form)
 - itinerary27.html = 2027 tour page (full-screen hero + red anchor band, vertical videos, itinerary, pricing w/ Dec 1 2026 payment start, accordions, JotForm interest form; Tjerk removed; grad years 2028-2030 everywhere)
 - members26.html  = PRIVATE 2026 members page (noindex, not in nav; day-by-day matching itinerary PDF, room list, staff cards, local PDFs)
-- questions.html  = PRIVATE questionnaire page (JotForm 260015286241145 embedded; noindex, not in nav)
+- questions.html  = PRIVATE questionnaire page (2027 JotForm 261972697237169; noindex, not in nav)
+- members27.html  = PRIVATE 2027 members page (added July 31; day-by-day matches the 2027 itinerary
+  PDF at docs/EuroTour-2027-Tour-Itinerary.pdf; staff cards + rooming list are TBA placeholders;
+  hotel booking code EUROTOUR27 needs confirming with the hotel)
 - terms.html      = Terms & Conditions
 - privacy.html    = Privacy Policy
 - images/         = local site images (vector-quality logos: full color, white w/ red plane + fading trail; tour photos)
