@@ -74,7 +74,10 @@ REMAINING STEPS BEFORE CUTOVER (in order)
    IMPORTANT NEW RULE once staff start editing: GitHub may be NEWER than this folder. Before an
    editing session with Claude, download the repo (GitHub > Code > Download ZIP) and copy the
    HTML files into this folder so staff changes are not overwritten.
-4. Content decisions still open: homepage "Registration is Open" button wording (2027 registration is SOON on tour page); athlete/family register buttons are SOON placeholders pending WeTravel 2027 links; eligibility years conflict on live site (2028-2030 vs 2027-2029) was replicated as-is.
+4. REGISTRATION IS LIVE (July 31): athlete link https://tri.ps/JUuOo, family link
+   https://tri.ps/MjcPd. Wired into: tour page hero (blue/red buttons under logo), intro-box,
+   How to Apply accordion, Join Us section (email link on its own line below). Topbar REGISTER
+   HERE on every page points to itinerary27.html#reg. No SOON placeholders remain.
 5. Cutover: point DNS at GoDaddy to the Cloudflare site (custom domain sporteurotour.com added in Cloudflare first). Rollback = point DNS back to WP Engine.
 6. Keep WP Engine active about a month after cutover, confirm nothing breaks, then cancel.
 
