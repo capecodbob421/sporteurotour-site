@@ -27,6 +27,23 @@ WORKFLOW 3 - TRAVELING
 CloudCannon in the laptop browser. Nothing else. Fallback: GitHub pencil edit
 (github.com > file > pencil > edit text only > Commit).
 
+WORKFLOW 4 - SECOND TEAM MEMBER WITH THEIR OWN CLAUDE (e.g., Jayna)
+One-time setup on their computer:
+1. Install the Claude desktop app and sign in with their own account.
+2. Create an empty folder (e.g., Desktop > "SportEuroTour Website") and connect it in a
+   Cowork session.
+3. First message to their Claude: "Fetch
+   https://raw.githubusercontent.com/capecodbob421/sporteurotour-site/main/PROJECT-NOTES.txt
+   and follow it. Then sync the site files from GitHub into this folder."
+Every session after: start with "sync from GitHub", end by publishing changed files to
+GitHub (drag-and-drop, or ask Claude to do it via the Chrome extension).
+COORDINATION RULE: two people never work on the SAME page at the same time - in Claude
+or CloudCannon. A quick text ("I've got itinerary27 this morning") is the whole system.
+When your session changes anything worth remembering, ask Claude to update
+PROJECT-NOTES.txt and include it in the upload - that is how both Claudes stay current.
+DO NOT put the working folder in Google Drive/Dropbox/OneDrive sync - GitHub is the
+shared drive for this project. Sync services create conflicted duplicate files.
+
 WORKFLOW 3B - CLAUDE ON THE ROAD (when travel edits need the workshop)
 One-time prep: install the Claude desktop app on the laptop and sign in. Keep
 PROJECT-NOTES.txt and WEBSITE-PLAYBOOK.txt uploaded to GitHub.
