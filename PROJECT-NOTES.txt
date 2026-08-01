@@ -11,7 +11,7 @@ ROLLBACK if ever needed: in Cloudflare DNS, re-add A @ 141.193.213.10 and .11
 
 THE SITE (6 pages, all in this folder)
 - index.html      = homepage ("The Trip of Her Life. Yours Too." full-screen hero, credibility strip, feature blocks, JotForm interest form)
-- itinerary27.html = 2027 tour page (full-screen hero + red anchor band, vertical videos, itinerary, pricing w/ Dec 1 2026 payment start, accordions, JotForm interest form; Tjerk removed; grad years 2028-2030 everywhere)
+- itinerary27.html = 2027 tour page (full-screen hero + red anchor band, vertical videos, itinerary, pricing: athlete $295+3x$900 (Dec 15/Mar 13/May 13), family $295+3x$566.67 (Dec 10/Mar 13/May 13), accordions, JotForm interest form; Tjerk removed; grad years 2028-2030 everywhere)
 - members26.html  = PRIVATE 2026 members page (noindex, not in nav; day-by-day matching itinerary PDF, room list, staff cards, local PDFs)
 - questions.html  = PRIVATE questionnaire page (2027 JotForm 261972697237169; noindex, not in nav)
 - members27.html  = PRIVATE 2027 members page (added July 31; day-by-day matches the 2027 itinerary
