@@ -78,6 +78,23 @@ REMAINING STEPS BEFORE CUTOVER (in order)
    https://tri.ps/MjcPd. Wired into: tour page hero (blue/red buttons under logo), intro-box,
    How to Apply accordion, Join Us section (email link on its own line below). Topbar REGISTER
    HERE on every page points to itinerary27.html#reg. No SOON placeholders remain.
+5. STATE AS OF Aug 2, 2026:
+   - Tour page: 8 vertical videos in two rows ("In Their Own Words" testimonials first, then
+     "Inside the Tour"); Bert Remmerswaal and the "We Back Up Our Claims" block removed; hero
+     has no buttons (nav ribbon + in-page registration carry that job); FAQ has 11 questions
+     incl. physical-demands answer. Payment plans: athlete $295 + 3x$900, family $295 +
+     $566.67/$566.67/$566.66, both on Dec 10 2026, Mar 13 2027, May 13 2027.
+   - Optional Dutch training day is $295 on all 2027 pages. members26 keeps $275 on purpose
+     (past event, historical record).
+   - CloudCannon FIX: editing failed until cloudcannon.config.yml got an explicit _editables
+     block (permissive rich-text options) AND regions were made per-item (each FAQ item, each
+     price card, each payment plan) instead of wrapping groups of divs. If the editor ever says
+     "Uneditable/Unexpected element" again, that is the pattern to repeat. Editor preview can
+     look broken while the live site is fine - always check the live site before worrying.
+   - After anyone edits FAQ answers in CloudCannon, tell Claude so the hidden FAQ schema in the
+     page head gets re-synced to match.
+   - images/ has 2026 tour photos converted to webp (windmill, bus, ferry, Jayna and Bob, etc.)
+     that are in the repo but not yet placed on any page.
 5. Cutover: point DNS at GoDaddy to the Cloudflare site (custom domain sporteurotour.com added in Cloudflare first). Rollback = point DNS back to WP Engine.
 6. Keep WP Engine active about a month after cutover, confirm nothing breaks, then cancel.
 
