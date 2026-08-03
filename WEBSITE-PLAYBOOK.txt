@@ -56,6 +56,16 @@ When needed:
 4. Back home, first words to desktop Claude: "sync from GitHub".
 Questions only (no files): Claude phone app or claude.ai in any browser.
 
+IF SOMETHING GOES WRONG
+- "Syncing is paused" / red X in CloudCannon = you and Claude edited the same page.
+  Do NOT discard your work. SAVE in CloudCannon, then tell Claude "CloudCannon conflict on
+  <page>". Claude has a documented recovery procedure in PROJECT-NOTES and can merge both
+  sets of edits. Nothing is ever lost - Git keeps every version.
+- Page looks structurally broken right after a CloudCannon save (text in the wrong column,
+  doubled separators)? CloudCannon's editor sometimes injects stray tags into hand-built
+  layouts. Tell Claude; it is a quick, known fix. Check the live site before worrying - the
+  CloudCannon preview can look wrong while the real site is fine.
+
 SAFETY NETS
 - GitHub keeps full history of every save, by every person. Any page can be restored
   to any previous version - ask Claude ("revert members26 to yesterday").

@@ -95,6 +95,73 @@ REMAINING STEPS BEFORE CUTOVER (in order)
      page head gets re-synced to match.
    - images/ has 2026 tour photos converted to webp (windmill, bus, ferry, Jayna and Bob, etc.)
      that are in the repo but not yet placed on any page.
+
+6. STATE AS OF Aug 3, 2026 (tour page polish session):
+   - Hero: no buttons; "The 2027" on its own line above "Dutch Training Tour" on desktop,
+     phone keeps the 3-line break. Full stack + red ribbon verified to fit one screen down to
+     a 1280x600 window.
+   - Watch This: 8 vertical videos in two labeled rows - "2026 Parents In Their Own Words"
+     (Julianne, Jodi, Maggie & Chris, Rachel) then "Inside the Tour" (original four).
+   - Coaches: Bert Remmerswaal and the "We Back Up Our Claims" graphics block removed.
+     Heading sandwich = red kicker / "Our Dutch FIH & Olympic Coaches" / red
+     "Get Ready to Train With True Masters of Their Craft".
+   - Copy: "Why Consider Us for Hockey?", "The Ultimate Family Road Trip" (both places),
+     "Family Shared Experience!" letter rewritten, intro-box has "Top Dutch Hockey." under
+     World Class Development, hotel-relaxation line bolded under "What Will Parents Do?".
+   - Registration buttons in the intro-box are stacked with a thin "CLICK HERE TO REGISTER"
+     line; blue buttons have a hover state.
+
+CONTENT RULE - NO IMPLIED INCLUSIONS (added Aug 3 after Bob flagged it)
+We do NOT take guests to Vondelpark, the Anne Frank House, or on a canal cruise. Those were
+removed sitewide from the 2027 pages. Anything optional that families pay for or arrange
+themselves must be unmistakably labeled. Two patterns now in place, reuse them:
+  - itinerary27 Day 5: heading reads "SIGHTSEEING TIPS - ON YOUR OWN" with the line
+    "Suggestions for your free time. These are not part of the program and are not included."
+  - members27 "Fun Stuff, Food & Shopping": opens with a .note box saying everything in the
+    section is on your own and not included in the tour price.
+NOTE: members26 is a finished event and is deliberately left as a historical record
+(keeps $275 optional-training price and its original content).
+
+YEARS CONVENTION (settled Aug 3)
+Count elapsed years from 1989. 2026 = 37 Years, 2027 = 38 Years. Footers on every page say
+"Showcasing a 38 Year Legacy"; homepage meta description and Organization schema say
+"38 years running". If a year number appears anywhere, it must agree with this.
+
+CLOUDCANNON GOTCHA - STRAY TAGS ON SAVE (learned Aug 3)
+CloudCannon's rich-text editor "tidies" hand-built HTML when it saves. It injects stray <p>
+wrappers and converts <br> to <br />, &bull; to a literal bullet, etc. Ordinary paragraph
+sections absorb this harmlessly, but it BREAKS CSS grid/flex blocks, because a stray tag
+becomes an extra grid child.
+  - Seen on: the .coach cards (a stray <p> between the photo and the text div pushed the bio
+    into the narrow photo column) and a doubled "|" separator in the footer legal line.
+  - After any CloudCannon save, check grid-based blocks: .coach cards, .price-card,
+    .vid-grid, .staff cards, the hero.
+  - Fix: remove the injected <p> and its orphan </p> INSIDE that one block only. Do not run a
+    broad regex over the whole file - a greedy pattern stripped legitimate closing tags and
+    had to be reverted from GitHub.
+
+MERGE RECOVERY - IF CLOUDCANNON AND CLAUDE EDIT THE SAME FILE (procedure proven Aug 3)
+Symptom: CloudCannon shows "syncing is paused" then Pull/Push fail; Syncs tab shows
+"CONFLICT (content): Merge conflict in <file>". Nothing is lost - both versions still exist.
+  1. Have Bob SAVE in CloudCannon (do not discard). His edits live only in that session.
+  2. Snapshot GitHub's current version of the file (that is Claude's side).
+  3. In CloudCannon click Rebuild, then fetch the file from the testing domain
+     (salmon-iris.cloudvent.net/<page>.html) - that serves CloudCannon's copy = Bob's version.
+     Verify it is clean (no injected cloudcannon/cloudvent markers).
+  4. Fetch the common ancestor: the commit on that file BEFORE Claude's change, via
+     api.github.com/repos/capecodbob421/sporteurotour-site/commits?path=<file>
+     then raw.githubusercontent.com/.../<sha>/<file>.
+  5. Three-way merge: git merge-file -p mine.html base.html theirs.html > merged.html
+     Resolve conflicts by hand (Aug 3 had one, in the hero - kept Claude's version because
+     CloudCannon's side was only stale markup, not a real edit).
+  6. Verify BOTH sets of edits survive with explicit string counts before publishing.
+  7. Publish merged file to GitHub.
+  8. In CloudCannon: Site Settings > Syncing > "Reset using Git repository main"
+     (confirm "Clear and reconnect"). Safe once the merge is on GitHub; CloudCannon also
+     keeps a backup under Site Settings > Backups.
+  9. Confirm Pull and Build show Completed and the testing domain matches the live site.
+PREVENTION: never have CloudCannon open on the same page Claude is working on. One editor per
+page at a time.
 5. Cutover: point DNS at GoDaddy to the Cloudflare site (custom domain sporteurotour.com added in Cloudflare first). Rollback = point DNS back to WP Engine.
 6. Keep WP Engine active about a month after cutover, confirm nothing breaks, then cancel.
 
