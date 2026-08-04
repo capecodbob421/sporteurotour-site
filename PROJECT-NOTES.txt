@@ -111,6 +111,29 @@ REMAINING STEPS BEFORE CUTOVER (in order)
    - Registration buttons in the intro-box are stacked with a thin "CLICK HERE TO REGISTER"
      line; blue buttons have a hover state.
 
+7. STATE AS OF Aug 4, 2026:
+   - itinerary27 Day 1 details now ends with images/SpaZuiver.webp under the HOTEL TIP box
+     (first image placed inside a day accordion; style used:
+     style="border-radius:8px;margin:1rem 0 .2rem;width:100%").
+   - Day 2: removed a stray leading <br /> before CITY SIGHTSEE that was making that gap
+     bigger than the others. Bob could not fix this in CloudCannon because the editor shows
+     the text but not the invisible break in front of it - that class of problem needs Claude.
+   - "What Will Parents Do?": the relaxation line is bold, HOTEL is capitalized and linked to
+     https://zuiveramsterdam.nl/en/ (new tab), and now reads "...soothing spa treatments,
+     state-of-the-art fitness center and weight room and sport courts...".
+
+HOUSEKEEPING - SWEEP EDITOR ARTIFACTS (do this whenever opening a file after CloudCannon use)
+CloudCannon saves leave empty <p></p> tags and stray <p> wrappers around <div> blocks. They
+are invisible in the editor but add real vertical space, and stacked ones (six at the end of
+Day 2 on Aug 4) look like a layout bug. Sweep:
+  - Remove all empty paragraphs:  re.subn(r'[ \t]*<p>\s*</p>\n?', '', src)   -> safe
+  - Unwrap stray <p> that only wraps a <div>: handle each instance EXPLICITLY by exact string.
+  - VALIDATE after every step and re-verify content counts (videos 8, tri.ps 6, coach cards 2,
+    faq-item 11, data-key 42). Aug 4 sweep removed 12 empty <p> and 3 stray wrappers.
+  - DO NOT use a broad regex for orphan </p> tags. Tried twice, broke the HTML both times,
+    had to restore itinerary27.html from GitHub. Restoring from GitHub is the safety net -
+    use it the moment the validator reports unclosed tags.
+
 CONTENT RULE - NO IMPLIED INCLUSIONS (added Aug 3 after Bob flagged it)
 We do NOT take guests to Vondelpark, the Anne Frank House, or on a canal cruise. Those were
 removed sitewide from the 2027 pages. Anything optional that families pay for or arrange
