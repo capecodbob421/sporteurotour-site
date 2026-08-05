@@ -197,6 +197,26 @@ Symptom: CloudCannon shows "syncing is paused" then Pull/Push fail; Syncs tab sh
   9. Confirm Pull and Build show Completed and the testing domain matches the live site.
 PREVENTION: never have CloudCannon open on the same page Claude is working on. One editor per
 page at a time.
+
+SYNCING PAUSED - NO CONFLICT, JUST AN UNSAVED FILE (fastest fix, proven Aug 5)
+Symptom: Dashboard Pull fails with "Remote changes would overwrite files that are open in the
+editor. Please save your changes and try again." This is NOT a merge conflict. It means
+CloudCannon is holding unsaved edits on a file that GitHub has also changed.
+THE FIX (30 seconds, do this FIRST before any merge recovery):
+  1. Click the SAVE button, top right of CloudCannon. It opens the "Save changes" panel and
+     does NOT save anything by itself.
+  2. The panel lists every file with unsaved edits, each with a checkbox.
+  3. Confirm the GitHub copy is the one to keep (curl the raw file and compare), then click
+     "Discard selected" > "Discard unsaved changes".
+  4. Syncing resumes on its own. Pull and Build run automatically within seconds.
+  5. Verify: the blue "Edited" badge is gone from the Pages collection and the new file
+     (e.g. teams.html) now appears in the list.
+NOTE: "Discard unsaved changes" from inside the page editor's three-dot menu does NOT clear it.
+The Save panel is the only place that works. Also: "Reset using Git repository main" does not
+clear it either - the unsaved file survives the reset.
+DO NOT click "Save all" in that panel unless Bob's CloudCannon edits are wanted. Save all
+overwrites GitHub with CloudCannon's copy.
+
 5. Cutover: point DNS at GoDaddy to the Cloudflare site (custom domain sporteurotour.com added in Cloudflare first). Rollback = point DNS back to WP Engine.
 6. Keep WP Engine active about a month after cutover, confirm nothing breaks, then cancel.
 
