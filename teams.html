@@ -58,12 +58,12 @@
   .anchor-nav a:hover{text-decoration:underline}
 
   section{padding:3rem 1rem}
-  #itn,#details,#pricing,#faq,#gallery,#reg,#top{scroll-margin-top:130px}
+  #itn,#details,#pricing,#faq,#gallery,#reg,#interest,#top{scroll-margin-top:130px}
     .faq-list{max-width:850px;margin:0 auto}
   .faq-item{border-bottom:1px solid var(--line);padding:1.1rem 0}
   .faq-item h3{color:var(--navy);font-size:1.08rem;margin-bottom:.35rem}
   .faq-item p{font-size:.98rem}
-  @media(max-width:760px){#itn,#details,#pricing,#faq,#gallery,#reg,#top{scroll-margin-top:20px}}
+  @media(max-width:760px){#itn,#details,#pricing,#faq,#gallery,#reg,#interest,#top{scroll-margin-top:20px}}
   .wrap{max-width:1150px;margin:0 auto}
   .center{text-align:center}
   .kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:.85rem}
@@ -90,6 +90,10 @@
   .reg-stack{display:block;max-width:430px;margin:.55rem auto}
   .reg-stack .click{display:block;font-weight:300;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.2rem;opacity:.92}
   .smallnote{font-size:.85rem;color:var(--gray)}
+  .interest-wrap{max-width:820px;margin:1.4rem auto 0;text-align:left}
+  .interest-wrap h3{color:var(--navy);text-align:center;font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em}
+  .interest-wrap .lede{text-align:center;font-size:.95rem;color:var(--gray);margin:.3rem 0 .6rem}
+  .interest-wrap iframe{width:100%!important;max-width:100%!important;border:0}
 
   /* Testimonials */
   .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
@@ -197,7 +201,7 @@
 
 <div class="topbar">
   <a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@SportEuroTour.com</a>
-  <a class="reg" href="#reg">REGISTER HERE</a>
+  <a class="reg" href="#interest">REQUEST INFO</a>
 </div>
 
 <header class="site">
@@ -224,7 +228,7 @@
   <a href="#pricing">Details</a>
   <a href="#faq">FAQ</a>
   <a href="#gallery">Gallery</a>
-  <a href="#reg">Register</a>
+  <a href="#interest">Interest Form</a>
 </nav>
 
 <section>
@@ -249,16 +253,20 @@
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="intro-box" data-editable="source" data-path="/teams.html" data-key="intro-box">
-      <h2>Dutch Training Tour</h2>
-      <div class="teamsub">Clubs &amp; Teams</div>
-      <div class="wcd">World Class Development<br>Top Dutch Hockey.</div>
-      <p><strong>AMSTERDAM</strong></p>
-      <p style="margin-top:1rem">
-        <a class="btn reg-stack" href="#reg">1 &mdash; Athletes Register First<span class="click">Registration will be made specific to your team.</span></a>
-        <a class="btn ghost reg-stack" href="#reg">2 &mdash; Family Registers Immediately After<span class="click">Registration will be made specific to your team.</span></a>
-      </p>
-      <p class="smallnote">Athletes and family members register separately. Athletes always register first.</p>
+    <div class="intro-box">
+      <div data-editable="source" data-path="/teams.html" data-key="intro-box">
+        <h2>Dutch Training Tour</h2>
+        <div class="teamsub">Clubs &amp; Teams</div>
+        <div class="wcd">World Class Development<br>Top Dutch Hockey.</div>
+        <p><strong>AMSTERDAM</strong></p>
+      </div>
+      <div class="interest-wrap" id="interest">
+        <div data-editable="source" data-path="/teams.html" data-key="interest-intro">
+          <h3>Team Interest Form</h3>
+          <p class="lede">Tell us about your club or team. We will follow up with dates, pricing, and next steps.</p>
+        </div>
+        <script type="text/javascript" src="https://form.jotform.com/jsform/262166334156153"></script>
+      </div>
     </div>
   </div>
 </section>
@@ -569,10 +577,6 @@
       </div>
     </div>
 
-    <p style="max-width:850px;margin:1rem auto;font-size:.95rem">Each athlete is required to travel with at least one parent OR an appointed guardian. This guardian must be over the age of 21 and can be a family friend who has agreed to chaperone. While it is not mandatory for the parent to accompany the athlete, the guardian must be explicitly designated by the parent or legal guardian to assume responsibility for the athlete during the trip. <em>Typically this is done when another parent is traveling with a friend of their daughter.</em></p>
-    <p style="max-width:850px;margin:1rem auto;font-size:.95rem">Athletes will register using a separate link from parents and family members. See registration and cancellation grace period details in the "Cancellation Policy" section. *72 hour grace period to cancel with a full refund. Credit cards are accepted. However, we cannot accept American Express.</p>
-    <p style="max-width:850px;margin:1rem auto;font-size:.95rem"><strong>Save the CC Service Fee: Pay by "US Checking Account" (ACH).</strong> At the end of the registration process you will be brought to payment and payment method. There you can select "US Checking Account". This form of payment will negate the 2.99% service fee you will be charged when using a credit card.</p>
-
     <div class="center" style="margin:2.5rem 0 1.2rem"><h2 class="sec">Everything You Want To Know</h2></div>
 
     <details class="acc">
@@ -618,6 +622,8 @@
       <summary>Rooming <small>Athletes, Mom &amp; Family Arrangement</small></summary>
       <div class="inner" data-editable="source" data-path="/teams.html" data-key="acc-rooming">
         <img loading="lazy" src="images/superior2-1-1.webp" alt="Superior room">
+        <p>Rooming configurations will be discussed with your team or club coordinator prior to booking.</p>
+        <p>Athletes will register using a separate link from parents and family members.</p>
         <p><strong>Parent &amp; Child:</strong> Most of our bookings involve a parent (typically the mother) and daughter traveling together. They will always be placed in a room with two beds unless otherwise prearranged and specified.</p>
         <p>We strive to finalize rooming arrangements at the time of registration. However, should adjustments be necessary, we will collaborate with you post-registration to ensure satisfaction. As an example: if both parents intend to travel with their daughter, the parents will be assigned a superior room together with one bed and the athlete will be assigned a double room, with another member athlete in a similar position. For parents traveling with their athlete, we will endeavor to pair your athlete with another in a similar situation for room sharing.</p>
         <p><strong>Couples Accommodation:</strong> Parents &amp; Partners will be placed in a Superior room featuring a full-size bed. Superior Room bed width: 180cm / 70.86 inches / 5'11" wide. That's almost 11 inches wider than a queen &ndash; 5.25 inches less than a King.</p>
