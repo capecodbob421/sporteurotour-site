@@ -17,6 +17,18 @@ THE SITE (6 pages, all in this folder)
 - members27.html  = PRIVATE 2027 members page (added July 31; day-by-day matches the 2027 itinerary
   PDF at docs/EuroTour-2027-Tour-Itinerary.pdf; staff cards + rooming list are TBA placeholders;
   hotel booking code EUROTOUR27 needs confirming with the hotel)
+- teams.html      = PRIVATE Clubs & Teams page (added Aug 4; noindex, NOT in nav).
+  B2B version of itinerary27: sold to a club coach / club director / high school coach who then
+  recruits their own families and agrees a travel date with us, rather than sold to individuals.
+  Built as a full replica of itinerary27 with every date stripped (tour dates, payment dates,
+  grace-period deadline, grad-year eligibility) and the hero titled "Teams". Structured data and
+  canonical/OG tags removed since it is private. All 6 registration buttons are de-linked to the
+  internal #reg anchor - no WeTravel links on this page - and the stacked buttons read
+  "Registration will be made specific to your team."
+  STILL TO DO (Bob will drive): team pricing (still shows individual $2995/$1995), rework the
+  "1 Athletes Register First / 2 Family Registers" sequence for a coach-first flow, and add the
+  coach-facing content this page needs - what EuroTour handles vs the club, minimum roster size,
+  what the coach/organizer gets, how dates are chosen.
 - terms.html      = Terms & Conditions
 - privacy.html    = Privacy Policy
 - images/         = local site images (vector-quality logos: full color, white w/ red plane + fading trail; tour photos)
