@@ -22,13 +22,15 @@ THE SITE (6 pages, all in this folder)
   recruits their own families and agrees a travel date with us, rather than sold to individuals.
   Built as a full replica of itinerary27 with every date stripped (tour dates, payment dates,
   grace-period deadline, grad-year eligibility) and the hero titled "Teams". Structured data and
-  canonical/OG tags removed since it is private. All 6 registration buttons are de-linked to the
-  internal #reg anchor - no WeTravel links on this page - and the stacked buttons read
-  "Registration will be made specific to your team."
-  STILL TO DO (Bob will drive): team pricing (still shows individual $2995/$1995), rework the
-  "1 Athletes Register First / 2 Family Registers" sequence for a coach-first flow, and add the
+  canonical/OG tags removed since it is private. As of Aug 6 there are NO registration buttons
+  anywhere on this page. The single CTA is the header topbar button "REQUEST INFO" -> #interest,
+  and the red anchor bar reads "INTEREST FORM". Conversion happens through the JotForm team
+  interest form (262166334156153) embedded under AMSTERDAM in the intro box.
+  Hero image is images/team-hero.webp (2026 group shot).
+  STILL TO DO (Bob will drive): team pricing (still shows individual $2995/$1995) and the
   coach-facing content this page needs - what EuroTour handles vs the club, minimum roster size,
-  what the coach/organizer gets, how dates are chosen.
+  what the coach/organizer gets, how dates are chosen. One soft date reference remains in a
+  testimonial ("they signed up for 2027").
 - terms.html      = Terms & Conditions
 - privacy.html    = Privacy Policy
 - images/         = local site images (vector-quality logos: full color, white w/ red plane + fading trail; tour photos)
@@ -219,6 +221,50 @@ overwrites GitHub with CloudCannon's copy.
 
 5. Cutover: point DNS at GoDaddy to the Cloudflare site (custom domain sporteurotour.com added in Cloudflare first). Rollback = point DNS back to WP Engine.
 6. Keep WP Engine active about a month after cutover, confirm nothing breaks, then cancel.
+
+8. STATE AS OF Aug 6, 2026 (teams page finished + favicon):
+   teams.html - all registration buttons deleted; header topbar CTA changed from "REGISTER HERE"
+     to "REQUEST INFO" pointing at #interest; anchor-nav "Register" -> "Interest Form".
+     JotForm interest form (jsform/262166334156153, "Does Your Team Wanna Go?") embedded under
+     AMSTERDAM in the intro box. IMPORTANT: the form <script> sits OUTSIDE the data-editable
+     region on purpose - CloudCannon's rich-text editor would strip it. The intro-box editable
+     region was split so the text above stays editable and the form block does not.
+     Deleted: "How to Apply" accordion, "Stay in the Loop" box + mailing-list form, the guardian
+     paragraph / grace-period+AmEx paragraph / ACH service-fee paragraph under pricing, the
+     "WHO: Open to any and all female field hockey athletes" line.
+     Rooming accordion now opens with "Rooming configurations will be discussed with your team or
+     club coordinator prior to booking." + "Athletes will register using a separate link..."
+     Bottom "Join Us!" section reworked to "Bring Your Team" pointing back at #interest.
+     NO ATHLETE-COUNT LIMITS ANYWHERE on this page (Bob's rule). Deleted the "How many athletes
+     attend?" FAQ and the "Limited Capacity: 40-45 Athletes Only" block that was buried inside the
+     Guardian Required accordion. Itinerary kicker changed from "Limited to Just 40 Field Players
+     & 8 Goalies" to "Seven Days. Four On The Pitch."
+     Coach-ratio lines were KEPT deliberately - they are ratios, not caps.
+   SITEWIDE: "10 field players and 2 goalies per session" -> "9 field players"; "Training groups
+     are 10 or fewer" -> "9 or fewer". Applies to itinerary27.html (incl. its JSON-LD FAQPage
+     mirror) and teams.html.
+   itinerary27.html - "Hotel & Wellness Spa Zuiver" in the "Where do we stay?" FAQ is now bold and
+     linked to https://zuiveramsterdam.nl/en/. New FAQ "Is airfare included?" added to BOTH the
+     visible list and the JSON-LD FAQPage block (keep those two in sync - 12 entries now).
+     itinerary27 KEEPS its "How many athletes attend?" 40-45 answer - the cap is a selling point
+     on the public page. The no-limits rule is teams.html only.
+   members27.html - Fun Stuff intro note softened to the "During your free time..." wording.
+   FAVICON - now the plane mark. Source images/EuroTour-plane.jpg, cleaned (JPEG halo removed,
+     red snapped to #df202c), centered on a white square. Rebuilt in place as
+     images/favicon-48.png (48px) and images/apple-touch-icon.png (180px), so no HTML changed.
+     Because filenames were reused, browsers cache the old icon hard - if it ever needs to change
+     again, use NEW filenames or add ?v=2 to the href.
+
+PUBLISHING GOTCHAS (learned Aug 6)
+- Claude's file_upload tool can start failing mid-session ("paths: expected array, received
+  undefined") and stay broken. It is not the Chrome connection. FALLBACK: Bob drags the changed
+  files onto github.com/capecodbob421/sporteurotour-site/upload/main (root files) or
+  .../upload/main/images (images), then clicks Commit changes. Two separate commits.
+- The Chrome extension periodically loses permission for github.com ("Extension manifest must
+  request permission to access the respective host"). Fix: click the Claude extension icon in
+  Chrome while on the GitHub tab and re-grant github.com.
+- After publishing, expect ~1 minute for Cloudflare. If Bob says "I don't see it", check the live
+  page yourself first - it is almost always his browser cache. Ctrl+Shift+R.
 
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
