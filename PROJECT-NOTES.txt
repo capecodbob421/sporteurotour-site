@@ -555,6 +555,48 @@ PUBLISHING GOTCHAS (learned Aug 6)
      3. Cloudflare dashboard > Redirect Rules > www to apex, 301. Still outstanding.
      4. Re-check the Pages report in about two weeks. Indexed should climb from 2.
 
+12. DEPLOY GOTCHAS, Aug 14, 2026. READ BEFORE TOUCHING _redirects OR wrangler.jsonc.
+   THIS SITE IS A WORKER, NOT A PAGES PROJECT. Dashboard path is Workers & Pages >
+   sporteurotour-site. There is no /pages/view/ URL for it. Deploy command is
+   "npx wrangler deploy", root directory "/", no build command.
+   *** A BAD _redirects FILE FAILS THE ENTIRE DEPLOY ***
+   Not just the bad rule. The whole site stops updating and you get no warning on the
+   site itself, it just silently keeps serving the previous version. Build #eb896b56
+   died with:
+     Invalid _redirects configuration:
+     Line 55: Infinite loop detected in this rule. This would cause a redirect to strip
+     '.html' or '/index' and end up triggering this rule again.
+   CAUSE: destinations were written as /index.html. Workers static assets automatically
+   strips ".html" and "/index", so Cloudflare cannot prove the rule will not loop and
+   rejects the file. RULE: never use a destination ending in ".html" or "/index" in
+   _redirects. Always use the clean path: / or /itinerary27 or /terms. Bonus, clean
+   destinations also redirect in ONE hop instead of two, which Google prefers.
+   SECOND FAILURE, unrelated and transient: build #69763392 died with
+     npm error 403 Forbidden - GET https://registry.npmjs.org/wrangler
+   That is Cloudflare's build box failing to fetch wrangler from npm. Nothing to do with
+   our files. FIX: open the build and click "Retry build". Worked first try.
+   HOW TO CHECK A DEPLOY: Workers & Pages > sporteurotour-site > Deployments >
+   Build history. Green tick = shipped. A red icon means the live site is STALE no
+   matter what GitHub says. Always confirm here, not by refreshing the site.
+   ALSO NOTE: raw.githubusercontent.com serves a CDN-cached copy for a few minutes after
+   a push. To check what GitHub really has, use
+   api.github.com/repos/capecodbob421/sporteurotour-site/contents/<file> and decode the
+   base64. The raw URL will lie to you right after a commit.
+   VERIFIED LIVE after build #24d63916: all 21 old WordPress URLs return 301 in a single
+   hop to the right destination; /terms/, /privacy/, /questions/, /members26/,
+   /itinerary27/ and /index/ still resolve natively via Cloudflare's own 307
+   normalisation; /wp-admin, /wp-login.php and unknown paths still 404 correctly; all
+   four canonicals are clean with no trailing slash; the SportsEvent schema has
+   performer and both validFrom fields; sitemap.xml has no trailing slashes.
+
+   STILL PUBLICLY SERVED AND SHOULD NOT BE. wrangler.jsonc sets "directory": "./" so the
+   whole repo root is published. Confirmed reachable: /.git/config, /.git/HEAD,
+   /.git/index, /PROJECT-NOTES.txt, /WEBSITE-PLAYBOOK.txt, /cloudcannon.config.yml,
+   /wrangler.jsonc. Checked .git/config for leaked tokens, it is CLEAN, and the repo is
+   public on GitHub anyway, so this is untidy rather than dangerous. Fix is the
+   .assetsignore file now sitting in the desktop folder, to be uploaded as its own
+   separate commit so any breakage is easy to attribute.
+
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
 
