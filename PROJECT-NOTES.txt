@@ -432,6 +432,20 @@ PUBLISHING GOTCHAS (learned Aug 6)
    got pulled down. All HTML files pass tag-balance validation, every anchor-nav
    target resolves, and there are zero empty <p></p> tags on the 2027 pages.
    members26 still has one, left alone on purpose.
+   POST-PUBLISH CHECK (same day, after Bob pushed to GitHub) turned up two things:
+   - "Super small training groups of 10 or less" was still sitting in the What's
+     Included accordion on itinerary27.html and teams.html, contradicting the "9 or
+     fewer" rule stated twice on each of those same pages. The Aug 6 sweep matched
+     "10 or fewer" and missed this "10 or less" phrasing. Changed to "9 or less" on
+     itinerary27, teams and the template. No JSON-LD change needed, the FAQ schema
+     already said 9.
+   - index.html had 50 NUL bytes appended after </html>. Pre-existing, not from this
+     session, and harmless to browsers, but it made grep and other tools treat the
+     file as binary. Stripped. If it comes back, something in the upload path is
+     padding the file.
+   FOOTER NAV was deliberately NOT changed. The footer "Navigate" list is still
+   Home / 2027 Tour Details / The LineUP on every page. Only the top nav got Teams.
+   Add Teams to the footers if you ever want them to match.
 
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).

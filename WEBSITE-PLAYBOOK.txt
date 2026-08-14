@@ -1,10 +1,20 @@
 SPORT EUROTOUR WEBSITE - OPERATING PLAYBOOK
-Updated July 16, 2026. Share the staff sections with anyone who edits the site.
+Updated August 14, 2026. Share the staff sections with anyone who edits the site.
 
 THE ONE RULE
 GitHub is the master copy. CloudCannon writes to it automatically. Bob and Claude
 sync with it deliberately. The live site publishes from it in about a minute.
 If you are unsure whether a copy is current, it is not - sync first.
+
+PAGES AT A GLANCE (Aug 14, 2026)
+Public and in the top nav: Home, 2027 Tour Details (itinerary27), Teams, plus the
+LineUP link out. Public but not in the nav: Terms, Privacy, 404.
+Private, shared by direct link only: members26 (2026, finished, frozen), members27,
+questions. If you are editing and cannot find a page in CloudCannon, it is probably
+one of the private ones - they are in the Pages list, just not on the website menu.
+The Teams page is the B2B one: a club or high school coach brings their whole team,
+picks a travel date with Bob, and their families register from a club-branded page
+Bob builds for them.
 
 WHO EDITS WHAT, WHERE
 - Staff: CloudCannon only. Text and photos inside the yellow editable regions.
@@ -43,6 +53,12 @@ When your session changes anything worth remembering, ask Claude to update
 PROJECT-NOTES.txt and include it in the upload - that is how both Claudes stay current.
 DO NOT put the working folder in Google Drive/Dropbox/OneDrive sync - GitHub is the
 shared drive for this project. Sync services create conflicted duplicate files.
+ORIENTATION: PROJECT-NOTES.txt opens with a CURRENT STATE block. That block is the
+whole picture - page map, hard rules, nav, open items. A brand new Claude session
+should read it before touching anything. The dated history underneath is background.
+ONE FILE IS NOT IN GITHUB: teams-template.html, the master for club-branded pages,
+lives only on Bob's desktop. If your Claude cannot find it, that is why. Do not let
+it recreate one. Ask Bob.
 
 WORKFLOW 3B - CLAUDE ON THE ROAD (when travel edits need the workshop)
 One-time prep: install the Claude desktop app on the laptop and sign in. Keep
