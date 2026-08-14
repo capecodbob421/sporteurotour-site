@@ -443,9 +443,117 @@ PUBLISHING GOTCHAS (learned Aug 6)
      session, and harmless to browsers, but it made grep and other tools treat the
      file as binary. Stripped. If it comes back, something in the upload path is
      padding the file.
+   GOOGLE SEARCH CONSOLE, same day: "Events structured data issues detected" flagged
+   two NON-CRITICAL warnings on the SportsEvent JSON-LD in itinerary27.html, missing
+   field "performer" and missing field "validFrom" (in "offers"). Both fixed:
+     - Added "performer" as SportsOrganization "SportWays", the Dutch FIH-educator
+       staff who actually deliver the training. Named coaches were deliberately NOT
+       used, because Thomas Tichelman's on-field attendance is not guaranteed and the
+       page says so.
+     - Added "validFrom": "2026-07-31" to both Offer objects. That is the date 2027
+       registration opened.
+   The SportsEvent block now carries every required and recommended Google field.
+   Re-run the Rich Results Test after publishing, and expect Search Console to clear
+   the warning on its next crawl, which can take a couple of weeks. Reminder: this is
+   the ONLY SportsEvent schema on the site. teams.html has no JSON-LD at all.
+
    FOOTER NAV was deliberately NOT changed. The footer "Navigate" list is still
    Home / 2027 Tour Details / The LineUP on every page. Only the top nav got Teams.
    Add Teams to the footers if you ever want them to match.
+
+10. STATE AS OF Aug 14, 2026 (SEO audit after Bob asked why he does not rank):
+   WHERE HE ACTUALLY RANKS: searching "field hockey tours to Holland" returns
+   itinerary27 on page one, around position 9. Not invisible. "field hockey tours to
+   Europe" and the bare "field hockey tours" return nothing, which is expected against
+   operators like Quest Sports Travel, Holland Elite, Sports Ventures, Team Tours
+   Direct, GoPlay and fieldhockeytravel.com who have years of pages and links.
+   THE BIG FIND - DEAD WORDPRESS URLS. The July 17 cutover shipped with NO redirect
+   map. Every old WP URL 404s. Verified dead: /crimson/, /2015/12/05/sample-hockey-
+   resume/, /wp-content/uploads/2020/04/GOALIES-My-Recruiting-College-List.pdf,
+   /about/, /contact/, /blog/, /dutch-training-tour/. The first three are STILL in
+   Google's index. Every link ever built to the old site was pointing at a dead page.
+   FIXED: created _redirects in the repo root. Cloudflare Pages reads it automatically.
+   It covers the three confirmed URLs plus WordPress structural patterns (/wp-content/*,
+   /wp-includes/*, /category/*, /tag/*, /author/*, feeds, and dated permalink archives
+   /2012/* through /2026/*). There is a clearly marked block in that file for pasting
+   the real list.
+   ACTION STILL NEEDED: export Search Console > Indexing > Pages > "Not found (404)"
+   and paste those paths into _redirects, mapped to the closest page rather than all
+   to the homepage (mass homepage redirects read as soft 404s and pass little value).
+   Also grab the old WP sitemap from WP Engine BEFORE cancelling around Aug 20 - after
+   that the list is gone for good.
+   CANONICAL URLS FIXED: Cloudflare normalizes every variant (/teams, /teams/,
+   /teams.html) to /teams with no trailing slash, but the canonical and og:url tags
+   all declared the trailing-slash form, so every canonical pointed at a URL that
+   redirects. De-slashed 12 URLs across itinerary27, teams, terms, privacy and
+   sitemap.xml. Homepage was already correct. Rule going forward: a canonical must be
+   the exact URL Cloudflare serves, no .html and no trailing slash.
+   STILL OPEN, NOT YET DONE:
+   - WWW IS NOT REDIRECTED. https://www.sporteurotour.com/teams returns 200 and stays
+     on www. The whole site is live on two hostnames. Canonicals point at the apex so
+     it is mitigated, not solved. Fix is a Cloudflare Redirect Rule in the dashboard
+     (www -> apex, 301). Cannot be done from _redirects, it is host-based.
+   - KEYWORD GAP: the phrase "field hockey tour" appears once on index and ZERO times
+     on itinerary27 and teams. The copy says "Dutch Training Tour" everywhere, which is
+     a brand phrase nobody searches. "Netherlands" appears zero times on index and
+     teams. Homepage H1 is "The Trip of Her Life. Yours Too." which carries no signal.
+   - THIN SITE: three indexable pages. Competitors run destination and team-type pages.
+   - Google was still serving an OLD title for itinerary27 in results, so it had not
+     recrawled since the title changed. Request reindexing in Search Console.
+   STRATEGY AGREED: do not chase the two-word head term "field hockey tours". Target
+   the long tail where the differentiators are real and uncontested - girls only,
+   parents travelling with the athlete, Olympic gold Dutch coaching, college recruiting,
+   38 years. Examples: "girls field hockey camp in Holland", "field hockey trip for
+   parents and athletes", "field hockey training camp Netherlands high school",
+   "club field hockey team trip to Holland".
+   AI SEARCH: robots.txt already allows GPTBot, ClaudeBot, PerplexityBot and
+   Google-Extended, which most sites get wrong. Biggest remaining lever there is
+   third-party mentions, since models weight what other sites say over self-description.
+
+11. STATE AS OF Aug 14, 2026 (old URL recovery + Search Console audit):
+   RECOVERED THE FULL OLD WORDPRESS URL LIST from the WP Engine database before the
+   account is cancelled. How, for the record, because this is not repeatable after
+   Aug 20: my.wpengine.com > install "worldcampusa" > phpMyAdmin > SQL, then
+     SELECT post_type, post_parent, DATE_FORMAT(post_date,'%Y/%m/%d'), post_name,
+     post_title FROM wp_worldcampusa.wp_posts
+     WHERE post_status='publish' AND post_type IN ('page','post');
+   NOTE: the WP front end and WP Admin are BOTH unreachable now. The .wpengine.com
+   host redirects to sporteurotour.com, which is Cloudflare, and the WP Admin SSO
+   round-trips through the domain and lands on the new 404 page. phpMyAdmin is the
+   only way in.
+   THE 17 OLD URLS. 12 pages: index, testx, register, cancel, terms, privacy, map-2,
+   blog, itinerary26, members26, questions, itinerary27. 5 posts on /YYYY/MM/DD/slug/:
+   what-is-value, part-2-why-even-consider, part-3-what-do-parents-on-tour,
+   part-4-family-shared-experience, part-5-dutch-coaches.
+   SIX ALREADY RESOLVE with no rule needed, because Cloudflare matches the slug to the
+   matching .html file: /terms/, /privacy/, /questions/, /members26/, /itinerary27/,
+   /index/. Rules for those were deliberately left OUT to avoid redirect loops.
+   _redirects NOW HAS 44 rules covering everything else, verified for loops,
+   self-references, wildcard shadowing and missing destinations. The five old blog
+   posts map to itinerary27 because their content became sections on that page.
+   SEARCH CONSOLE AUDIT (property sc-domain:sporteurotour.com, data through 8/6/26):
+   Only 2 pages indexed. 10 not indexed, in four buckets:
+     - Excluded by noindex, 4 pages. members26, members27, questions, and teams. That
+       count predates teams going public on Aug 14, so it should drop to 3.
+     - Not found 404, 2 pages: /itinerary26 (now redirected) and www.sporteurotour.com.
+     - Alternate page with proper canonical tag, 2 pages. THIS IS THE IMPORTANT ONE:
+       https://sporteurotour.com/itinerary27 was crawled Jul 24 and classified as an
+       ALTERNATE rather than the canonical, because its own canonical tag pointed at
+       /itinerary27/ with a trailing slash. Google was being told the real page was a
+       duplicate of a URL that only redirects. The trailing-slash fix made earlier
+       today is exactly the fix for this. The other one is http://www.sporteurotour.com/.
+     - Discovered but not indexed, 2 pages: /privacy/ and /terms/, never crawled.
+       Low value, no action.
+   CONCLUSION: the ranking problem was not mainly content. The tour page was
+   self-sabotaging via its canonical tag, and the site was leaking every old link into
+   404s. Both are now fixed in the files and need publishing.
+   AFTER PUBLISHING, IN THIS ORDER:
+     1. Confirm https://sporteurotour.com/itinerary26 returns 301 not 404.
+     2. Search Console > URL inspection > test and Request Indexing for the homepage,
+        itinerary27 and teams. This is what forces a recrawl so Google finally sees the
+        current titles and the corrected canonicals.
+     3. Cloudflare dashboard > Redirect Rules > www to apex, 301. Still outstanding.
+     4. Re-check the Pages report in about two weeks. Indexed should climb from 2.
 
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
