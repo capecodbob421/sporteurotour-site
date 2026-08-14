@@ -1,5 +1,127 @@
 SPORT EUROTOUR WEBSITE REBUILD - PROJECT NOTES
-Updated July 14, 2026. Paste this into Claude to resume the project with full context.
+Updated August 14, 2026. Paste this into Claude to resume the project with full context.
+
+================================================================================
+CURRENT STATE - READ THIS FIRST. Everything below this block is dated history.
+================================================================================
+
+WHAT THIS IS
+A static HTML site. No framework, no build step. Every page is hand-written HTML with
+its CSS in a <style> block in the head. GitHub is the master copy. Cloudflare Pages
+auto-publishes the main branch to https://sporteurotour.com in about a minute.
+
+START EVERY CLAUDE SESSION WITH THESE THREE WORDS
+  "sync from GitHub"
+Claude pulls the current files from
+raw.githubusercontent.com/capecodbob421/sporteurotour-site/main/ and refreshes the
+working folder. End every session by uploading changed files back to GitHub. Skip the
+sync and you will overwrite someone else's work. This is the whole safety system.
+
+PAGE MAP (as of Aug 14, 2026)
+PUBLIC, in the top nav, indexed by Google:
+  index.html        Homepage.
+  itinerary27.html  2027 Dutch Training Tour. Sold to individual families. Carries the
+                    full pricing, the tour dates, and the two registration links.
+  teams.html        Clubs & Teams. B2B. Sold to a club director, club coach or high
+                    school coach who then recruits their own families and agrees a
+                    travel date with us. NO pricing and NO dates on this page by
+                    design. The only CTA is the JotForm team interest form
+                    (262166334156153). Was private; made public Aug 14, 2026.
+PUBLIC, not in the nav:
+  terms.html   privacy.html   404.html
+PRIVATE (noindex, not in nav, shared by direct link only):
+  members26.html    2026 members page. FINISHED EVENT, kept as a historical record.
+                    Do not update prices or content. It keeps $275 on purpose.
+  members27.html    2027 members page.
+  questions.html    2027 questionnaire (JotForm 261972697237169).
+NOT IN THE REPO AT ALL:
+  teams-template.html   Bob's desktop only. Read TEAMS TEMPLATE below before hunting
+                        for it.
+Also in the repo but not pages: hero-options.html (old scratch file), robots.txt,
+sitemap.xml, wrangler.jsonc, cloudcannon.config.yml, images/, docs/.
+
+HARD RULES
+1. NO EM DASHES anywhere in copy.
+2. Years count from 1989. 2026 = 37 Years, 2027 = 38 Years. Footers read "Showcasing a
+   38 Year Legacy". Any year number on any page must agree with this.
+3. NO IMPLIED INCLUSIONS. We do not take guests to Vondelpark, the Anne Frank House, or
+   on a canal cruise. Anything optional that families pay for or arrange themselves must
+   be labeled unmistakably as on your own and not included.
+4. NO ATHLETE-COUNT LIMITS on teams.html. Coach ratios are fine, they are ratios not
+   caps. itinerary27 KEEPS its 40-45 cap, it is a selling point on that page.
+5. Training group size reads "9 field players and 2 goalies per session" and
+   "9 or fewer".
+6. members26 is frozen. Leave it alone.
+7. Never delete wrangler.jsonc or cloudcannon.config.yml.
+8. New page? Add it to the top nav on EVERY nav-bearing page, and to sitemap.xml only
+   if the page is public.
+9. If FAQ text changes on itinerary27, re-sync the hidden JSON-LD FAQPage block in that
+   page's head. The visible list and the schema must match, 12 entries. teams.html has
+   no JSON-LD, so there is nothing to sync there.
+
+THE TOP NAV (identical on all 8 nav-bearing pages)
+  Home | 2027 Tour Details | Teams | The LineUP
+Markup lives in <nav class="main">. The page you are on self-links to "#top"; every
+other page links to the .html file. 404.html and hero-options.html have no nav.
+
+WHO EDITS WHERE
+  Staff (Jayna and others): CloudCannon only, the yellow editable regions.
+  Bob travelling: CloudCannon, or the GitHub pencil edit as a fallback.
+  Anyone doing structural work with Claude: the desktop folder, using the sync ritual.
+  COORDINATION RULE: never two people on the same page at the same time, in Claude or
+  in CloudCannon. A quick text is the whole system.
+Full staff instructions live in WEBSITE-PLAYBOOK.txt in this repo. Workflow 4 in that
+file is the one-time setup for a second person running their own Claude.
+
+OPEN ITEMS
+  - teams.html needs team pricing decided. There is no pricing on the page right now.
+  - teams.html needs coach-facing content: what EuroTour handles vs what the club
+    handles, minimum roster size, what the coach or organizer gets, how travel dates
+    are chosen.
+  - DELIBERATE OMISSION: the guardian-required policy (every athlete travels with a
+    parent or an appointed adult over 21) is no longer stated anywhere on teams.html.
+    The accordion and the FAQ that carried it were both removed Aug 14. Bob handles
+    that conversation by phone and email with the coach. Do not add it back without
+    asking him.
+  - Two $295 deposit references remain on teams.html (the "Is there a payment plan?"
+    FAQ and the Cancellation Policy accordion). Confirm they hold for team bookings.
+  - members27 hotel booking code EUROTOUR27 still needs confirming with the hotel.
+  - WP Engine: cancel around Aug 20, 2026.
+  - images/ holds 2026 tour photos in webp (windmill, bus, ferry, Jayna and Bob) that
+    are in the repo but not placed on any page yet.
+
+TEAMS TEMPLATE (Bob's machine only, deliberately NOT in the repo)
+teams-template.html is the master for club-branded pages. When a club signs, Bob copies
+it, brands it in that club's name, and that page becomes where the club's own families
+read the details and register. It is a copy of teams.html from Aug 14 that KEEPS the
+parent-facing letters and the pricing block, and ADDS registration buttons, a "How to
+Register" accordion, and a red DRAFT bar at the top.
+A Claude session on any other computer will NOT find this file. That is intentional.
+Do not go looking for it and do not recreate it unprompted.
+If it is ever lost, rebuild it from teams.html plus these tokens:
+  [[CLUB NAME]] [[TRAVEL DATES]] [[ELIGIBILITY]] [[PRICE ATHLETE]] [[PRICE FAMILY]]
+  [[DEPOSIT]] [[ATHLETE PAYMENT 1/2/3]] [[FAMILY PAYMENT 1/2/3]]
+  [[PAYMENT DATE 1/2/3]] [[ATHLETE REGISTRATION LINK]] [[FAMILY REGISTRATION LINK]]
+To brand one: copy the file, name it after the club, find-and-replace "teams-template"
+with the new slug (that also fixes the CloudCannon data-path attributes), replace every
+token, delete the red draft bar, then search for "[[" and expect zero hits.
+
+WHERE THINGS LIVE
+  GitHub repo    capecodbob421/sporteurotour-site   (the master copy)
+  Hosting        Cloudflare Workers & Pages, project "sporteurotour-site", auto-deploy
+  DNS            Cloudflare (kyle/lia.ns.cloudflare.com), registrar still GoDaddy
+  Staff editor   CloudCannon, two-way sync with GitHub
+  Forms          JotForm. Interest 261973062785164, Questionnaire 261972697237169,
+                 Team interest 262166334156153
+  Registration   WeTravel via LeagueApps. 2027 individual tour:
+                 athlete https://tri.ps/JUuOo   family https://tri.ps/MjcPd
+  Brand          red #df202c (logo red #e92532), blues #2e4d95 and #456bb4
+  Voice          Conversational, professional, direct. No fluff, no buzzwords,
+                 no em dashes. Promo copy short and punchy.
+
+================================================================================
+DATED HISTORY BELOW. Newest entry is number 9, Aug 14, 2026.
+================================================================================
 
 CURRENT STATUS: LIVE ON SPORTEUROTOUR.COM (cutover completed July 17, 2026)
 The new site is the real site: https://sporteurotour.com and https://www.sporteurotour.com
@@ -17,18 +139,19 @@ THE SITE (6 pages, all in this folder)
 - members27.html  = PRIVATE 2027 members page (added July 31; day-by-day matches the 2027 itinerary
   PDF at docs/EuroTour-2027-Tour-Itinerary.pdf; staff cards + rooming list are TBA placeholders;
   hotel booking code EUROTOUR27 needs confirming with the hotel)
-- teams.html      = PRIVATE Clubs & Teams page (added Aug 4; noindex, NOT in nav).
+- teams.html      = PUBLIC Clubs & Teams page (added Aug 4 as private; made public,
+  indexed and added to the top nav on Aug 14 - see entry 9).
   B2B version of itinerary27: sold to a club coach / club director / high school coach who then
   recruits their own families and agrees a travel date with us, rather than sold to individuals.
   Built as a full replica of itinerary27 with every date stripped (tour dates, payment dates,
-  grace-period deadline, grad-year eligibility) and the hero titled "Teams". Structured data and
-  canonical/OG tags removed since it is private. As of Aug 6 there are NO registration buttons
-  anywhere on this page. The single CTA is the header topbar button "REQUEST INFO" -> #interest,
+  grace-period deadline, grad-year eligibility) and the hero titled "Teams". Structured data was removed
+  when the page was private; canonical, meta description and OG tags were added back on Aug 14
+  when it went public. There are still NO registration buttons anywhere on this page. The single CTA is the header topbar button "REQUEST INFO" -> #interest,
   and the red anchor bar reads "INTEREST FORM". Conversion happens through the JotForm team
   interest form (262166334156153) embedded under AMSTERDAM in the intro box.
   Hero image is images/team-hero.webp (2026 group shot).
-  STILL TO DO (Bob will drive): team pricing (still shows individual $2995/$1995) and the
-  coach-facing content this page needs - what EuroTour handles vs the club, minimum roster size,
+  STILL TO DO (Bob will drive): team pricing (the individual $2995/$1995 was removed on
+  Aug 14, so the page shows no pricing at all now) and the coach-facing content this page needs - what EuroTour handles vs the club, minimum roster size,
   what the coach/organizer gets, how dates are chosen. One soft date reference remains in a
   testimonial ("they signed up for 2027").
 - terms.html      = Terms & Conditions
@@ -265,6 +388,50 @@ PUBLISHING GOTCHAS (learned Aug 6)
   Chrome while on the GitHub tab and re-grant github.com.
 - After publishing, expect ~1 minute for Cloudflare. If Bob says "I don't see it", check the live
   page yourself first - it is almost always his browser cache. Ctrl+Shift+R.
+
+9. STATE AS OF Aug 14, 2026 (teams page made public + club template created):
+   TEAMS PAGE IS NOW PUBLIC. teams.html went from a private, unlisted B2B page to a
+   public, indexed page sitting in the top nav.
+   - Removed <meta name="robots" content="noindex, nofollow">.
+   - Added a meta description, canonical https://sporteurotour.com/teams/, six Open
+     Graph tags and twitter:card. Still no JSON-LD on this page.
+   - Title changed from "Teams | EuroTour" to
+     "Field Hockey Team Trips to Holland | Sport EuroTour".
+   - Added to sitemap.xml at priority 0.7. robots.txt already allows everything.
+   - "Teams" added to <nav class="main"> on ALL 8 nav-bearing pages, sitting between
+     2027 Tour Details and The LineUP. On teams.html itself it points to #top, which
+     is the same self-link pattern itinerary27 uses. 404.html and hero-options.html
+     have no nav and were not touched.
+   DELETED FROM teams.html (Bob's call, keeps the page coach-focused and price-free):
+   - Three .letter blocks: "Value. Why This Trip Matters?", "Family Shared
+     Experience!" and "What Will Parents Do?". The "The Ultimate Family Road Trip"
+     letter was KEPT.
+   - The "Pricing & Details" heading, both .price-card blocks ($2995 / $1995) and both
+     payment-plan blocks.
+     STRUCTURAL GOTCHA worth remembering: "Pricing & Details" and "Everything You Want
+     To Know" are the SAME <section id="pricing">. Deleting the whole section would
+     have taken every accordion with it. Only the pricing content was cut; the section
+     and its id survive so the red anchor-nav "Details" link still resolves.
+   - The "Guardian Required" accordion.
+   - Two FAQ entries: "Can my daughter travel without a parent?" and "Are dads and
+     siblings welcome?".
+   - FAQ item 5 retitled to "What's Included" and the opening "Athletes are $2995 and
+     family members $1995, based on two to a room. That covers" text removed, so the
+     answer now begins "6 nights at a 4-star spa hotel...".
+   - The FAQ heading "Quick Answers for Parents" renamed to "Quick Answers".
+   RESULT: teams.html went from 82KB to about 65KB, 9 FAQ items remain, 8 accordions
+   remain. The data-key numbers on the FAQ items now have gaps (1, 4, 5, 6, 7, 8, 9,
+   10, 12). Gaps are harmless, CloudCannon only needs them to be unique. Do not
+   renumber, it would detach the existing editable regions.
+   The only dollar figures left on teams.html are two $295 deposit references.
+   TEAMS TEMPLATE CREATED: teams-template.html. Local to Bob's machine, NOT in the
+   repo. Full description in the CURRENT STATE block at the top of this file.
+   HOUSEKEEPING: the desktop folder was synced against GitHub at the start of the
+   session and was already current except for three logo PNGs (eurotour-logo.png,
+   eurotour-logo-white.png, eurotour-logo-keyline.png) that were missing locally and
+   got pulled down. All HTML files pass tag-balance validation, every anchor-nav
+   target resolves, and there are zero empty <p></p> tags on the 2027 pages.
+   members26 still has one, left alone on purpose.
 
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
