@@ -597,6 +597,72 @@ PUBLISHING GOTCHAS (learned Aug 6)
    .assetsignore file now sitting in the desktop folder, to be uploaded as its own
    separate commit so any breakage is easy to attribute.
 
+13. SEARCH CONSOLE ACTIONS TAKEN, Aug 14, 2026 (after everything deployed):
+   .assetsignore is live. Verified 404 now: /.git/HEAD, /.git/config, /.git/index,
+   /PROJECT-NOTES.txt, /WEBSITE-PLAYBOOK.txt, /cloudcannon.config.yml, /wrangler.jsonc,
+   /hero-options.html. Verified still 200: all 5 public pages, all 3 private pages,
+   404.html, robots.txt, sitemap.xml, images and the 2027 PDF. Redirects and canonicals
+   unaffected.
+   NOTE FOR NEXT TIME: dragging a dotfile like .assetsignore onto GitHub shows
+   "This file is hidden." in the preview. That is only the preview being collapsed, the
+   file does upload. But the drag is unreliable for dotfiles. The dependable route is
+   github.com/capecodbob421/sporteurotour-site/new/main, type the filename by hand and
+   paste the contents.
+   REQUESTED INDEXING on three URLs. All three returned "URL was added to a priority
+   crawl queue":
+     https://sporteurotour.com/           was already "URL is on Google, page is indexed"
+     https://sporteurotour.com/itinerary27 was "not indexed: Alternate page with proper
+       canonical tag", last crawled Aug 13, referring page /itinerary27/. That is the
+       trailing-slash bug caught in the act, and it is now fixed.
+     https://sporteurotour.com/teams      was "URL is unknown to Google", never crawled,
+       which is expected since it was noindex until this morning.
+   RESUBMITTED sitemap.xml so Google re-reads it with the de-slashed URLs and picks up
+   teams. It had last been read Aug 11 showing 4 discovered pages; there are 5 now.
+   WHAT TO EXPECT: a priority crawl is usually days, not hours, and indexing is never
+   guaranteed. Check Indexing > Pages in about two weeks. "Indexed" should climb from 2,
+   and "Alternate page with proper canonical tag" should fall to zero or near it.
+   STILL OUTSTANDING: the www to apex 301 redirect. www.sporteurotour.com still answers
+   200 on its own hostname. That is a Cloudflare Redirect Rule in the dashboard, it
+   cannot be done from _redirects because it is host-based.
+
+13. STATE AS OF Aug 14, 2026 (Search Console actions + mobile nav):
+   INDEXING REQUESTED for the homepage, /itinerary27 and /teams. All three accepted
+   into Google's priority crawl queue. What the inspector said on the way in:
+     /              already indexed. Recrawl requested so it picks up current markup.
+     /itinerary27   "not indexed: Alternate page with proper canonical tag", last
+                    crawled Aug 13, referring page /itinerary27/. That is the
+                    trailing-slash bug caught in the act. Google had the best page on
+                    the site filed as a duplicate of a URL that only redirects.
+     /teams         "URL is unknown to Google". Never crawled, it was noindex until
+                    Aug 14.
+   SITEMAP RESUBMITTED. It had last been read Aug 11 and showed 4 pages. Now dated
+   Aug 14 so it picks up teams and the de-slashed URLs.
+   WHAT TO EXPECT: priority crawl is days, not hours, and indexing is never
+   guaranteed. Re-check Indexing > Pages around Aug 28. "Indexed" should climb off 2
+   and "Alternate page with proper canonical tag" should fall to zero.
+
+   NAV RENAMED AND MADE PHONE-SAFE. On a 360px screen the nav was wrapping to two
+   lines. Two label changes, applied to the TOP NAV on all 9 nav-bearing pages:
+     "2027 Tour Details"  ->  "&rsquo;27 Tour Details"
+     "The LineUP"         ->  "LineUp"
+   THE MARK MATTERS: an elided year uses the RIGHT single quotation mark, &rsquo; (’27),
+   which is an apostrophe standing in for the missing "20". It is NOT the opening/left
+   quote (‘27). Almost every word processor gets this wrong by autocorrecting to the
+   left quote. If you ever retype it by hand, check which way it curls.
+   BRAND CAPITALISATION: it is "LineUp", not "LineUP". Fixed in the top nav and in the
+   footer Navigate list on every page.
+   FOOTER STILL SAYS "2027 Tour Details" spelled out on purpose. The footer is a
+   vertical list with room to spare and the full year is clearer there. Only the top
+   nav is abbreviated. Say the word if you want them matched.
+   CSS ADDED to all 9 pages, a new @media(max-width:430px) block just above </style>:
+     .nav-wrap{padding:.5rem .6rem}
+     .nav-wrap img.logo{height:42px}
+     nav.main a{margin-left:.6rem;font-size:.78rem;white-space:nowrap}
+   Label changes alone were about 20 percent shorter but still marginal against the
+   logo on a 360px screen, so the breakpoint tightens padding, logo height and letter
+   spacing to guarantee one line. IF YOU ADD A NAV ITEM, re-check the nav on a phone.
+   Decision on record: NO hamburger menu on mobile. The nav stays as visible links.
+
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
 

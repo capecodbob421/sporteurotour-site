@@ -54,6 +54,15 @@
   footer ul{list-style:none}
   footer li{margin:.35rem 0}
   .legal{max-width:1150px;margin:1.8rem auto 0;border-top:1px solid #24448c;padding-top:1rem;text-align:center;color:#8ba0b8}
+
+  /* PHONE: keep the top nav on ONE line. Added Aug 14, 2026 after it wrapped to two
+     lines on a 360px screen. Nav reads: Home / ’27 Tour Details / Teams / LineUp.
+     If you ever add a nav item or lengthen a label, re-check this on a phone. */
+  @media(max-width:430px){
+    .nav-wrap{padding:.5rem .6rem}
+    .nav-wrap img.logo{height:42px}
+    nav.main a{margin-left:.6rem;font-size:.78rem;white-space:nowrap}
+  }
 </style>
 </head>
 <body>
@@ -68,9 +77,9 @@
     <a href="index.html"><img class="logo" src="images/EuroTour-Logo-600-1.webp" alt="Sport EuroTour"></a>
     <nav class="main">
       <a href="index.html">Home</a>
-      <a class="hot" href="itinerary27.html">2027 Tour Details</a>
+      <a class="hot" href="itinerary27.html">&rsquo;27 Tour Details</a>
       <a href="teams.html">Teams</a>
-      <a href="https://lineupfh.com/" target="_blank" rel="noopener">The LineUP</a>
+      <a href="https://lineupfh.com/" target="_blank" rel="noopener">LineUp</a>
     </nav>
   </div>
 </header>
@@ -157,7 +166,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="itinerary27.html">2027 Tour Details</a></li>
-        <li><a href="https://lineupfh.com/" target="_blank" rel="noopener">The LineUP</a></li>
+        <li><a href="https://lineupfh.com/" target="_blank" rel="noopener">LineUp</a></li>
       </ul>
     </div>
     <div>
