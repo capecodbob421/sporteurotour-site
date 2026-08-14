@@ -663,6 +663,47 @@ PUBLISHING GOTCHAS (learned Aug 6)
    spacing to guarantee one line. IF YOU ADD A NAV ITEM, re-check the nav on a phone.
    Decision on record: NO hamburger menu on mobile. The nav stays as visible links.
 
+14. WWW REDIRECT DONE, Aug 14, 2026. Plus an HTTP finding that is NOT yet fixed.
+   WWW TO APEX IS LIVE. Cloudflare dashboard > sporteurotour.com > Rules > Redirect
+   Rules. Rule name "Redirect www to apex (301) - added Aug 14 2026", status Active.
+   Built from Cloudflare's own "Redirect from WWW to root" template rather than a
+   hand-written expression, which avoids loop mistakes.
+     Match:   wildcard  https://www.*
+     Target:  https://${1}      (the ${1} carries the path across)
+     Status:  301 Permanent Redirect
+     Preserve query string: ON  (I ticked this, the template leaves it off)
+   No loop risk: the rule only matches hostnames beginning www., and the apex target
+   can never match that pattern.
+   VERIFIED LIVE: https://www.sporteurotour.com/ , /teams and /itinerary27 all return
+   301 in a SINGLE hop to the apex. Query strings survive
+   (?utm_source=test&x=1 came through intact). The apex itself is untouched, still 200
+   with zero redirects. All 21 old WordPress redirects still work.
+   CLOUDFLARE WARNED "your DNS may not be proxying www" when deploying. I chose
+   "Ignore and deploy rule anyway" and deliberately did NOT choose "Create a new
+   proxied DNS record", because www already resolves through the Worker custom domain
+   and adding a DNS record unsupervised was not worth the risk. The warning was a
+   false positive. The rule works.
+
+   *** OPEN ITEM: THE SITE ANSWERS OVER PLAIN HTTP AND DOES NOT UPGRADE ***
+   Found while testing the above. Not caused by it, this is pre-existing.
+     http://sporteurotour.com/       -> 200, no redirect, serves the real site
+     http://sporteurotour.com/teams  -> 200, no redirect
+     http://www.sporteurotour.com/   -> 200, no redirect
+   So anyone typing http:// gets an unencrypted page and a "Not secure" badge in the
+   browser, and the www rule does not catch them either because it matches https only.
+   CAUSE: Cloudflare > SSL/TLS > Edge Certificates > "Always Use HTTPS" is OFF.
+   Confirmed visually Aug 14. Certificates themselves are fine, Active, and cover both
+   www.sporteurotour.com and the apex, expiring 2026-10-15 (managed, auto-renewing).
+   FIX: flip "Always Use HTTPS" to ON. One toggle. Then http anything -> https, and the
+   www rule picks it up from there.
+   CAVEAT ON THAT TOGGLE, quoting Cloudflare's own warning on the panel: enabling it
+   while the ORIGIN also forces HTTPS redirects can cause ERR_TOO_MANY_REDIRECTS. Our
+   origin is Workers static assets, which does not force HTTPS, so it should be safe.
+   Test http://sporteurotour.com/ immediately after flipping it and be ready to toggle
+   back if anything loops.
+   NOT DONE ON PURPOSE: Bob authorised the www redirect specifically and was away from
+   the screen. Changing a second security setting unsupervised was out of scope.
+
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
 
