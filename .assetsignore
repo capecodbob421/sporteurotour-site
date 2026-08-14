@@ -1,0 +1,24 @@
+# Files in the repo that should NOT be published to sporteurotour.com.
+# wrangler.jsonc sets "directory": "./", so by default EVERYTHING in the repo root
+# gets served as a public static asset. That included the whole .git folder and all
+# the internal notes. Verified publicly reachable on Aug 14, 2026 before this file:
+#   sporteurotour.com/.git/config, /.git/HEAD, /.git/index
+#   sporteurotour.com/PROJECT-NOTES.txt
+#   sporteurotour.com/WEBSITE-PLAYBOOK.txt
+#   sporteurotour.com/cloudcannon.config.yml
+#   sporteurotour.com/wrangler.jsonc
+#
+# These files STAY in the GitHub repo. They just stop being served to the public.
+# Do NOT add robots.txt, sitemap.xml, images/, docs/ or any .html page here.
+
+.git
+.wrangler
+
+PROJECT-NOTES.txt
+WEBSITE-PLAYBOOK.txt
+DNS-SNAPSHOT-2026-07-17.txt
+
+cloudcannon.config.yml
+wrangler.jsonc
+
+hero-options.html
