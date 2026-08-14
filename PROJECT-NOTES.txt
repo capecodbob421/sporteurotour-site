@@ -704,6 +704,41 @@ PUBLISHING GOTCHAS (learned Aug 6)
    NOT DONE ON PURPOSE: Bob authorised the www redirect specifically and was away from
    the screen. Changing a second security setting unsupervised was out of scope.
 
+15. ALWAYS USE HTTPS ENABLED, Aug 14, 2026. Closes the item raised in entry 14.
+   Cloudflare > SSL/TLS > Edge Certificates > "Always Use HTTPS" toggled ON with Bob
+   present. No redirect loop. Cloudflare's warning about ERR_TOO_MANY_REDIRECTS applies
+   only when the ORIGIN also forces HTTPS; Workers static assets does not, so it is safe.
+   ALL FOUR ENTRY POINTS NOW LAND ON THE SAME CANONICAL URL:
+     https://sporteurotour.com/...       0 hops  (canonical)
+     http://sporteurotour.com/...        1 hop   (Always Use HTTPS)
+     https://www.sporteurotour.com/...   1 hop   (the www redirect rule)
+     http://www.sporteurotour.com/...    2 hops  (HTTPS upgrade, then www rule)
+   The 2-hop case is fine and Google follows it. If it ever needs to be 1 hop, change
+   the redirect rule from the wildcard "https://www.*" to a Custom filter expression
+   on http.host so it catches both schemes. Not worth doing for the traffic involved.
+   HSTS is still OFF and that is fine. It is optional hardening, and once enabled it is
+   effectively irreversible for the max-age period, so do not switch it on casually.
+
+   FULL SITE AUDIT PASSED, Aug 14, 2026, everything below verified against the LIVE site:
+     - 11 pages return 200. All 21 old WordPress URLs return 301.
+     - /wp-admin, /wp-login.php and unknown paths still 404 correctly.
+     - .git, PROJECT-NOTES.txt, WEBSITE-PLAYBOOK.txt and wrangler.jsonc all 404,
+       so .assetsignore is doing its job.
+     - Canonicals on all five public pages are the clean apex form, no trailing slash,
+       no .html.
+     - sitemap.xml lists all five public URLs in clean form.
+     - robots.txt still welcomes GPTBot, ClaudeBot, PerplexityBot, Google-Extended.
+     - Structured data: 4 JSON-LD blocks, all valid. SportsEvent has performer and
+       validFrom on both offers. FAQPage has 12 questions, matching the 12 visible
+       faq-item divs exactly.
+     - Nav identical on every page: Home / ’27 Tour Details / Teams / LineUp, and the
+       max-width:430px phone rule is present on all of them.
+     - "9 field players" correct, zero instances of the old "10 or less".
+     - All 11 local HTML files pass tag-balance validation.
+   NOTE FOR FUTURE DEBUGGING: Cloudflare returns 403 to Python's urllib default
+   User-Agent. When scripting checks against the live site, use curl, or set a normal
+   browser User-Agent header. This cost a few confusing minutes.
+
 EXISTING SYSTEMS (do not rebuild)
 HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments), Google Workspace (email, unaffected), Stripe (payments when needed).
 
