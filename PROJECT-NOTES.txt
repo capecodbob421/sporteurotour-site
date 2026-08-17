@@ -1,5 +1,5 @@
 SPORT EUROTOUR WEBSITE REBUILD - PROJECT NOTES
-Updated August 14, 2026. Paste this into Claude to resume the project with full context.
+Updated August 17, 2026. Paste this into Claude to resume the project with full context.
 
 ================================================================================
 CURRENT STATE - READ THIS FIRST. Everything below this block is dated history.
@@ -58,6 +58,15 @@ HARD RULES
 9. If FAQ text changes on itinerary27, re-sync the hidden JSON-LD FAQPage block in that
    page's head. The visible list and the schema must match, 12 entries. teams.html has
    no JSON-LD, so there is nothing to sync there.
+10. INTERNAL LINKS ARE EXTENSIONLESS. Write href="/itinerary27", never
+   href="itinerary27.html". Cloudflare 308-redirects every .html URL to its clean form,
+   so .html links made Google crawl a redirect on every internal link. Converted sitewide
+   Aug 17, 2026. SIDE EFFECT: double-clicking a local .html file to preview no longer
+   navigates between pages (file:// cannot resolve /itinerary27). Preview on the live site
+   or in CloudCannon instead. Canonicals and sitemap already used clean URLs, so they
+   did not change.
+11. teams.html AND itinerary27.html MUST NOT SHARE BODY COPY. See the Aug 17 entry below.
+   Before pasting anything from one page to the other, reword it.
 
 THE TOP NAV (identical on all 8 nav-bearing pages)
   Home | 2027 Tour Details | Teams | The LineUP
@@ -75,9 +84,18 @@ file is the one-time setup for a second person running their own Claude.
 
 OPEN ITEMS
   - teams.html needs team pricing decided. There is no pricing on the page right now.
-  - teams.html needs coach-facing content: what EuroTour handles vs what the club
-    handles, minimum roster size, what the coach or organizer gets, how travel dates
-    are chosen.
+    The FAQ now says "we quote it rather than list it", which holds until Bob sets numbers.
+  - DONE Aug 17: teams.html coach-facing content written. New "How a Team Booking Works"
+    section (#howitworks, in the anchor nav) covers dates, who does what, the club-branded
+    registration page, roster size and coach terms. Roster size = no minimum and no cap.
+    Dates = coach proposes or we offer open weeks, both stated. Coach terms are
+    deliberately vague ("complimentary or reduced spot, depends on group size and price
+    point") because Bob does not want a public commitment. DO NOT harden that wording
+    without asking him.
+  - LEFT ALONE ON PURPOSE Aug 17: the $295 non-refundable deposit inside the teams.html
+    Cancellation Policy accordion. It is now the only dollar figure on a page that says
+    pricing is quoted, which reads inconsistently, but it is a contract term so Claude did
+    not change it unilaterally. Bob to confirm whether $295 holds for team bookings.
   - DELIBERATE OMISSION: the guardian-required policy (every athlete travels with a
     parent or an appointed adult over 21) is no longer stated anywhere on teams.html.
     The accordion and the FAQ that carried it were both removed Aug 14. Bob handles
@@ -258,6 +276,102 @@ REMAINING STEPS BEFORE CUTOVER (in order)
    - "What Will Parents Do?": the relaxation line is bold, HOTEL is capitalized and linked to
      https://zuiveramsterdam.nl/en/ (new tab), and now reads "...soothing spa treatments,
      state-of-the-art fitness center and weight room and sport courts...".
+
+9. STATE AS OF Aug 17, 2026 (Google Search Console cleanup + teams.html de-duplication)
+
+WHAT TRIGGERED IT: two Search Console emails, "Duplicate, Google chose different canonical
+than user" and "Page with redirect". Both turned out to be non-events. The real problem the
+investigation surfaced was different and worse.
+
+WHAT THE 17 "NOT INDEXED" URLS ACTUALLY WERE (pulled from Search Console directly)
+  Page with redirect (9): every one is a .html or http:// variant.
+    http+https of /itinerary27.html, /privacy.html, /terms.html, /index.html, plus
+    http://sporteurotour.com/itinerary27. Caused by internal links using .html. Fixed.
+  Alternate page with proper canonical tag (5): http:// and www variants of / and /terms.
+    Google consolidating protocol and host variants. Nothing to fix, ever.
+  Excluded by noindex (1): /members/ , the old WordPress members page, last crawled
+    Apr 26 2025. Ancient. Ignore.
+  Not found 404 (1): /itinerary26 , last crawled Jul 24 2026, which is BEFORE the
+    _redirects file existed. Already fixed by _redirects, just not re-crawled.
+  Duplicate, Google chose different canonical (1): /itinerary27 , first detected Aug 15,
+    the day after teams.html went public. URL Inspection on Aug 16 showed "Page is indexed"
+    and Google-selected canonical = Inspected URL, so it self-resolved. But see below,
+    because the cause was real.
+  CONCLUSION: zero actual errors. Both emails were Google housekeeping. Do not panic about
+  "Page with redirect" or "Alternate page with proper canonical tag" on this site again.
+
+VERIFIED LIVE URL BEHAVIOR (fetch with redirect:manual, Aug 17)
+  200: /  /itinerary27  /teams
+  redirect: /itinerary27/  /itinerary27.html  /teams/  /teams.html  /terms/  /privacy/
+            /index.html  /members26.html
+  404: /hero-options.html (so the old scratch mockup is NOT live and NOT indexable)
+       /wp-login.php (deliberate)
+  So Cloudflare's automatic .html and trailing-slash stripping works correctly. The
+  _redirects file's note that /terms/ etc "resolve correctly on their own" is accurate.
+
+FIX 1 - INTERNAL LINKS NOW EXTENSIONLESS (81 links across 9 files)
+  index, itinerary27, teams, terms, privacy, members26, members27, questions and
+  teams-template. See hard rule 10 above, including the local-preview side effect.
+
+FIX 2 - teams.html WAS A 94% COPY OF itinerary27.html. THIS WAS THE REAL RISK.
+  Measured: 226 of 240 long sentences on teams.html appeared verbatim on itinerary27.html.
+  Same 7 day-by-day blocks, same 8 accordions, same FAQ, same coach bios, same founder
+  letter, same testimonials. That is why Google picked a different canonical for
+  itinerary27 on Aug 15. With two near-identical pages it will keep flip-flopping, and
+  the page it drops could be itinerary27, which carries the pricing and both
+  registration links. That is a revenue page.
+  REWRITTEN ON teams.html (all coach-facing now, nothing pasted from itinerary27):
+    - "The Week, Day by Day" replaces "Itinerary". All 7 day titles, summaries and
+      <details> bodies rewritten. Parent travelogue tips deleted (Winkel 43, the cigar
+      shop, the fries, museum prices, the biking and Amsterdam-on-foot tips). Each day now
+      has a COACH NOTE box instead.
+    - "Why Clubs Bring Us Their Team" replaces "Why Consider Us for Hockey?". Founder
+      letter rewritten in Bob's voice, aimed at a club director.
+    - Both coach bios (Thomas, Martijn) rewritten. Same facts, new wording.
+    - "The Ultimate Family Road Trip" section DELETED from teams.html. It is parent copy
+      and it lives on itinerary27 and the homepage.
+    - NEW section "How a Team Booking Works" (id=howitworks, added to the anchor nav).
+    - Accordions rewritten: Our Hotel, Our Coaches, Rooming, What's Included, Bikes.
+    - Accordions left as-is ON PURPOSE: Cancellation Policy, Insurance, Maps. Duplicate
+      legal boilerplate across pages is normal and rewording a contract term is not
+      Claude's call.
+    - FAQ fully replaced: 12 coach questions (roster size, picking the week, who collects
+      money, cost, family payment plans, coach terms, guardians, athlete level, what
+      parents do, adding days, airfare, track record) replacing 9 parent questions.
+  RESULT: overlap with itinerary27 went 94% -> 24%, teams.html 5,645 -> 4,307 words.
+  The remaining 24% is the cancellation policy, insurance and the four real testimonial
+  quotes. That is fine and should stay.
+  ALSO: removed the last date reference on teams.html. The testimonial note "they signed
+  up for 2027" now reads "they signed up for the next tour".
+
+FIX 3 - sitemap.xml lastmod on all five public URLs set to 2026-08-17 to invite a re-crawl.
+
+VERIFICATION RUN AFTER THE EDITS (repeat this if teams.html is touched again)
+  lxml parse OK on all 10 html files. teams.html: 8 videos, 2 coach cards, 12 faq-items,
+  8 accordions, 39 data-keys, 0 tri.ps links, 0 athlete caps, 0 em dashes, 0 empty <p>,
+  0 stray <p><div>, 0 internal .html hrefs, team JotForm 262166334156153 still embedded,
+  all 8 in-page anchors resolve. Grid-block child counts: .coach [2,2], .day all 2,
+  .faq-item all 2, .acc all 2, .vid-grid [4,4]. Those counts are the CloudCannon
+  stray-tag canary, check them after any editor save.
+
+STILL TO DO IN SEARCH CONSOLE (Bob, after publishing)
+  1. Publish the changed files, wait for Cloudflare.
+  2. Search Console > Pages > click "Not found (404)" > VALIDATE FIX (the /itinerary26
+     redirect already exists).
+  3. Same for "Duplicate, Google chose different canonical than user".
+  4. Leave "Page with redirect" and "Alternate page with proper canonical tag" alone.
+     They will fall on their own now that internal links are clean.
+  5. URL Inspection on https://sporteurotour.com/teams > REQUEST INDEXING, so the
+     rewritten page gets re-crawled rather than waiting.
+
+FILES CHANGED THIS SESSION (upload all of these)
+  index.html  itinerary27.html  teams.html  terms.html  privacy.html
+  members26.html  members27.html  questions.html  sitemap.xml  PROJECT-NOTES.txt
+  (teams-template.html also changed but is deliberately not in the repo)
+  Pre-edit copies are in .snapshots/2026-08-17-seo/
+
+ONE LOOSE END: members26.html still contains 2 empty <p></p> CloudCannon artifacts.
+Left alone because members26 is frozen (hard rule 6). Harmless.
 
 HOUSEKEEPING - SWEEP EDITOR ARTIFACTS (do this whenever opening a file after CloudCannon use)
 CloudCannon saves leave empty <p></p> tags and stray <p> wrappers around <div> blocks. They
