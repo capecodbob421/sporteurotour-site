@@ -1,5 +1,5 @@
 SPORT EUROTOUR WEBSITE REBUILD - PROJECT NOTES
-Updated August 17, 2026. Paste this into Claude to resume the project with full context.
+Updated August 18, 2026. Paste this into Claude to resume the project with full context.
 
 ================================================================================
 CURRENT STATE - READ THIS FIRST. Everything below this block is dated history.
@@ -354,15 +354,26 @@ VERIFICATION RUN AFTER THE EDITS (repeat this if teams.html is touched again)
   .faq-item all 2, .acc all 2, .vid-grid [4,4]. Those counts are the CloudCannon
   stray-tag canary, check them after any editor save.
 
-STILL TO DO IN SEARCH CONSOLE (Bob, after publishing)
-  1. Publish the changed files, wait for Cloudflare.
-  2. Search Console > Pages > click "Not found (404)" > VALIDATE FIX (the /itinerary26
-     redirect already exists).
-  3. Same for "Duplicate, Google chose different canonical than user".
-  4. Leave "Page with redirect" and "Alternate page with proper canonical tag" alone.
-     They will fall on their own now that internal links are clean.
-  5. URL Inspection on https://sporteurotour.com/teams > REQUEST INDEXING, so the
-     rewritten page gets re-crawled rather than waiting.
+SEARCH CONSOLE - ALL DONE Aug 17/18, 2026
+  Published to GitHub, Cloudflare deployed, live site verified: /teams 58,640 bytes with
+  the How a Team Booking Works section, /itinerary27 95,106 bytes, ZERO internal .html
+  hrefs on any live page, sitemap lastmod 2026-08-17.
+  Then in Search Console:
+  - "Not found (404)" > VALIDATE FIX clicked. Validation started 8/18/26.
+  - "Duplicate, Google chose different canonical than user" > VALIDATE FIX clicked.
+    Validation started 8/18/26. NOTE: this button needs a second click sometimes, the
+    first one lands before the control is live.
+  - URL Inspection on /teams > REQUEST INDEXING done. Added to the priority crawl queue.
+  LEFT ALONE DELIBERATELY: "Page with redirect" (9) and "Alternate page with proper
+  canonical tag" (5). There is nothing to validate. Those counts fall on their own now
+  that internal links are clean, and re-submitting them just resets a pointless timer.
+  WHAT TO EXPECT: validation runs take days to a couple of weeks. Google re-crawls each
+  affected URL. Do not re-click VALIDATE FIX while one is in progress.
+  IF THE DUPLICATE FLAG COMES BACK on /itinerary27 or /teams, that means the two pages
+  have drifted back toward each other. Re-run the overlap check before doing anything
+  else: strip tags from both files, split on sentences over 60 chars, and measure how
+  many of teams.html's appear in itinerary27.html. Anything over about 50% is a problem.
+  It was 94% on Aug 17 and is 24% now.
 
 FILES CHANGED THIS SESSION (upload all of these)
   index.html  itinerary27.html  teams.html  terms.html  privacy.html
@@ -372,6 +383,126 @@ FILES CHANGED THIS SESSION (upload all of these)
 
 ONE LOOSE END: members26.html still contains 2 empty <p></p> CloudCannon artifacts.
 Left alone because members26 is frozen (hard rule 6). Harmless.
+
+10. STATE AS OF Aug 18, 2026 (search keyword targeting + the analytics baseline)
+
+HOW TO RE-RUN THIS ANALYSIS
+Say to Claude: "run my search analytics". Claude opens Search Console in Chrome and pulls
+Performance > Queries, Pages, and Countries, then compares against the BASELINE below.
+Claude needs the Chrome extension connected and Bob signed in to Search Console.
+Do not judge anything on less than about 6 weeks of data after a change.
+
+THE BASELINE - measured Aug 18, 2026, covering Jul 16 to Aug 16 (30 days)
+NOTE: the Search Console property was verified Jul 16 2026, so there is NO history before
+that date. Pre-cutover WordPress performance is not in this property and never will be.
+  Totals:   42 clicks | 253 impressions | 16.6% CTR | average position 20.8
+  Countries: United States 32 clicks / 105 impr   (this is the real market)
+             Netherlands 6 / 59
+             United Kingdom 0 clicks / 50 impr    (dead weight, see below)
+             France 2/2, Germany 1/3, Spain 1/2
+  Pages:    http://sporteurotour.com/       36 clicks / 121 impr
+            https://sporteurotour.com/itinerary27/   4 / 114
+            https://sporteurotour.com/       2 / 39
+            https://sporteurotour.com/teams  0 / 15
+  Queries:  ALL 19 visible queries got ZERO clicks. Every one of the 42 clicks came from
+            queries Google anonymized, which is almost always branded searches.
+            Top: european sports travel 28 impr | school hockey tours netherlands 10 |
+            holland sports tours 8 | eurotour 2027 5 | hockey club tours netherlands 3 |
+            hockey tours to the netherland 3 | team sports travel 2 |
+            school hockey tours holland 2 | school hockey trips netherlands 2 |
+            hockey sports tours 2 | university hockey tours holland 1
+
+WHAT THE BASELINE MEANS (the two findings that drove the changes)
+1. THE UK PROBLEM. 50 impressions, 0 clicks, a fifth of all visibility. The query wording
+   gives it away: "school hockey tours netherlands", "university hockey tours holland",
+   "hockey club tours netherlands". That is British phrasing. UK schools and universities
+   run hockey tours as a whole category, and in Britain "hockey" means field hockey by
+   default. Google had us filed with the UK school tour operators. Those people will never
+   book a US mother-and-daughter trip.
+2. WE NEVER SAID "FIELD HOCKEY" IN OUR HEADINGS. Titles did. H1s did not. You cannot rank
+   for a phrase your page does not use. Adding it is mainly about DISAMBIGUATION toward
+   the US market, not about search volume.
+
+CHANGES MADE Aug 18
+  Each page owns a DIFFERENT keyword variation on purpose. Do not make them match, that
+  is keyword cannibalization and the pages start competing with each other.
+    index.html      hero kicker now leads "Field Hockey Tours in Holland" before the date.
+                    H1 "The Trip of Her Life. Yours Too." UNTOUCHED, deliberately. That
+                    page converts at 30% and the H1 is the hook. Two H2s picked up
+                    "Field Hockey": the kicker "A MasterClass in Field Hockey" and
+                    "FIH Top Field Hockey Coaching".
+    itinerary27     H1 "The 2027 Dutch Training Tour" -> "The 2027 Dutch Field Hockey
+                    Training Tour".
+    teams.html      H1 "Teams" -> "Field Hockey / Team Trips". The old one-word H1 was
+                    worth nothing to a search engine or to a coach landing on the page.
+  TYPE SCALE FIX ON itinerary27 ONLY. The longer H1 ran edge to edge at 1280x600 and
+  overflowed the screen on a 390px phone. Reduced .hero h1 from
+  clamp(1.9rem,5.5vw,3.7rem) to clamp(1.62rem,4.6vw,3.05rem), and the max-width:760px
+  override from 1.95rem to 1.62rem. If that H1 is ever reworded, RE-CHECK BOTH SIZES.
+  "NETHERLANDS" ADDED alongside "Holland", not replacing it. Holland stays the brand word
+  in every title, H1 and footer. Netherlands now appears in meta + og descriptions on all
+  three pages, in the homepage Organization schema, the tour page SportsEvent schema, one
+  natural body sentence on the homepage, and one image alt. Counts went index 8/0 -> 8/5,
+  teams 5/1 -> 7/3, itinerary27 23/5 -> 23/8.
+  FOUNDING DATE CORRECTED. index.html Organization schema said "foundingDate": "1988".
+  Now 1989, which is what hard rule 2 requires (2026 = 37 years, 2027 = 38). Swept the
+  whole site: every other "Since 1989" and year-legacy line was already correct.
+
+HERO VERIFICATION METHOD (repeat this after ANY hero or H1 change)
+Rendering was done headless in the Linux sandbox, because file:// previews cannot resolve
+the extensionless links. Setup that worked:
+  pip install playwright --break-system-packages
+  playwright install chromium
+  libXdamage.so.1 is missing in the sandbox. Fix: apt-get download libxdamage1,
+  dpkg -x it to /tmp/xd, then export LD_LIBRARY_PATH=/tmp/xd/usr/lib/x86_64-linux-gnu
+Screenshot all three pages at 1440x820, 1280x600 and 390x844. The 1280x600 case is the
+one that matters: the full hero stack AND the red anchor ribbon must both be visible
+without scrolling. Confirmed good on Aug 18.
+
+ON THE TOUR PAGE'S "LOW" CTR - A CORRECTION WORTH KEEPING
+itinerary27 shows 114 impressions and 4 clicks, which looks alarming next to the
+homepage's 30%. It is not. Average position is about 21, and typical CTR at position 20
+is roughly 1%. At 3.5% that page is performing ABOVE expectation for where it ranks. The
+homepage's 30% is simply what ranking #1 for your own brand name looks like.
+THE LESSON: the tour page's problem is POSITION, not persuasion. Rewriting its title or
+description will not fix a page sitting on page 2 or 3. Only authority and relevance move
+that, which means links and content. Do not waste sessions tweaking meta descriptions.
+
+RE-CRAWL REQUESTS - ALL DONE
+  /teams (Aug 17), /itinerary27 (Aug 18), homepage / (Aug 18). All three confirmed
+  "Indexing requested. URL was added to a priority crawl queue."
+
+SOLVED: HOW TO TYPE INTO THE SEARCH CONSOLE INSPECT BOX
+The Inspect box at the top of Search Console ignores plain typing and ignores form_input.
+It takes the click, then silently clears the value, because it is a Closure/Angular
+widget that only reacts to a native setter plus a real input event.
+THIS WORKS, use javascript_tool with action javascript_exec:
+  const el=[...document.querySelectorAll('input')]
+    .find(e=>e.getAttribute('aria-label')==='Inspect any URL in sporteurotour.com');
+  el.focus(); el.click();
+  const setter=Object.getOwnPropertyDescriptor(
+    window.HTMLInputElement.prototype,'value').set;
+  setter.call(el,'https://sporteurotour.com/');
+  el.dispatchEvent(new Event('input',{bubbles:true}));
+  el.dispatchEvent(new Event('change',{bubbles:true}));
+  await new Promise(r=>setTimeout(r,800));
+  for (const t of ['keydown','keypress','keyup']){
+    el.dispatchEvent(new KeyboardEvent(t,{key:'Enter',code:'Enter',keyCode:13,
+      which:13,bubbles:true,cancelable:true}));
+  }
+Then wait, screenshot to confirm the right URL loaded, and click REQUEST INDEXING
+(around x=1296, y=360). The result banner takes up to 30 seconds to appear.
+NOTE: the js call may return "[BLOCKED: Cookie/query string data]". That is the Chrome
+extension redacting the return value, NOT a failure. Check the tab URL instead: a fresh
+&id=<hash> means the inspection ran.
+
+WHAT ACTUALLY MOVES THE NEEDLE FROM HERE (in order)
+  1. Wait. Give the Aug 17 and Aug 18 changes 4 to 6 weeks to be crawled and settle.
+  2. Backlinks. This is the real constraint at position 21. Realistic targets: SportWays /
+     Thomas Tichelman, Hotel Zuiver, lineupfh.com linking back, club sites of teams that
+     have travelled, US field hockey directories and club newsletters.
+  3. Content. More pages answering what parents and coaches actually search. This is a
+     project, not a session.
 
 HOUSEKEEPING - SWEEP EDITOR ARTIFACTS (do this whenever opening a file after CloudCannon use)
 CloudCannon saves leave empty <p></p> tags and stray <p> wrappers around <div> blocks. They
