@@ -989,3 +989,63 @@ HubSpot + JotForm (forms), LeagueApps (registration), WeTravel (booking/payments
 
 STYLE
 Conversational, professional, friendly. Direct, no fluff, no buzzwords, no em dashes. Promo copy short and punchy.
+
+
+16. WP ENGINE RETIREMENT, Sep 6, 2026. Read this BEFORE cancelling anything.
+   *** THERE ARE THREE SEPARATE WP ENGINE ACCOUNTS ON bob@lineupfh.com ***
+   Use the account switcher at the top left of my.wpengine.com to move between them.
+     EuroTour    -> install "worldcampusa" -> sporteurotour.com   <- THE ONE TO CANCEL
+     expndhoriz  -> install "lineupfh"     -> lineupfh.com        <- KEEP, LIVE
+     lineuplax   -> install "lineuplax"    -> lineuplax.com       <- KEEP, LIVE
+   They are separate accounts with separate billing cycles and separate installs.
+   Cancelling EuroTour CANNOT affect lineupfh.com or lineuplax.com. Verified Sep 6 by
+   checking the domain list on each install.
+   worldcampusa serves exactly 4 domains and nothing else: sporteurotour.com,
+   www.sporteurotour.com, worldcampusa.wpenginepowered.com, worldcampusa.wpengine.com.
+   BILLING: the EuroTour account cycle runs Sep 5 to Oct 4. It just renewed, so it is
+   paid through Oct 4 either way. Cancel any time before Oct 4 to stop the next charge.
+   Usage on that account is already zero: 0 billable visits, 0 average visits per day.
+   DNS DEPENDENCY: NONE. Checked all 15 Cloudflare DNS records for sporteurotour.com.
+   Not one points at WP Engine. Apex and www both go to the Worker. MX is Google, so
+   EMAIL IS UNAFFECTED. HubSpot DKIM, the GoDaddy pay link, SPF and DMARC are all
+   independent.
+   WHAT WAS IN THE OLD DATABASE, counted Sep 6 before retiring it:
+     816   Gravity Forms ENTRIES across 5 forms  <- real inquiry data, years of it
+     211   media attachments  (only 60 images were ever migrated to the new site)
+      12   published pages, 5 published posts, 4 DRAFT pages
+       2   WP users, 0 comments, 0 draft form submissions
+   PRESERVED BEFORE CANCELLATION:
+     1. Manual backup point created in WP Engine, described "Final full archive before
+        WP Engine cancellation - Sep 6 2026", ID 1788723636, taken Sep 6 2026 7:40PM UTC.
+        IMPORTANT, THIS IS A TWO-STEP THING AND IT IS EASY TO GET WRONG:
+        Creating a backup point does NOT produce a file. It is a restore point living
+        inside WP Engine, and it dies with the account. To get an actual zip you must
+        then open the row's "..." menu > Download > Full backup > Generate download.
+        That was done on Sep 6. WP Engine emails a download LINK to bob@lineupfh.com
+        when the zip is built. THE ZIP IS NOT SAFE UNTIL THAT LINK IS USED AND THE FILE
+        IS ON BOB'S OWN DISK. Those links also expire, so do not sit on it.
+     2. Gravity Forms exported to CSV from phpMyAdmin, two files:
+          wp_gf_entry.csv        816 rows   (one row per submission)
+          wp_gf_entry_meta.csv   6268 rows  (the actual field values)
+        Join them on entry_id. Downloaded to Bob's Downloads folder.
+   STILL TO DO BY BOB: download the backup zip from the email, store it somewhere
+   durable that is NOT just the Desktop folder (that folder is not in GitHub), confirm
+   it contains wp-content/uploads, then cancel the EuroTour account only.
+   WHERE THE CANCEL BUTTON ACTUALLY IS (found Sep 6, it is not obvious):
+     my.wpengine.com > confirm the account switcher top-left says EuroTour >
+     left sidebar "Billing" (url /manage) > scroll to the bottom > Support card >
+     "Modify plan" > "Cancel plan".
+   DO NOT USE "Delete environment" (the red item in the install's Actions menu). That
+   deletes the worldcampusa site but leaves the EuroTour account and its plan billing
+   you $35 a month forever. Deleting the environment is NOT cancelling.
+   EuroTour plan facts as of Sep 6 2026: Startup, $35.00/month, next bill Oct 5 2026,
+   amount currently due $0.00, card Visa ending 8330.
+   Support IDs for that account if you ever need WP Engine support:
+     Customer ID 100169179, Hosting ID 2474387.
+   NOTE: Claude does not perform account cancellations or permanent data deletion.
+   That click is Bob's, deliberately.
+   PHPMYADMIN QUIRKS worth knowing: the phpMyAdmin session token is single use per
+   launch, so you must click the phpMyAdmin button in the portal each time and then
+   work inside the tab that opens WITHOUT navigating it away first. Exporting a custom
+   QUERY result fails with "Bad parameters!"; export whole TABLES instead, via
+   /index.php?route=/table/export&db=wp_worldcampusa&table=NAME.
