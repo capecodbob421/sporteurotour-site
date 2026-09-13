@@ -12,7 +12,7 @@
     --red:#df202c;
     --red-dark:#b5121e;
     --ink:#222;
-    --bg:#f5f7fb;          /* live-swappable hero background */
+    --bg:#ffffff;          /* live-swappable hero background */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
@@ -60,13 +60,13 @@
   /* =========================================================
      HERO — split with a feathered edge
      ========================================================= */
-  .hero{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);background:var(--bg);
+  .hero{display:grid;grid-template-columns:minmax(0,43fr) minmax(0,57fr);background:var(--bg);
         min-height:calc(100vh - 160px);min-height:calc(100svh - 160px);transition:background .25s}
-  .hero .pane{display:flex;flex-direction:column;justify-content:center;padding:3rem clamp(1.4rem,4vw,4.2rem);position:relative;z-index:2}
+  .hero .pane{display:flex;flex-direction:column;justify-content:center;padding:3rem clamp(1.4rem,3.4vw,3.6rem);position:relative;z-index:2}
   .hero .shot{position:relative;overflow:hidden}
-  .hero .shot img{width:100%;height:100%;object-fit:cover;object-position:38% 42%;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.10) 7%,rgba(0,0,0,.45) 15%,rgba(0,0,0,.85) 24%,#000 33%);
-            mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.10) 7%,rgba(0,0,0,.45) 15%,rgba(0,0,0,.85) 24%,#000 33%)}
+  .hero .shot img{width:100%;height:100%;object-fit:cover;object-position:31% 42%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 4%,rgba(0,0,0,.58) 10%,rgba(0,0,0,.88) 17%,#000 25%);
+            mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 4%,rgba(0,0,0,.58) 10%,rgba(0,0,0,.88) 17%,#000 25%)}
 
   /* benefit strip below the hero only exists on phone */
   .trust-strip{display:none}
@@ -79,17 +79,15 @@
 
     .hero{display:block;position:relative;min-height:100svh;min-height:100vh}
     .hero .shot{position:absolute;inset:0;height:100%;z-index:1}
-    .hero .shot img{object-position:36% 68%;
-      -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.08) 22%,rgba(0,0,0,.35) 34%,rgba(0,0,0,.78) 47%,#000 60%);
-              mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.08) 22%,rgba(0,0,0,.35) 34%,rgba(0,0,0,.78) 47%,#000 60%)}
+    .hero .shot img{object-position:36% 72%;
+      -webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 33%,rgba(0,0,0,.10) 41%,rgba(0,0,0,.42) 52%,rgba(0,0,0,.82) 64%,#000 75%);
+              mask-image:linear-gradient(180deg,transparent 0%,transparent 33%,rgba(0,0,0,.10) 41%,rgba(0,0,0,.42) 52%,rgba(0,0,0,.82) 64%,#000 75%)}
     .hero .pane{padding:2.1rem 1.3rem 0;justify-content:flex-start}
     .hero .who{max-width:26em}
     .hero .trust{display:none}
 
-    .trust-strip{display:block;background:var(--bg);padding:1.35rem 1.3rem 1.6rem;transition:background .25s}
-    .trust-strip .trust{margin-top:0;flex-direction:column;gap:.95rem}
-    .trust-strip .trust div{border-left:0;padding:0;display:flex;align-items:center;gap:.85rem;text-align:left;min-width:0}
-    .trust-strip .trust svg{margin:0;flex:0 0 auto;width:26px;height:26px}
+    /* benefit icons are desktop-only: on a phone they were a bolted-on box */
+    .trust-strip{display:none}
 
     .swatches{right:8px;bottom:8px;padding:.5rem .55rem}
     .swatches button{width:34px;height:34px}
@@ -99,7 +97,7 @@
 <body>
 
 <div class="pv-bar">
-  <strong>PREVIEW ONLY.</strong> Variant A refined: feathered edge, cooler background, merged phone hero. Use the swatches to change the background.
+  <strong>PREVIEW ONLY.</strong> Pure white, tighter fade (more of the left-hand girl), phone icons removed and photo pushed lower.
 </div>
 
 <div class="topbar">
@@ -170,8 +168,8 @@
 <div class="swatches">
   <p>Background</p>
   <div>
-    <button style="background:#f5f7fb" data-c="#f5f7fb" class="on">COOL<br>WHITE</button>
-    <button style="background:#ffffff" data-c="#ffffff">PURE<br>WHITE</button>
+    <button style="background:#f5f7fb" data-c="#f5f7fb">COOL<br>WHITE</button>
+    <button style="background:#ffffff" data-c="#ffffff" class="on">PURE<br>WHITE</button>
     <button style="background:#f7f8f8" data-c="#f7f8f8">NEUTRAL<br>GREY</button>
     <button style="background:#faf7f2" data-c="#faf7f2">OLD<br>CREAM</button>
   </div>
