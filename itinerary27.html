@@ -250,6 +250,10 @@
   .hero .who-short{display:none}
   .hero .cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.5rem;background:var(--red);color:#fff;
              text-decoration:none;font-weight:700;font-size:1.05rem;font-size:clamp(1rem,1.3vw,1.15rem);padding:.95rem 2rem;border-radius:6px;
+             /* The pane is a flex COLUMN, so this button stretches to the full column
+                width by default — its padding does not control its width. Cap it here.
+                89% lines the right edge up with the D of "IN HOLLAND" below it. */
+             max-width:89%;
              box-shadow:0 6px 22px rgba(223,32,44,.34);transition:background .18s}
   .hero .cta:hover{background:var(--red-dark)}
   .hero .cta span{font-size:1.15em;line-height:1}
