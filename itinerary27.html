@@ -418,7 +418,10 @@
       background-size:auto 125%;      /* lower % = wider shot. 125% keeps her face AND the glove on the stick */
       background-position:32% 0%}
     .hero .shot img{display:none}
-    .hero .pane{flex:1 1 auto;padding:0;justify-content:flex-start}
+    /* max-width:none is REQUIRED — the desktop rule caps this column at 44% and a
+       media query does not undo a property it never mentions. Leaving it out squeezed
+       the whole phone layout into a 44% strip (caught Sep 13). Same for .cta below. */
+    .hero .pane{flex:1 1 auto;padding:0;justify-content:flex-start;max-width:none}
     .hero .copy{position:relative;z-index:2;padding:1.1rem 1.3rem 2.3rem;margin-bottom:-2.3rem;
       background:linear-gradient(to top,
         rgba(255,255,255,0) 0rem,      rgba(255,255,255,.013) .14rem, rgba(255,255,255,.049) .29rem,
@@ -434,7 +437,7 @@
                      text-transform:uppercase;color:var(--navy);line-height:1.7}
     .hero .when{margin-top:.45rem}
     /* neutral shadow — the button sits against her orange jersey, not white */
-    .hero .cta{position:relative;z-index:2;margin:auto 1.3rem 4vh;align-self:flex-start;
+    .hero .cta{position:relative;z-index:2;margin:auto 1.3rem 4vh;align-self:flex-start;max-width:none;
                padding:.68rem 1.7rem;font-size:1.02rem;box-shadow:0 8px 26px rgba(12,31,77,.42)}
     .vid-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
     .vid-grid h3{font-size:.9rem}
@@ -459,7 +462,7 @@
      Must come AFTER the max-width rules above so it wins. */
   @media(orientation:landscape) and (max-height:520px){
     .hero{display:flex;flex-direction:column;position:relative;min-height:0}
-    .hero .pane{flex:0 0 auto;padding:0;justify-content:flex-start}
+    .hero .pane{flex:0 0 auto;padding:0;justify-content:flex-start;max-width:none}
     .hero .copy{position:relative;z-index:2;background:#fff;padding:.9rem 1.3rem .9rem;margin-bottom:0}
     .hero .copy .kick-rule{margin:.45rem 0 .6rem}
     .hero h1{font-size:1.7rem}
@@ -468,7 +471,7 @@
     .hero .who-short{display:block;margin-top:.45rem;font-size:.68rem;font-weight:800;letter-spacing:.08em;
                      text-transform:uppercase;color:var(--navy);line-height:1.6}
     .hero .trust{display:none}
-    .hero .cta{position:relative;z-index:2;margin:0 1.3rem 1rem;align-self:flex-start;
+    .hero .cta{position:relative;z-index:2;margin:0 1.3rem 1rem;align-self:flex-start;max-width:none;
                padding:.55rem 1.4rem;font-size:.95rem;box-shadow:0 5px 16px rgba(12,31,77,.32)}
     .hero .shot{position:relative;inset:auto;height:46vh;min-height:165px;overflow:hidden;
       background-image:url('images/hero-2025.webp');
