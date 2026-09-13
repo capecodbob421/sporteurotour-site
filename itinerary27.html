@@ -204,18 +204,50 @@
   nav.main a.hot{color:var(--red)}
   nav.main a.hot:hover{color:var(--navy)}
 
-  /* Hero */
-  .hero{background:linear-gradient(rgba(12,31,77,.5),rgba(12,31,77,.75)),url('images/banner-group-utrecht.webp') center/cover no-repeat;color:#fff;text-align:center;padding:1.5rem 1rem;min-height:calc(100vh - 160px);min-height:calc(100svh - 160px);display:flex;flex-direction:column;justify-content:center;align-items:center}
-  .hero .since{font-size:clamp(1.05rem,1.7vw,1.35rem);letter-spacing:.22em;text-transform:uppercase;color:#ffd6d6}
-  .hero h1{font-size:clamp(1.62rem,4.6vw,3.05rem);margin:.35rem 0;text-transform:uppercase;letter-spacing:.05em;line-height:1.08}
-  .hero h1 span{color:var(--red)}
+  /* ================================================================
+     HERO — rebuilt Sep 13, 2026. Split panel, text on white at full
+     colour strength, photo feathered into it with an eased gradient
+     mask (no hard seam). Replaces the old navy-scrim-over-photo hero,
+     which muted everything. See PROJECT-NOTES entry 17.
+     ================================================================ */
+  .hero{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);background:#fff;
+        min-height:calc(100vh - 160px);min-height:calc(100svh - 160px)}
+  .hero .pane{display:flex;flex-direction:column;justify-content:center;
+              padding:2.2rem clamp(1.4rem,3.4vw,3.6rem);position:relative;z-index:2}
+  .hero .shot{position:relative;overflow:hidden}
+  /* 16 closely spaced stops make an eased curve. A short 4-stop gradient
+     shows a visible line where the slope changes — do not simplify this. */
+  .hero .shot img{width:100%;height:100%;object-fit:cover;object-position:31% 42%;
+    -webkit-mask-image:linear-gradient(90deg,
+      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 2.6%, rgba(0,0,0,.049) 5.2%, rgba(0,0,0,.104) 7.6%,
+      rgba(0,0,0,.175) 10%, rgba(0,0,0,.259) 12.4%, rgba(0,0,0,.352) 14.7%, rgba(0,0,0,.450) 17.1%,
+      rgba(0,0,0,.550) 19.5%, rgba(0,0,0,.648) 21.9%, rgba(0,0,0,.741) 24.2%, rgba(0,0,0,.825) 26.6%,
+      rgba(0,0,0,.896) 29%, rgba(0,0,0,.951) 31.4%, rgba(0,0,0,.987) 33.7%, rgba(0,0,0,1) 37%);
+            mask-image:linear-gradient(90deg,
+      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 2.6%, rgba(0,0,0,.049) 5.2%, rgba(0,0,0,.104) 7.6%,
+      rgba(0,0,0,.175) 10%, rgba(0,0,0,.259) 12.4%, rgba(0,0,0,.352) 14.7%, rgba(0,0,0,.450) 17.1%,
+      rgba(0,0,0,.550) 19.5%, rgba(0,0,0,.648) 21.9%, rgba(0,0,0,.741) 24.2%, rgba(0,0,0,.825) 26.6%,
+      rgba(0,0,0,.896) 29%, rgba(0,0,0,.951) 31.4%, rgba(0,0,0,.987) 33.7%, rgba(0,0,0,1) 37%)}
+
+  .hero .kick{font-size:clamp(.82rem,1.15vw,1rem);letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600}
+  .hero .kick-rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:.85rem 0 1.1rem}
+  .hero h1{font-size:clamp(2.05rem,3.6vw,3.3rem);line-height:1.05;letter-spacing:-.012em;color:var(--navy);font-weight:800;text-transform:none}
+  .hero h1 em{font-style:normal;color:var(--red);display:block}
+  .hero .when{margin-top:.85rem;font-size:clamp(1.05rem,1.65vw,1.45rem);font-weight:700;color:var(--navy)}
+  .hero .who{margin-top:.6rem;font-size:clamp(.95rem,1.2vw,1.08rem);color:#4a5568;max-width:30em}
+  .hero .who-short{display:none}
+  .hero .cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.5rem;background:var(--red);color:#fff;
+             text-decoration:none;font-weight:700;font-size:clamp(1rem,1.3vw,1.15rem);padding:.95rem 2rem;border-radius:6px;
+             box-shadow:0 6px 22px rgba(223,32,44,.34);transition:background .18s}
+  .hero .cta:hover{background:var(--red-dark)}
+  .hero .cta span{font-size:1.15em;line-height:1}
+  .hero .trust{display:flex;margin-top:2.1rem}
+  .hero .trust div{flex:1 1 0;min-width:130px;padding:0 1.1rem;border-left:1px solid rgba(46,77,149,.18);text-align:center}
+  .hero .trust div:first-child{border-left:0;padding-left:0}
+  .hero .trust svg{width:30px;height:30px;margin:0 auto .5rem;display:block;fill:none;stroke:var(--navy);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .hero .trust p{font-size:.74rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);line-height:1.35}
   .mbr{display:none}
-  .hero .sub{margin-top:.5rem;font-size:clamp(.98rem,2.2vw,1.2rem);color:#e8edf5;line-height:1.6}
-  .hero .sub strong{font-size:1.1em;white-space:nowrap}
-  
-  .hero .ctas .btn{margin:.3rem .35rem 0;font-weight:600;padding:.6rem 1.4rem}
-  .hero img.badge{max-width:min(280px,62vw);max-height:13vh;width:auto;height:auto;margin:.9rem auto 0}
-  .hero .yeartag{font-weight:800;letter-spacing:.45em;margin-top:.4rem;font-size:1.05rem;text-indent:.45em}
+  @media(min-width:900px){ .hero h1 em{white-space:nowrap} }
 
   /* Anchor nav */
   .anchor-nav{background:var(--red);text-align:center;padding:.55rem .5rem;position:sticky;top:69px;z-index:40}
@@ -343,14 +375,39 @@
     .anchor-nav{top:0;position:static;padding:.45rem .1rem}
     .anchor-nav a{margin:0 .28rem;font-size:.66rem;letter-spacing:.02em}
     .mbr{display:inline}
-    .hero h1 span{white-space:nowrap}
-    .hero{padding:1rem .6rem}
-    .hero .since{font-size:.75rem;letter-spacing:.13em}
-    .hero h1{line-height:1.12}
-    .hero h1{font-size:1.62rem}
-    .hero .sub{font-size:.95rem;line-height:1.5;margin-top:.4rem}
-    .hero img.badge{max-height:11vh;margin-top:.8rem}
-    .hero .yeartag{font-size:.85rem;letter-spacing:.32em;text-indent:.32em;margin-top:.3rem}
+
+    /* ---- PHONE HERO ----
+       A portrait phone plus a landscape photo means object-fit can only crop
+       sideways, so the face sits at a fixed depth and cannot be moved. We swap
+       to a background image, which gives real control of zoom and position.
+       The white panel is attached to the COPY, not to a percentage of the
+       screen, so text can never land on a face however the headline wraps. */
+    .hero{display:flex;flex-direction:column;position:relative;
+          min-height:calc(100vh - 158px);min-height:calc(100svh - 158px)}
+    .hero .shot{position:absolute;inset:0;height:100%;z-index:1;
+      background-image:url('images/hero-2025.webp');
+      background-repeat:no-repeat;
+      background-size:auto 125%;      /* lower % = wider shot. 125% keeps her face AND the glove on the stick */
+      background-position:32% 0%}
+    .hero .shot img{display:none}
+    .hero .pane{flex:1 1 auto;padding:0;justify-content:flex-start}
+    .hero .copy{position:relative;z-index:2;padding:1.1rem 1.3rem 2.3rem;margin-bottom:-2.3rem;
+      background:linear-gradient(to top,
+        rgba(255,255,255,0) 0rem,      rgba(255,255,255,.013) .14rem, rgba(255,255,255,.049) .29rem,
+        rgba(255,255,255,.104) .43rem, rgba(255,255,255,.175) .57rem, rgba(255,255,255,.259) .72rem,
+        rgba(255,255,255,.352) .86rem, rgba(255,255,255,.450) 1.01rem, rgba(255,255,255,.550) 1.15rem,
+        rgba(255,255,255,.648) 1.29rem, rgba(255,255,255,.741) 1.44rem, rgba(255,255,255,.825) 1.58rem,
+        rgba(255,255,255,.896) 1.72rem, rgba(255,255,255,.951) 1.87rem, rgba(255,255,255,.987) 2.01rem,
+        rgba(255,255,255,1) 2.2rem)}
+    .hero .copy .kick-rule{margin:.6rem 0 .8rem}
+    .hero .trust{display:none}
+    .hero .who{display:none}
+    .hero .who-short{display:block;margin-top:.6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;
+                     text-transform:uppercase;color:var(--navy);line-height:1.7}
+    .hero .when{margin-top:.45rem}
+    /* neutral shadow — the button sits against her orange jersey, not white */
+    .hero .cta{position:relative;z-index:2;margin:auto 1.3rem 4vh;align-self:flex-start;
+               padding:.68rem 1.7rem;font-size:1.02rem;box-shadow:0 8px 26px rgba(12,31,77,.42)}
     .vid-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
     .vid-grid h3{font-size:.9rem}
     nav.main a{margin-left:.9rem;font-size:.85rem}
@@ -385,15 +442,35 @@
   </div>
 </header>
 
-<div class="hero" id="top" data-editable="source" data-path="/itinerary27.html" data-key="hero">
-  <p>
-  <div class="since">The Trip of Her Life. Yours Too.</div>
-  </p>
-  <h1>The 2027<br /><span>Dutch Field Hockey<br class="mbr" /> Training Tour</span></h1>
-  <p class="sub"><strong>Amsterdam • July 22 to 28, 2027</strong><br />For female field hockey athletes, graduating classes of 2028 to 2030.<br />Parents and family welcome. Encouraged, actually.</p><img loading="lazy" class="badge" src="images/eurotour-logo-white.png" alt="Sport EuroTour" />
-  <p>
-  <div class="yeartag">2027 TOUR</div>
-  </p>
+<div class="hero" id="top">
+  <div class="pane">
+    <div class="copy" data-editable="source" data-path="/itinerary27.html" data-key="hero">
+      <div class="kick">The Trip of Her Life. Yours Too.</div>
+      <div class="kick-rule"></div>
+      <h1>The 2027<em>Dutch Field Hockey</em>Training Tour</h1>
+      <p class="when">Amsterdam &bull; July 22 to 28, 2027</p>
+      <p class="who">For female field hockey athletes, graduating classes of 2028 to 2030. Parents and family welcome. Encouraged, actually.</p>
+      <p class="who-short">Classes of 2028&ndash;2030 &middot; Families welcome</p>
+    </div>
+    <a class="cta" href="#reg">Register for 2027 <span>&rarr;</span></a>
+    <div class="trust" data-editable="source" data-path="/itinerary27.html" data-key="hero-trust">
+      <div>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+        <p>World-Class<br />Dutch Coaching</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M16 14.8c3 .3 5 2.4 5 5.2"/></svg>
+        <p>A Family Trip,<br />Not a Tournament</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><path d="M21 14.5 13.5 12V6.2a1.7 1.7 0 0 0-3.4 0V12L2.6 14.5v2l7.5-2.1v4.2l-2.3 1.6v1.3l3.9-1 3.9 1v-1.3l-2.3-1.6v-4.2l7.7 2.1z"/></svg>
+        <p>38 Years<br />in Holland</p>
+      </div>
+    </div>
+  </div>
+  <div class="shot">
+    <img src="images/hero-2025.webp" alt="A Sport EuroTour athlete with her stick and glove, her coach cheering behind her, at the Amsterdam training club" />
+  </div>
 </div>
 
 <nav class="anchor-nav">
