@@ -1117,6 +1117,34 @@ Conversational, professional, friendly. Direct, no fluff, no buzzwords, no em da
      (data-key="hero" and "hero-trust"). The photo and the masks are NOT editable, on
      purpose. A rich-text save would destroy the gradients.
 
+   *** DESKTOP GEOMETRY — FOUR NUMBERS THAT DEPEND ON EACH OTHER ***
+   Final values after a long tuning session with Bob Sep 13. Do not change one alone.
+       .hero            display:flex (NOT a grid — the photo has to underlap the copy)
+       .hero .pane      flex 0 0 44%, max-width 44%      <- the text column
+       .hero .shot      position:absolute, left:38%       <- photo starts INSIDE the column
+       mask ramp        0% -> 30% of the photo layer      <- ~280px of fade
+       .cta / .trust    max-width:90% (shared, so they end on the same line)
+   WHY THEY ARE LOCKED TOGETHER. Three requirements pull against each other:
+     1. the ghost must reach under the copy, or the hero reads as two separate blocks
+        sitting side by side (Bob's words: "two very distinct pieces")
+     2. the main girl and the coach must be at FULL opacity — at ~50% they looked
+        fogged, and Bob spotted it immediately
+     3. no copy may sit on a strong part of the photo
+   In this photograph she is in the LEFT THIRD of the frame, so the window between
+   "where the text ends" and "where she begins" is narrow. The whole fade has to live
+   inside the clapping girls to her left. Full opacity is reached at about hero 57%,
+   which is her shoulder.
+   IF YOU WIDEN THE TEXT COLUMN you MUST push .shot's left edge right by the same
+   amount, or the copy lands on solid photo. That exact mistake happened once: at
+   pane 54% with a short ramp, "38 Years in Holland" disappeared into her jersey.
+   DEAD END, DO NOT RETRY: object-position-x does nothing on this layer. The container
+   is a wider ratio than the photo, so cover scales by width and crops only vertically.
+   You cannot slide her sideways. If she ever needs to move right, it takes a new crop
+   of the source file, not CSS.
+   THE BUTTON IS NOT SIZED BY ITS PADDING. The pane is a flex column, so the button
+   stretches to full column width by default. max-width is the only lever. An earlier
+   attempt to shrink it via padding changed nothing and wasted a round trip.
+
    CLASS NAMES: all hero styles are scoped under .hero on purpose. The page already uses
    .who for testimonial attributions (.quote .who) and .kicker for section eyebrows.
    Unscoped .who or .kick would collide.
