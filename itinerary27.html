@@ -421,6 +421,32 @@
     .nav-wrap img.logo{height:42px}
     nav.main a{margin-left:.6rem;font-size:.78rem;white-space:nowrap}
   }
+
+  /* ---- PHONE HELD SIDEWAYS (added Sep 13, 2026) ----
+     A phone in landscape has roughly 360-420px of HEIGHT. After the top bar, the nav
+     and the red ribbon there is almost nothing left, so the full-screen hero cannot
+     work: the copy overflowed and the sticky header sat on top of the headline.
+     Here we stop forcing a full screen and stack it honestly instead —
+     copy on white, then the button, then the photo as a band. Nothing overlaps.
+     Must come AFTER the max-width rules above so it wins. */
+  @media(orientation:landscape) and (max-height:520px){
+    .hero{display:flex;flex-direction:column;position:relative;min-height:0}
+    .hero .pane{flex:0 0 auto;padding:0;justify-content:flex-start}
+    .hero .copy{position:relative;z-index:2;background:#fff;padding:.9rem 1.3rem .9rem;margin-bottom:0}
+    .hero .copy .kick-rule{margin:.45rem 0 .6rem}
+    .hero h1{font-size:1.7rem}
+    .hero .when{margin-top:.35rem;font-size:1rem}
+    .hero .who{display:none}
+    .hero .who-short{display:block;margin-top:.45rem;font-size:.68rem;font-weight:800;letter-spacing:.08em;
+                     text-transform:uppercase;color:var(--navy);line-height:1.6}
+    .hero .trust{display:none}
+    .hero .cta{position:relative;z-index:2;margin:0 1.3rem 1rem;align-self:flex-start;
+               padding:.55rem 1.4rem;font-size:.95rem;box-shadow:0 5px 16px rgba(12,31,77,.32)}
+    .hero .shot{position:relative;inset:auto;height:46vh;min-height:165px;overflow:hidden;
+      background-image:url('images/hero-2025.webp');
+      background-repeat:no-repeat;background-size:cover;background-position:34% 26%}
+    .hero .shot img{display:none}
+  }
 </style>
 </head>
 <body>
