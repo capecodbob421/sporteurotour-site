@@ -1049,3 +1049,83 @@ Conversational, professional, friendly. Direct, no fluff, no buzzwords, no em da
    work inside the tab that opens WITHOUT navigating it away first. Exporting a custom
    QUERY result fails with "Bad parameters!"; export whole TABLES instead, via
    /index.php?route=/table/export&db=wp_worldcampusa&table=NAME.
+
+17. NEW HERO ON itinerary27, Sep 13, 2026. Replaces the navy-scrim hero.
+   WHY: the old hero laid a navy gradient at 50-75% opacity over a group photo. Nothing
+   could be full-strength navy or red, and the photo could not be read either. Bob's
+   words: "a little dark, and some of it just doesn't stand out."
+   WHAT IT IS NOW: a split panel. Text sits on WHITE at full colour on the left, the
+   photo occupies the right and is feathered into the white with a gradient mask.
+   THE PHOTO: images/hero-2025.webp, 2000px wide, 159KB. Cropped from DSC01939.jpg
+   (2025 tour, 5472x3648). One athlete close, face readable, 2025 SPORT EUROTOUR on her
+   jersey, stick and glove in frame, coach roaring behind her, teammates clapping.
+   WHY THIS PHOTO: a hero needs ONE readable face and an emotion. The old Utrecht bridge
+   group shot had 60 faces the size of postage stamps, no hockey in frame at all, and
+   shopping bags in the front row. It reads as a bus tour. It is good evidence, not a hook.
+   THE AI MOCK TRAP: the mocks Bob was shown were AI-generated (flawless jersey wordmarks
+   on every girl, synthetic faces). Do not put those on this site. The whole pitch is
+   38 years and 5,000 real athletes; a fake photo of athletes who were never on tour
+   undercuts it the moment one parent notices.
+
+   THREE THINGS THAT WILL BITE ANYONE WHO EDITS THIS HERO:
+
+   a) THE GRADIENT MASKS ARE 16-STOP EASED CURVES. DO NOT SHORTEN THEM.
+      A 4-stop gradient (0, .2, .8, 1) shows a visible vertical seam where the slope
+      changes, even though every individual step is small. The eye locks onto the change
+      in rate, not the steps. Bob spotted it immediately. Also: CSS silently CLAMPS any
+      colour stop that is positioned before the previous one, which collapses the tail
+      into a hard step. If you edit the numbers, keep them ascending.
+
+   b) ON A PHONE THE PHOTO IS A BACKGROUND IMAGE, NOT AN <img>. THIS IS DELIBERATE.
+      A portrait phone plus a landscape photo means object-fit:cover can only crop the
+      SIDES. Vertical framing is impossible; her face is locked at ~45% of the hero
+      depth no matter what object-position says. Hours were lost to this. The phone
+      rules therefore hide the <img> and set background-image on .hero .shot, which
+      gives real control via background-size (zoom) and background-position (framing).
+      The dial is background-size:auto 125%. LOWER % = WIDER SHOT.
+      125% was chosen because it keeps her face AND the glove on the stick in frame.
+      Higher zoom drops the glove off the bottom; the stick is what makes the photo
+      read as hockey rather than, in Bob's words, "a dance number."
+      GEOMETRIC LIMIT, measured: with this much copy, her face and her HANDS cannot
+      both be on screen. They sit about a third of the photo apart. Face wins.
+
+   c) THE WHITE PANEL IS ATTACHED TO THE COPY, NOT TO A PERCENTAGE OF THE SCREEN.
+      .hero .copy carries a to-top gradient with a NEGATIVE bottom margin equal to its
+      bottom padding. So the panel wraps whatever the text turns out to be and fades out
+      a FIXED distance below the last line. Earlier versions faded the photo over a fixed
+      % of screen height and hoped the text fit inside it; that breaks the moment the
+      headline wraps to four lines or the phone is short, and the body copy lands across
+      the faces. Do not go back to a percentage.
+
+   OTHER DECISIONS:
+   - Hero CTA "Register for 2027" -> #reg, matching the topbar REGISTER HERE. Not wired
+     direct to a tri.ps link because there are TWO (athlete JUuOo, family MjcPd) and the
+     hero cannot know which visitor it has. The old hero had NO button at all; a visitor
+     had to scroll and hunt. This is probably the biggest conversion change on the page.
+   - Phone CTA uses a NAVY shadow, not the red glow. It sits against her orange jersey.
+   - Background is pure white (#fff). The old --cream #faf7f2 read pink next to orange.
+   - Benefit strip (World-Class Dutch Coaching / A Family Trip, Not a Tournament /
+     38 Years in Holland) is DESKTOP ONLY. On a phone it was a bolted-on box that
+     crowded the photo.
+   - Phone shows a short spec line "Classes of 2028-2030 - Families welcome" instead of
+     the full paragraph. Small navy caps survive a light wash; grey body copy does not.
+     Desktop keeps the full sentence including "Encouraged, actually."
+   - Hero height: desktop calc(100svh - 160px), phone calc(100svh - 158px). Those two
+     numbers exist so the red anchor ribbon lands INSIDE the first screen. If you change
+     the topbar or nav height, re-check them on a phone.
+   - CloudCannon: the copy block and the benefit strip are separate editable regions
+     (data-key="hero" and "hero-trust"). The photo and the masks are NOT editable, on
+     purpose. A rich-text save would destroy the gradients.
+
+   CLASS NAMES: all hero styles are scoped under .hero on purpose. The page already uses
+   .who for testimonial attributions (.quote .who) and .kicker for section eyebrows.
+   Unscoped .who or .kick would collide.
+
+   STILL OPEN: index.html, teams.html, members26 and members27 still run the old hero.
+   Bob wants to bring them into sync at a later session. teams.html in particular should
+   get the same treatment with its own photo, since it is the B2B page.
+   ALSO WORTH DOING: og:image on itinerary27 is still images/eurotour-logo.png. A logo
+   makes a poor link preview. hero-2025 would be far better, but test the social preview
+   before and after; some scrapers are still weak on WebP.
+   PREVIEW PAGE: hero-preview.html is in the repo, noindex, and was the scratch pad for
+   all of this. Safe to delete once the other pages are done.
