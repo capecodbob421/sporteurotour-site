@@ -216,38 +216,44 @@
      as two blocks; an overlap with a long gentle ramp reads as one picture. */
   .hero{position:relative;display:flex;align-items:stretch;background:#fff;
         min-height:calc(100vh - 160px);min-height:calc(100svh - 160px)}
-  .hero .shot{position:absolute;top:0;right:0;bottom:0;left:30%;z-index:1}
+  .hero .shot{position:absolute;top:0;right:0;bottom:0;left:38%;z-index:1}
   /* Every clamp() below is preceded by a plain value. Safari before 13.1 does not
      understand clamp() and DISCARDS THE WHOLE DECLARATION — which on an old iPad
      zeroed the padding here and dumped the text against the left edge (found
      Sep 13, 2026 on a family iPad). Keep the plain fallback line whenever you
      touch these. */
   .hero .pane{display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;
-              flex:0 0 54%;max-width:54%;
+              flex:0 0 44%;max-width:44%;
               padding:2.2rem 2.4rem;
               padding:2.2rem clamp(1.4rem,3.4vw,3.6rem)}
   .hero .shot{overflow:hidden}
   /* 16 closely spaced stops make an eased curve. A short 4-stop gradient
      shows a visible line where the slope changes — do not simplify this. */
   .hero .shot img{width:100%;height:100%;object-fit:cover;object-position:31% 42%;
-    /* Ramp ends at 29% — roughly the main girl's shoulder. Past that the photo is at
-       FULL opacity: she and the coach must be crisp, no wash. The ramp stays long in
-       absolute terms (~320px) because the layer starts at 30% of the hero, under the
-       copy, so there is still no visible edge. */
+    /* THE BALANCING ACT. Three things fight each other here:
+         1. the ghost should reach toward the copy so it reads as one picture
+         2. the main girl and the coach must be CRISP, no white over them
+         3. the copy must never sit on a strong part of the photo
+       In this photo she is in the LEFT THIRD of the frame, so the window between
+       "where the text ends" and "where she begins" is narrow. Current settings put
+       the whole ramp inside the clapping girls to her left: starts at 38% of the
+       hero, full opacity by ~57%, which is her shoulder. ~280px of fade.
+       If you widen the text column, you must push .shot's left edge right to match,
+       or the copy lands on a solid part of the photo. */
     -webkit-mask-image:linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 1.9%, rgba(0,0,0,.049) 3.8%, rgba(0,0,0,.104) 5.7%,
-      rgba(0,0,0,.175) 7.6%, rgba(0,0,0,.259) 9.5%, rgba(0,0,0,.352) 11.4%, rgba(0,0,0,.450) 13.3%,
-      rgba(0,0,0,.550) 15.1%, rgba(0,0,0,.648) 17.1%, rgba(0,0,0,.741) 18.9%, rgba(0,0,0,.825) 20.8%,
-      rgba(0,0,0,.896) 22.7%, rgba(0,0,0,.951) 24.6%, rgba(0,0,0,.987) 26.5%, rgba(0,0,0,1) 29%);
+      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 2%, rgba(0,0,0,.049) 3.9%, rgba(0,0,0,.104) 5.9%,
+      rgba(0,0,0,.175) 7.8%, rgba(0,0,0,.259) 9.8%, rgba(0,0,0,.352) 11.8%, rgba(0,0,0,.450) 13.7%,
+      rgba(0,0,0,.550) 15.7%, rgba(0,0,0,.648) 17.6%, rgba(0,0,0,.741) 19.6%, rgba(0,0,0,.825) 21.5%,
+      rgba(0,0,0,.896) 23.5%, rgba(0,0,0,.951) 25.5%, rgba(0,0,0,.987) 27.4%, rgba(0,0,0,1) 30%);
             mask-image:linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 1.9%, rgba(0,0,0,.049) 3.8%, rgba(0,0,0,.104) 5.7%,
-      rgba(0,0,0,.175) 7.6%, rgba(0,0,0,.259) 9.5%, rgba(0,0,0,.352) 11.4%, rgba(0,0,0,.450) 13.3%,
-      rgba(0,0,0,.550) 15.1%, rgba(0,0,0,.648) 17.1%, rgba(0,0,0,.741) 18.9%, rgba(0,0,0,.825) 20.8%,
-      rgba(0,0,0,.896) 22.7%, rgba(0,0,0,.951) 24.6%, rgba(0,0,0,.987) 26.5%, rgba(0,0,0,1) 29%)}
+      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 2%, rgba(0,0,0,.049) 3.9%, rgba(0,0,0,.104) 5.9%,
+      rgba(0,0,0,.175) 7.8%, rgba(0,0,0,.259) 9.8%, rgba(0,0,0,.352) 11.8%, rgba(0,0,0,.450) 13.7%,
+      rgba(0,0,0,.550) 15.7%, rgba(0,0,0,.648) 17.6%, rgba(0,0,0,.741) 19.6%, rgba(0,0,0,.825) 21.5%,
+      rgba(0,0,0,.896) 23.5%, rgba(0,0,0,.951) 25.5%, rgba(0,0,0,.987) 27.4%, rgba(0,0,0,1) 30%)}
 
   .hero .kick{font-size:.9rem;font-size:clamp(.82rem,1.15vw,1rem);letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600}
   .hero .kick-rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:.85rem 0 1.1rem}
-  .hero h1{font-size:2.8rem;font-size:clamp(2.05rem,3.6vw,3.3rem);line-height:1.05;letter-spacing:-.012em;color:var(--navy);font-weight:800;text-transform:none}
+  .hero h1{font-size:2.6rem;font-size:clamp(2.05rem,3.1vw,3rem);line-height:1.05;letter-spacing:-.012em;color:var(--navy);font-weight:800;text-transform:none}
   .hero h1 em{font-style:normal;color:var(--red);display:block}
   .hero .when{margin-top:.85rem;font-size:1.25rem;font-size:clamp(1.05rem,1.65vw,1.45rem);font-weight:700;color:var(--navy)}
   .hero .who{margin-top:.6rem;font-size:1rem;font-size:clamp(.95rem,1.2vw,1.08rem);color:#4a5568;max-width:30em}
@@ -256,13 +262,15 @@
              text-decoration:none;font-weight:700;font-size:1.05rem;font-size:clamp(1rem,1.3vw,1.15rem);padding:.95rem 2rem;border-radius:6px;
              /* The pane is a flex COLUMN, so this button stretches to the full column
                 width by default — its padding does not control its width. Cap it here.
-                89% lines the right edge up with the D of "IN HOLLAND" below it. */
-             max-width:89%;
+                Shares the same 90% cap as .trust below so the two line up exactly. */
+             max-width:90%;
              box-shadow:0 6px 22px rgba(223,32,44,.34);transition:background .18s}
   .hero .cta:hover{background:var(--red-dark)}
   .hero .cta span{font-size:1.15em;line-height:1}
-  .hero .trust{display:flex;margin-top:2.1rem}
-  .hero .trust div{flex:1 1 0;min-width:130px;padding:0 1.1rem;border-left:1px solid rgba(46,77,149,.18);text-align:center}
+  /* Same 90% cap as the button, so the strip and the button end on the same line and
+     the third item ("38 Years in Holland") stays clear of the photo. */
+  .hero .trust{display:flex;margin-top:2.1rem;max-width:90%}
+  .hero .trust div{flex:1 1 0;min-width:0;padding:0 .8rem;border-left:1px solid rgba(46,77,149,.18);text-align:center}
   .hero .trust div:first-child{border-left:0;padding-left:0}
   .hero .trust svg{width:30px;height:30px;margin:0 auto .5rem;display:block;fill:none;stroke:var(--navy);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
   .hero .trust p{font-size:.74rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);line-height:1.35}
