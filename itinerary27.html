@@ -216,7 +216,7 @@
      as two blocks; an overlap with a long gentle ramp reads as one picture. */
   .hero{position:relative;display:flex;align-items:stretch;background:#fff;
         min-height:calc(100vh - 160px);min-height:calc(100svh - 160px)}
-  .hero .shot{position:absolute;top:0;right:0;bottom:0;left:33%;z-index:1}
+  .hero .shot{position:absolute;top:0;right:0;bottom:0;left:30%;z-index:1}
   /* Every clamp() below is preceded by a plain value. Safari before 13.1 does not
      understand clamp() and DISCARDS THE WHOLE DECLARATION — which on an old iPad
      zeroed the padding here and dumped the text against the left edge (found
@@ -230,16 +230,20 @@
   /* 16 closely spaced stops make an eased curve. A short 4-stop gradient
      shows a visible line where the slope changes — do not simplify this. */
   .hero .shot img{width:100%;height:100%;object-fit:cover;object-position:31% 42%;
+    /* Ramp ends at 29% — roughly the main girl's shoulder. Past that the photo is at
+       FULL opacity: she and the coach must be crisp, no wash. The ramp stays long in
+       absolute terms (~320px) because the layer starts at 30% of the hero, under the
+       copy, so there is still no visible edge. */
     -webkit-mask-image:linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 4.4%, rgba(0,0,0,.049) 8.8%, rgba(0,0,0,.104) 13.1%,
-      rgba(0,0,0,.175) 17.5%, rgba(0,0,0,.259) 21.9%, rgba(0,0,0,.352) 26.3%, rgba(0,0,0,.450) 30.6%,
-      rgba(0,0,0,.550) 35%, rgba(0,0,0,.648) 39.4%, rgba(0,0,0,.741) 43.8%, rgba(0,0,0,.825) 48.1%,
-      rgba(0,0,0,.896) 52.5%, rgba(0,0,0,.951) 56.9%, rgba(0,0,0,.987) 61.3%, rgba(0,0,0,1) 67%);
+      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 1.9%, rgba(0,0,0,.049) 3.8%, rgba(0,0,0,.104) 5.7%,
+      rgba(0,0,0,.175) 7.6%, rgba(0,0,0,.259) 9.5%, rgba(0,0,0,.352) 11.4%, rgba(0,0,0,.450) 13.3%,
+      rgba(0,0,0,.550) 15.1%, rgba(0,0,0,.648) 17.1%, rgba(0,0,0,.741) 18.9%, rgba(0,0,0,.825) 20.8%,
+      rgba(0,0,0,.896) 22.7%, rgba(0,0,0,.951) 24.6%, rgba(0,0,0,.987) 26.5%, rgba(0,0,0,1) 29%);
             mask-image:linear-gradient(90deg,
-      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 4.4%, rgba(0,0,0,.049) 8.8%, rgba(0,0,0,.104) 13.1%,
-      rgba(0,0,0,.175) 17.5%, rgba(0,0,0,.259) 21.9%, rgba(0,0,0,.352) 26.3%, rgba(0,0,0,.450) 30.6%,
-      rgba(0,0,0,.550) 35%, rgba(0,0,0,.648) 39.4%, rgba(0,0,0,.741) 43.8%, rgba(0,0,0,.825) 48.1%,
-      rgba(0,0,0,.896) 52.5%, rgba(0,0,0,.951) 56.9%, rgba(0,0,0,.987) 61.3%, rgba(0,0,0,1) 67%)}
+      rgba(0,0,0,0) 0%, rgba(0,0,0,.013) 1.9%, rgba(0,0,0,.049) 3.8%, rgba(0,0,0,.104) 5.7%,
+      rgba(0,0,0,.175) 7.6%, rgba(0,0,0,.259) 9.5%, rgba(0,0,0,.352) 11.4%, rgba(0,0,0,.450) 13.3%,
+      rgba(0,0,0,.550) 15.1%, rgba(0,0,0,.648) 17.1%, rgba(0,0,0,.741) 18.9%, rgba(0,0,0,.825) 20.8%,
+      rgba(0,0,0,.896) 22.7%, rgba(0,0,0,.951) 24.6%, rgba(0,0,0,.987) 26.5%, rgba(0,0,0,1) 29%)}
 
   .hero .kick{font-size:.9rem;font-size:clamp(.82rem,1.15vw,1rem);letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600}
   .hero .kick-rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:.85rem 0 1.1rem}
