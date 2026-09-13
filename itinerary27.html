@@ -212,8 +212,14 @@
      ================================================================ */
   .hero{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);background:#fff;
         min-height:calc(100vh - 160px);min-height:calc(100svh - 160px)}
-  .hero .pane{display:flex;flex-direction:column;justify-content:center;
-              padding:2.2rem clamp(1.4rem,3.4vw,3.6rem);position:relative;z-index:2}
+  /* Every clamp() below is preceded by a plain value. Safari before 13.1 does not
+     understand clamp() and DISCARDS THE WHOLE DECLARATION — which on an old iPad
+     zeroed the padding here and dumped the text against the left edge (found
+     Sep 13, 2026 on a family iPad). Keep the plain fallback line whenever you
+     touch these. */
+  .hero .pane{display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;
+              padding:2.2rem 2.4rem;
+              padding:2.2rem clamp(1.4rem,3.4vw,3.6rem)}
   .hero .shot{position:relative;overflow:hidden}
   /* 16 closely spaced stops make an eased curve. A short 4-stop gradient
      shows a visible line where the slope changes — do not simplify this. */
@@ -229,15 +235,15 @@
       rgba(0,0,0,.550) 19.5%, rgba(0,0,0,.648) 21.9%, rgba(0,0,0,.741) 24.2%, rgba(0,0,0,.825) 26.6%,
       rgba(0,0,0,.896) 29%, rgba(0,0,0,.951) 31.4%, rgba(0,0,0,.987) 33.7%, rgba(0,0,0,1) 37%)}
 
-  .hero .kick{font-size:clamp(.82rem,1.15vw,1rem);letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600}
+  .hero .kick{font-size:.9rem;font-size:clamp(.82rem,1.15vw,1rem);letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:600}
   .hero .kick-rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:.85rem 0 1.1rem}
-  .hero h1{font-size:clamp(2.05rem,3.6vw,3.3rem);line-height:1.05;letter-spacing:-.012em;color:var(--navy);font-weight:800;text-transform:none}
+  .hero h1{font-size:2.8rem;font-size:clamp(2.05rem,3.6vw,3.3rem);line-height:1.05;letter-spacing:-.012em;color:var(--navy);font-weight:800;text-transform:none}
   .hero h1 em{font-style:normal;color:var(--red);display:block}
-  .hero .when{margin-top:.85rem;font-size:clamp(1.05rem,1.65vw,1.45rem);font-weight:700;color:var(--navy)}
-  .hero .who{margin-top:.6rem;font-size:clamp(.95rem,1.2vw,1.08rem);color:#4a5568;max-width:30em}
+  .hero .when{margin-top:.85rem;font-size:1.25rem;font-size:clamp(1.05rem,1.65vw,1.45rem);font-weight:700;color:var(--navy)}
+  .hero .who{margin-top:.6rem;font-size:1rem;font-size:clamp(.95rem,1.2vw,1.08rem);color:#4a5568;max-width:30em}
   .hero .who-short{display:none}
   .hero .cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.5rem;background:var(--red);color:#fff;
-             text-decoration:none;font-weight:700;font-size:clamp(1rem,1.3vw,1.15rem);padding:.95rem 2rem;border-radius:6px;
+             text-decoration:none;font-weight:700;font-size:1.05rem;font-size:clamp(1rem,1.3vw,1.15rem);padding:.95rem 2rem;border-radius:6px;
              box-shadow:0 6px 22px rgba(223,32,44,.34);transition:background .18s}
   .hero .cta:hover{background:var(--red-dark)}
   .hero .cta span{font-size:1.15em;line-height:1}
