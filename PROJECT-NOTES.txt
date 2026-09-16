@@ -1157,3 +1157,51 @@ Conversational, professional, friendly. Direct, no fluff, no buzzwords, no em da
    before and after; some scrapers are still weak on WebP.
    PREVIEW PAGE: hero-preview.html is in the repo, noindex, and was the scratch pad for
    all of this. Safe to delete once the other pages are done.
+
+18. "JOINING US ON TOUR" GUEST SECTION, itinerary27, Sep 16, 2026.
+   WHAT: two guests confirmed for the 2027 tour, presented for credibility.
+     Tjerk van Herwaarden - Head Coach, Harvard University field hockey
+     Thomas Tichelman    - Assistant Coach, Netherlands Women's National Team
+   WHERE IT SITS: between the Dutch Training Tour / register box and "What Members Say".
+   Bob's call and it is the right one. The page now runs register -> who is coming ->
+   what families said. Three trust beats in a row. The instinct to bury it down in the
+   coaches section was wrong; almost nobody scrolls that far and this is news, not
+   reference material.
+   TJERK IS FIRST, ON PURPOSE. Bob: "the biggest credential validator is that he's head
+   coach at Harvard for field hockey." For an athlete who wants to play in college that
+   outranks everything else on the page. He is left on desktop, which puts him on top
+   when the cards stack on a phone, because source order drives the stack.
+   BOTH CARDS ARE DELIBERATELY IDENTICAL. Same circle size, same name, same title bar,
+   same bio length, same three stat boxes. Bob asked for "a little bit more evenly -
+   equals". Do not make one bigger than the other.
+   WHY CIRCLES: Thomas's photo is a dramatic Olympic medal moment, Tjerk's is a plain
+   studio headshot on a grey background. Side by side in rectangles the headshot looks
+   like the poor cousin. Cropping both to identical circles normalises them, and the
+   stat boxes let the record carry the weaker photo.
+   IMAGES: images/tjerk1.webp and images/thomas-gold-full.webp.
+   NOTE: an orphaned copy "thomas-gold medal (1).webp" (space + parentheses, from the
+   original Squoosh export) is still sitting in the repo images folder, unreferenced.
+   Harmless, safe to delete whenever. The lesson: rename exports BEFORE uploading;
+   spaces and parentheses have to be URL-encoded in src and it is ugly.
+   FACT CHECK, verified Sep 2026 from gocrimson.com and ivyleague.com:
+     Tjerk - Harvard head coach since 2012; 4 Ivy League titles (2016, 2018, 2021, 2023);
+     4x Ivy League Coach of the Year; NCAA semifinal 2021; 150th career win in 2025, all
+     at Harvard; before Harvard, 5 national titles in 7 seasons ON STAFF at Maryland
+     (staff, not head coach - the copy says "helped Maryland to" for that reason).
+     Thomas - bio supplied by Bob. "Former consultant to the U.S. Women's National Team
+     and the FIH" is his wording; keep "former".
+   *** DO NOT FRAME THIS AS A RECRUITING OPPORTUNITY. *** The copy presents them as
+   guests and mentors on purpose. Implying that travelling with a sitting Ivy League
+   head coach is a path to being recruited could create an NCAA contact-rules problem
+   for Tjerk, and it promises something EuroTour cannot control. The credentials sell
+   themselves. If anyone rewrites this section, hold that line.
+   OPEN, BOB PARKED IT: the Thomas coach card further down the page still reads "Thomas
+   may join us on the field, depending on his coaching commitments." That hedge now
+   contradicts the new section. Two fixes when he wants it: trim the lower card so it is
+   purely about the training philosophy (recommended - that is a different point and
+   worth keeping), or drop the lower card and let Martijn Drijver stand alone.
+   CSS: all classes scoped under .guests and prefixed .g- to avoid collisions. The page
+   already uses .who for testimonial attributions and .kicker for section eyebrows.
+   CloudCannon: guests-intro, guest-tjerk and guest-thomas are separate editable regions.
+   PREVIEW PAGE: guests-preview.html, noindex, holds the side-by-side and the stacked
+   alternative. Disposable.
