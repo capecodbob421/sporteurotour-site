@@ -277,6 +277,36 @@
   .mbr{display:none}
   @media(min-width:900px){ .hero h1 em{white-space:nowrap} }
 
+  /* ================================================================
+     GUESTS — "Joining Us On Tour" (added Sep 16, 2026)
+     Sits directly above What Members Say, so the page runs:
+     register -> who is coming -> what families said. Two trust blocks
+     back to back. Both cards are deliberately IDENTICAL in structure
+     (same circle, same title bar, same bio, same three stat boxes) so
+     neither man outranks the other. Tjerk is first because Harvard is
+     the strongest single credential for a college-bound athlete.
+     All classes prefixed .g- / scoped under .guests to avoid collisions.
+     ================================================================ */
+  .guests .pair{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;align-items:stretch}
+  .guests .g-card{background:#fff;border-radius:14px;padding:1.9rem 1.7rem 1.7rem;
+                  box-shadow:0 8px 28px rgba(24,42,88,.09);border-top:6px solid #A51C30;
+                  display:flex;flex-direction:column;text-align:center}
+  .guests .g-card.nl{border-top-color:var(--navy)}
+  .guests .g-ph{width:150px;height:150px;border-radius:50%;overflow:hidden;margin:0 auto 1rem;
+                box-shadow:0 0 0 4px #fff,0 0 0 6px #e4e9f3}
+  .guests .g-ph img{width:100%;height:100%;object-fit:cover}
+  .guests .g-name{color:var(--navy);font-size:1.4rem;line-height:1.2}
+  .guests .g-title{font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.92rem;
+                   margin:.25rem 0 .8rem;color:#A51C30}
+  .guests .g-card.nl .g-title{color:var(--navy)}
+  .guests .g-bio{font-size:.95rem;color:#4a5568;text-align:left;flex:1 1 auto}
+  .guests .g-stats{display:flex;border-top:1px solid var(--line);margin-top:1rem;padding-top:.9rem;text-align:center}
+  .guests .g-stats div{flex:1 1 0;min-width:0;padding-right:.9rem;border-right:1px solid var(--line)}
+  .guests .g-stats div:last-child{border-right:0;padding-right:0}
+  .guests .g-stats b{display:block;color:var(--red);font-size:1.3rem;line-height:1.15;font-weight:800}
+  .guests .g-stats span{display:block;font-size:.66rem;font-weight:700;text-transform:uppercase;
+                        letter-spacing:.03em;color:var(--navy);line-height:1.45;margin-top:.15rem}
+
   /* Anchor nav */
   .anchor-nav{background:var(--red);text-align:center;padding:.55rem .5rem;position:sticky;top:69px;z-index:40}
   .anchor-nav a{color:#fff;text-decoration:none;font-weight:700;margin:0 .9rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em}
@@ -439,6 +469,12 @@
     /* neutral shadow — the button sits against her orange jersey, not white */
     .hero .cta{position:relative;z-index:2;margin:auto 1.3rem 4vh;align-self:flex-start;max-width:none;
                padding:.68rem 1.7rem;font-size:1.02rem;box-shadow:0 8px 26px rgba(12,31,77,.42)}
+
+    /* Guests: two columns become one. Source order puts Tjerk on top, which is
+       deliberate — Harvard is the strongest credential for a college-bound athlete. */
+    .guests .pair{grid-template-columns:1fr;gap:1.4rem}
+    .guests .g-bio{text-align:center}
+    .guests .g-stats div{text-align:center;padding:0 .3rem;border-right:0}
     .vid-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
     .vid-grid h3{font-size:.9rem}
     nav.main a{margin-left:.9rem;font-size:.85rem}
@@ -570,6 +606,47 @@
         <a class="btn ghost reg-stack" href="https://tri.ps/MjcPd" target="_blank" rel="noopener">2 &mdash; Family Registers Immediately After<span class="click">Click Here to Register</span></a>
       </p>
       <p class="smallnote">Athletes and family members register separately. Athletes always register first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JOINING US ON TOUR ===================== -->
+<section class="guests" style="padding-top:0">
+  <div class="wrap">
+    <div class="center" data-editable="source" data-path="/itinerary27.html" data-key="guests-intro">
+      <span class="kicker">2027 Tour &bull; Guests</span>
+      <h2 class="sec">Joining Us On Tour</h2>
+      <p style="max-width:700px;margin:0 auto 2.4rem;color:#4a5568;font-size:1.05rem">The people around your daughter for the week matter as much as the training itself. Here is who is travelling with us in 2027.</p>
+    </div>
+    <div class="pair">
+
+      <div class="g-card" data-editable="source" data-path="/itinerary27.html" data-key="guest-tjerk">
+        <div class="g-ph"><img loading="lazy" src="images/tjerk1.webp" alt="Tjerk van Herwaarden, head coach of Harvard field hockey" style="object-position:50% 20%" /></div>
+        <h3 class="g-name">Tjerk van Herwaarden</h3>
+        <div class="g-title">Head Coach &middot; Harvard University</div>
+        <p class="g-bio">A Dutchman running one of the best programs in American college hockey. He came up through the Netherlands, then helped Maryland to five national titles in seven seasons before taking over at Harvard, where he has spent more than a decade building a perennial contender.</p>
+        <div class="g-stats">
+          <div><b>Harvard</b><span>Head Coach<br />Since 2012</span></div>
+          <div><b>5</b><span>National Titles<br />at Maryland</span></div>
+          <div><b>4</b><span>Ivy League<br />Titles</span></div>
+        </div>
+      </div>
+
+      <div class="g-card nl" data-editable="source" data-path="/itinerary27.html" data-key="guest-thomas">
+        <!-- Filename carries a space and parentheses from the original export, so the
+             src is URL-encoded. If it is ever renamed to thomas-gold-full.webp,
+             change this src to the plain name. -->
+        <div class="g-ph"><img loading="lazy" src="images/thomas-gold%20medal%20(1).webp" alt="Thomas Tichelman with his 2024 Olympic gold medal" style="object-position:50% 34%" /></div>
+        <h3 class="g-name">Thomas Tichelman</h3>
+        <div class="g-title">Assistant Coach &middot; Netherlands Women&rsquo;s National Team</div>
+        <p class="g-bio">He helped guide the Dutch to gold in Paris in 2024, after earlier Olympic cycles, European Championships and World Cups with the national programs. Former consultant to the U.S. Women&rsquo;s National Team and the FIH.</p>
+        <div class="g-stats">
+          <div><b>Gold</b><span>Paris 2024<br />Dutch Women</span></div>
+          <div><b>Founder</b><span>SportWays<br />SportsInQ</span></div>
+          <div><b>FIH</b><span>Former<br />Consultant</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
