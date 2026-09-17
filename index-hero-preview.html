@@ -42,29 +42,34 @@
   .ihero{flex:1 1 auto;min-height:0;background:#fff;display:flex;flex-direction:column;text-align:center}
   .shell{max-width:1250px;margin:0 auto;width:100%;padding:0 1.1rem;display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
 
-  .words{flex:0 0 auto;padding:1.8rem 0 0;max-width:900px;margin:0 auto}
-  .kick{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);font-weight:700}
-  .rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:.8rem auto 1rem}
-  .words h1{font-size:2.6rem;font-size:clamp(2rem,4.9vw,3.7rem);line-height:1.06;color:var(--navy);font-weight:800;letter-spacing:-.015em}
+  /* Every vertical measure below is aware of viewport HEIGHT (vh), not just width.
+     That is what stops the red ribbon falling off the bottom. Earlier versions sized
+     the type from width alone, so on a wide-but-short desktop window the headline was
+     huge, the block was too tall, and the ribbon got pushed under the fold. Flex alone
+     could not rescue it because nothing was allowed to shrink. Keep the vh terms. */
+  .words{flex:0 0 auto;padding:clamp(.75rem,2.1vh,1.8rem) 0 0;max-width:900px;margin:0 auto}
+  .kick{font-size:clamp(.7rem,1.1vh,.82rem);letter-spacing:.18em;text-transform:uppercase;color:var(--navy);font-weight:700}
+  .rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:clamp(.45rem,1.1vh,.8rem) auto clamp(.5rem,1.3vh,1rem)}
+  .words h1{font-size:2.4rem;font-size:clamp(1.85rem,min(4.7vw,7vh),3.45rem);line-height:1.06;color:var(--navy);font-weight:800;letter-spacing:-.015em}
   .words h1 em{font-style:normal;color:var(--red)}
-  .words .sub{margin:.9rem auto 0;max-width:36em;font-size:1rem;font-size:clamp(.95rem,1.25vw,1.12rem);color:#4a5568}
-  .words .cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.2rem;background:var(--red);color:#fff;
-    text-decoration:none;font-weight:700;font-size:1.05rem;font-size:clamp(1rem,1.25vw,1.15rem);
-    padding:.85rem 1.85rem;border-radius:6px;box-shadow:0 6px 20px rgba(223,32,44,.3)}
+  .words .sub{margin:clamp(.5rem,1.5vh,.95rem) auto 0;max-width:36em;font-size:1rem;font-size:clamp(.9rem,min(1.25vw,2vh),1.1rem);color:#4a5568}
+  .words .cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:clamp(.7rem,1.9vh,1.25rem);background:var(--red);color:#fff;
+    text-decoration:none;font-weight:700;font-size:1.05rem;font-size:clamp(.98rem,min(1.25vw,2vh),1.14rem);
+    padding:clamp(.58rem,1.5vh,.88rem) 1.8rem;border-radius:6px;box-shadow:0 6px 20px rgba(223,32,44,.3)}
   .words .cta:hover{background:var(--red-dark)}
 
   /* three pillars: photo + icon + label, locked in one column each */
   .trio{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
-        margin-top:1.5rem;padding-bottom:1rem}
+        margin-top:clamp(.75rem,2vh,1.5rem);padding-bottom:clamp(.5rem,1.4vh,1rem)}
   .trio .cell{display:flex;flex-direction:column;min-height:0}
-  .trio figure{position:relative;overflow:hidden;margin:0;border-radius:10px;flex:1 1 auto;min-height:150px}
+  .trio figure{position:relative;overflow:hidden;margin:0;border-radius:10px;flex:1 1 auto;min-height:105px}
   .trio img{width:100%;height:100%;object-fit:cover}
-  .trio figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem .9rem .85rem;
-    color:#fff;font-style:italic;font-size:1.12rem;font-weight:600;line-height:1.25;text-shadow:0 1px 10px rgba(0,0,0,.55);
+  .trio figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem .9rem .8rem;
+    color:#fff;font-style:italic;font-size:clamp(.82rem,min(1.1vw,1.9vh),1.12rem);font-weight:600;line-height:1.25;text-shadow:0 1px 10px rgba(0,0,0,.55);
     background:linear-gradient(to top,rgba(8,20,40,.8) 0%,rgba(8,20,40,.4) 55%,rgba(8,20,40,0) 100%)}
-  .trio .tag{flex:0 0 auto;padding:.75rem .4rem .2rem}
-  .trio .tag svg{width:25px;height:25px;margin:0 auto .3rem;display:block;fill:none;stroke:var(--navy);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .trio .tag p{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);line-height:1.3}
+  .trio .tag{flex:0 0 auto;padding:clamp(.4rem,1.2vh,.75rem) .4rem .15rem}
+  .trio .tag svg{width:clamp(19px,2.9vh,25px);height:clamp(19px,2.9vh,25px);margin:0 auto .28rem;display:block;fill:none;stroke:var(--navy);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .trio .tag p{font-size:clamp(.6rem,1.05vh,.7rem);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);line-height:1.3}
 
   @media(max-width:820px){
     nav.main a{margin-left:.85rem;font-size:.82rem}
@@ -138,7 +143,7 @@
         <div class="cell">
           <figure>
             <img src="images/tulip-girls-scaled.webp" alt="Sport EuroTour athletes among the Dutch tulips">
-            <figcaption>Friendships That Outlast the Week.</figcaption>
+            <figcaption>Friendships That Last a Lifetime.</figcaption>
           </figure>
           <div class="tag">
             <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M16 14.8c3 .3 5 2.4 5 5.2"/></svg>
