@@ -69,15 +69,55 @@
   nav.main a.hot{color:var(--red)}
   nav.main a.hot:hover{color:var(--navy)}
 
-  .hero{background:linear-gradient(rgba(8,20,40,.45),rgba(8,20,40,.72)),url('images/MOManddaughter-webpage-long.webp') center 20%/cover no-repeat;color:#fff;text-align:center;padding:1.5rem 1rem;min-height:calc(100vh - 118px);min-height:calc(100svh - 118px);display:flex;flex-direction:column;justify-content:center;align-items:center}
-  .hero .since{font-size:1rem;letter-spacing:.25em;text-transform:uppercase;color:#ffd6d6}
-  .hero h1{font-size:clamp(1.9rem,6vw,3.9rem);margin:.3rem 0;text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
-  .hero h1 span{color:var(--red);white-space:nowrap}
-  .hero .since .date{white-space:nowrap}
-  .hero .yr{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;margin-top:.4rem}
-  .hero .open{display:inline-block;background:var(--red);color:#fff;font-weight:600;padding:.5rem 1.4rem;border-radius:6px;margin-top:1rem;letter-spacing:.06em;text-transform:uppercase}
-  .hero .sub{font-size:clamp(.98rem,2.2vw,1.25rem);margin-top:.6rem;color:#eef2fa;line-height:1.6}
-  .hero img.plane{max-width:min(300px,70vw);max-height:17vh;width:auto;height:auto;margin:1.2rem auto 0}
+  /* ================================================================
+     INDEX HERO — rebuilt Sep 17, 2026. Replaces the dark navy-scrim
+     photo hero. Three pillars: each photo, its icon and its label
+     are ONE column, so they line up.
+
+     THE THING THAT KEPT BREAKING: the navy credibility strip below
+     kept getting pushed under the fold. Two causes, both fixed here.
+       1. min-height lets a block GROW past the screen. This uses a
+          fixed height so the PHOTOS are forced to shrink instead.
+          Do not change .hero back to min-height.
+       2. Sizing type from viewport WIDTH alone made the headline huge
+          on a wide-but-short window. Every vertical measure below is
+          also aware of viewport HEIGHT (vh). Keep the vh terms.
+     The 178px is topbar + nav + the .cred strip. If you change the
+     height of any of those three, change this number too.
+     (A wrapper div would be tidier but would break the sticky nav,
+     because overflow on an ancestor kills position:sticky.)
+     ================================================================ */
+  .hero{height:calc(100vh - 178px);height:calc(100svh - 178px);min-height:320px;
+        background:#fff;color:var(--ink);text-align:center;
+        display:flex;flex-direction:column;overflow:hidden}
+  .hero .shell{max-width:1250px;margin:0 auto;width:100%;padding:0 1.1rem;
+               display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+
+  .hero .words{flex:0 0 auto;padding:clamp(.7rem,2vh,1.7rem) 0 0;max-width:900px;margin:0 auto}
+  .hero .since{font-size:clamp(.7rem,1.1vh,.82rem);letter-spacing:.18em;text-transform:uppercase;color:var(--navy);font-weight:700}
+  .hero .rule{width:74px;height:4px;background:var(--red);border-radius:2px;margin:clamp(.45rem,1.1vh,.8rem) auto clamp(.5rem,1.3vh,1rem)}
+  .hero h1{font-size:2.4rem;font-size:clamp(1.85rem,min(4.7vw,7vh),3.45rem);line-height:1.06;color:var(--navy);font-weight:800;letter-spacing:-.015em;text-transform:none}
+  .hero h1 span{color:var(--red);white-space:normal}
+  .hero .sub{margin:clamp(.5rem,1.5vh,.95rem) auto 0;max-width:36em;font-size:clamp(.9rem,min(1.25vw,2vh),1.1rem);color:#4a5568;line-height:1.6}
+  .hero .open{display:inline-flex;align-items:center;gap:.6rem;margin-top:clamp(.7rem,1.9vh,1.25rem);background:var(--red);color:#fff;
+    text-decoration:none;font-weight:700;text-transform:none;letter-spacing:0;
+    font-size:clamp(.98rem,min(1.25vw,2vh),1.14rem);padding:clamp(.58rem,1.5vh,.88rem) 1.8rem;border-radius:6px;
+    box-shadow:0 6px 20px rgba(223,32,44,.3)}
+  .hero .open:hover{background:var(--red-dark)}
+
+  .hero .trio{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
+              margin-top:clamp(.75rem,2vh,1.5rem);padding-bottom:clamp(.5rem,1.4vh,1rem)}
+  .hero .cell{display:flex;flex-direction:column;min-height:0}
+  .hero .trio figure{position:relative;overflow:hidden;margin:0;border-radius:10px;flex:1 1 auto;min-height:90px}
+  .hero .trio img{width:100%;height:100%;object-fit:cover}
+  .hero .trio figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem .9rem .8rem;
+    color:#fff;font-style:italic;font-size:clamp(.82rem,min(1.1vw,1.9vh),1.12rem);font-weight:600;line-height:1.25;
+    text-shadow:0 1px 10px rgba(0,0,0,.55);
+    background:linear-gradient(to top,rgba(8,20,40,.8) 0%,rgba(8,20,40,.4) 55%,rgba(8,20,40,0) 100%)}
+  .hero .tag{flex:0 0 auto;padding:clamp(.4rem,1.2vh,.75rem) .4rem .15rem}
+  .hero .tag svg{width:clamp(19px,2.9vh,25px);height:clamp(19px,2.9vh,25px);margin:0 auto .28rem;display:block;
+                 fill:none;stroke:var(--navy);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .hero .tag p{font-size:clamp(.6rem,1.05vh,.7rem);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);line-height:1.3}
   .cred{background:var(--navy);color:#fff;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 2.6rem;padding:1rem;text-align:center}
   .cred div{font-size:.95rem}
   .cred strong{display:block;font-size:1.25rem;letter-spacing:.02em}
@@ -112,9 +152,14 @@
 
   @media(max-width:760px){
     .cred div:nth-child(3){display:none}
-    .hero .since{letter-spacing:.15em;font-size:.85rem}
-    .hero .since .dot{display:none}
-    .hero .since .date{display:block}
+    .hero .shell{padding:0 .5rem}
+    .hero .words{padding-top:clamp(.6rem,1.6vh,1.25rem)}
+    .hero .trio{gap:.45rem;margin-top:clamp(.6rem,1.6vh,1.1rem);padding-bottom:.55rem}
+    .hero .trio figure{border-radius:7px}
+    .hero .trio figcaption{font-size:.68rem;padding:1.3rem .35rem .4rem;line-height:1.2}
+    .hero .tag{padding:.45rem .15rem .1rem}
+    .hero .tag svg{width:21px;height:21px}
+    .hero .tag p{font-size:.58rem;letter-spacing:.02em}
     .feature p{font-size:1.05rem}
     .strip img:nth-child(n+4){display:none}
     .feature{grid-template-columns:1fr}
@@ -152,12 +197,54 @@
   </div>
 </header>
 
-<div class="hero" data-editable="source" data-path="/index.html" data-key="hero">
-  <div class="since">Field Hockey Tours in Holland <span class="dot">&bull;</span> <span class="date">Amsterdam, July 22 to 28, 2027</span></div>
-  <h1>The Trip of <span>Her Life.</span><br>Yours Too.</h1>
-  <p class="sub">Elite Dutch field hockey training for her.<br>A world-class spa hotel for you.<br>One unforgettable summer together.</p>
-  <a class="open" href="/itinerary27">See the 2027 Tour</a>
-  <img class="plane" src="images/eurotour-logo-white.png" alt="Sport EuroTour">
+<div class="hero">
+  <div class="shell">
+
+    <div class="words" data-editable="source" data-path="/index.html" data-key="hero">
+      <div class="since">Field Hockey Tours in Holland &bull; Amsterdam</div>
+      <div class="rule"></div>
+      <h1>The Trip of <span>Her Life.</span><br />Yours Too.</h1>
+      <p class="sub">Elite Dutch field hockey training for her. A world-class spa hotel for you. One unforgettable summer together.</p>
+      <a class="open" href="/itinerary27">See the 2027 Tour <span>&rarr;</span></a>
+    </div>
+
+    <div class="trio" data-editable="source" data-path="/index.html" data-key="hero-trio">
+
+      <div class="cell">
+        <figure>
+          <img loading="lazy" src="images/amst-houses.webp" alt="Canal houses on an Amsterdam canal" />
+          <figcaption>Amsterdam. There&rsquo;s Nothing Like It.</figcaption>
+        </figure>
+        <div class="tag">
+          <svg viewBox="0 0 24 24"><path d="M21 14.5 13.5 12V6.2a1.7 1.7 0 0 0-3.4 0V12L2.6 14.5v2l7.5-2.1v4.2l-2.3 1.6v1.3l3.9-1 3.9 1v-1.3l-2.3-1.6v-4.2l7.7 2.1z"/></svg>
+          <p>World-Class Travel</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <figure>
+          <img loading="lazy" src="images/coach-circle-2025.webp" alt="A Dutch coach demonstrating a tackle to Sport EuroTour athletes at the Amsterdam training club" />
+          <figcaption>She Comes Home a Better Player.</figcaption>
+        </figure>
+        <div class="tag">
+          <svg viewBox="0 0 24 24"><path d="M4 20 15 9M9 4l11 11M6.5 17.5 4 20M17.5 6.5 20 4"/><circle cx="5" cy="19" r="1.6"/><circle cx="19" cy="5" r="1.6"/></svg>
+          <p>Elite Training</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <figure>
+          <img loading="lazy" src="images/tulip-girls-scaled.webp" alt="Sport EuroTour athletes laughing among the Dutch tulips" />
+          <figcaption>Friendships That Last a Lifetime.</figcaption>
+        </figure>
+        <div class="tag">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M16 14.8c3 .3 5 2.4 5 5.2"/></svg>
+          <p>Lasting Friendships</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <div class="cred" data-editable="source" data-path="/index.html" data-key="credibility-strip">
