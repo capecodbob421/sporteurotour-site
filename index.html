@@ -82,12 +82,22 @@
        2. Sizing type from viewport WIDTH alone made the headline huge
           on a wide-but-short window. Every vertical measure below is
           also aware of viewport HEIGHT (vh). Keep the vh terms.
-     The 178px is topbar + nav + the .cred strip. If you change the
-     height of any of those three, change this number too.
-     (A wrapper div would be tidier but would break the sticky nav,
-     because overflow on an ancestor kills position:sticky.)
+     HOW THE FIRST SCREEN IS SIZED — no guessed numbers.
+     .topbar and header.site get EXPLICIT heights (42 + 74 = 116px).
+     .firstscreen then takes exactly the rest of the viewport and holds
+     BOTH the hero and the navy .cred strip, so the strip is measured
+     inside the box instead of hanging off the end of it. The earlier
+     version subtracted a guessed 178px for all three and clipped the
+     strip. If you change the topbar or nav height, change 116 to match.
+     The header stays OUTSIDE .firstscreen so position:sticky keeps
+     working the whole way down the page.
      ================================================================ */
-  .hero{height:calc(100vh - 178px);height:calc(100svh - 178px);min-height:320px;
+  .topbar{height:42px;padding:0 1rem}
+  header.site .nav-wrap{height:74px;padding-top:0;padding-bottom:0}
+  .firstscreen{height:calc(100vh - 116px);height:calc(100svh - 116px);min-height:430px;
+               display:flex;flex-direction:column;overflow:hidden}
+  .firstscreen .cred{flex:0 0 auto}
+  .hero{flex:1 1 auto;min-height:0;
         background:#fff;color:var(--ink);text-align:center;
         display:flex;flex-direction:column;overflow:hidden}
   .hero .shell{max-width:1250px;margin:0 auto;width:100%;padding:0 1.1rem;
@@ -152,6 +162,10 @@
 
   @media(max-width:760px){
     .cred div:nth-child(3){display:none}
+    /* phone chrome is shorter: 40 + 58 = 98px */
+    .topbar{height:40px;padding:0 .8rem}
+    header.site .nav-wrap{height:58px}
+    .firstscreen{height:calc(100vh - 98px);height:calc(100svh - 98px);min-height:400px}
     .hero .shell{padding:0 .5rem}
     .hero .words{padding-top:clamp(.6rem,1.6vh,1.25rem)}
     .hero .trio{gap:.45rem;margin-top:clamp(.6rem,1.6vh,1.1rem);padding-bottom:.55rem}
@@ -197,6 +211,7 @@
   </div>
 </header>
 
+<div class="firstscreen">
 <div class="hero">
   <div class="shell">
 
@@ -252,6 +267,7 @@
   <div><strong>5,000+</strong>Athletes Hosted</div>
   <div><strong>Olympic Gold</strong>Dutch Coaching</div>
 </div>
+</div><!-- /.firstscreen -->
 
 <section>
   <div class="wrap center" data-editable="source" data-path="/index.html" data-key="intro">
