@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="images/favicon-48.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="description" content="Free answers to field hockey recruiting questions, from the college coaches and recruiting experience behind the LineUp and Sport EuroTour.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://sporteurotour.com/ask">
+<title>Ask a Recruiting Question | EuroTour</title>
+<style>
+  :root{
+    --navy:#2e4d95;
+    --navy-2:#456bb4;
+    --red:#df202c;
+    --red-dark:#b5121e;
+    --cream:#faf7f2;
+    --ink:#222;
+    --gray:#6b7280;
+    --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:var(--red-dark)}
+  .topbar{background:var(--navy);color:#fff;font-size:.85rem;padding:.4rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  .topbar a{color:#fff;text-decoration:none}
+  .topbar .reg{background:var(--red);padding:.25rem .9rem;border-radius:4px;font-weight:700;letter-spacing:.04em}
+  header.site{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .nav-wrap{max-width:1150px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem}
+  .nav-wrap img.logo{height:52px;width:auto}
+  nav.main a{color:var(--navy);text-decoration:none;font-weight:600;margin-left:1.5rem;font-size:.95rem}
+  nav.main a:hover{color:var(--red)}
+  nav.main a.hot{color:var(--red)}
+  nav.main a.hot:hover{color:var(--navy)}
+  .doc{max-width:850px;margin:0 auto;padding:3rem 1rem 4rem}
+  .doc h1{color:var(--navy);text-transform:uppercase;font-size:clamp(1.8rem,5vw,2.5rem);margin-bottom:.3rem}
+  .doc .updated{color:var(--gray);font-size:.9rem;margin-bottom:1.5rem}
+  .doc h3{color:var(--navy);margin:1.8rem 0 .5rem;font-size:1.15rem}
+  .doc p{margin:.6rem 0}
+  .doc ul{padding-left:1.3rem;margin:.6rem 0}
+  .doc li{margin:.3rem 0}
+  .back{display:inline-block;margin-bottom:1.5rem;font-weight:600;color:var(--navy);text-decoration:none}
+  .back:hover{color:var(--red)}
+  footer{background:#0c1f4d;color:#cbd5e1;padding:2.5rem 1rem;font-size:.9rem}
+  footer .wrap{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem}
+  footer img.flogo{height:56px;width:auto;margin-bottom:.8rem}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{color:var(--red)}
+  footer ul{list-style:none}
+  footer li{margin:.35rem 0}
+  .legal{max-width:1150px;margin:1.8rem auto 0;border-top:1px solid #24448c;padding-top:1rem;text-align:center;color:#8ba0b8}
+
+  /* PHONE: keep the top nav on ONE line. Added Aug 14, 2026 after it wrapped to two
+     lines on a 360px screen. Nav reads: Home / ’27 Tour Details / Teams / LineUp.
+     If you ever add a nav item or lengthen a label, re-check this on a phone. */
+  @media(max-width:430px){
+    .nav-wrap{padding:.5rem .6rem}
+    .nav-wrap img.logo{height:42px}
+    nav.main a{margin-left:.6rem;font-size:.78rem;white-space:nowrap}
+  }
+  /* Ask page (Nov 2026): the RecruitRoot chat, framed in. Not in the nav or sitemap. */
+  .askwrap{max-width:860px;margin:0 auto;padding:1.5rem .5rem 3rem}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@SportEuroTour.com</a>
+  <a class="reg" href="/itinerary27#reg">REGISTER HERE</a>
+</div>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="/"><img class="logo" src="images/EuroTour-Logo-600-1.webp" alt="Sport EuroTour"></a>
+    <nav class="main">
+      <a href="/">Home</a>
+      <a class="hot" href="/itinerary27">&rsquo;27 Tour Details</a>
+      <a href="/teams">Teams</a>
+      <a href="https://lineupfh.com/" target="_blank" rel="noopener">LineUp</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ASK PAGE (Nov 2026). The free field hockey recruiting chat from RecruitRoot,
+     shown in a frame. Unlinked on purpose: not in the nav, the footer or sitemap.xml.
+     The chat itself lives on recruitroot.com; nothing here needs editing when it changes. -->
+<div class="askwrap">
+<!-- Ask RecruitRoot: free field hockey recruiting chat. Paste into a Cornerstone Raw Content element. -->
+<div style="max-width:800px;margin:0 auto;">
+  <iframe id="rr-ask" src="https://recruitroot.com/field-hockey/ask?embed=1" title="Ask RecruitRoot: field hockey recruiting questions"
+    style="display:block;width:100%;height:640px;border:0;background:transparent;" loading="lazy"></iframe>
+</div>
+<script>
+  // The chat tells this page how tall it is, so the box grows with the conversation.
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://recruitroot.com" || !e.data || !e.data.rrAskHeight) return;
+    document.getElementById("rr-ask").style.height = (e.data.rrAskHeight + 4) + "px";
+  });
+</script>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img class="flogo" src="images/eurotour-logo.png" alt="Sport EuroTour" style="background:#fff;padding:.55rem .8rem;border-radius:6px;height:76px">
+      <p>Showcasing a 38 Year Legacy: Successfully Hosting Over 5000 Athletes to Holland.</p>
+      <p style="margin-top:.6rem"><strong>Dutch Training Tour</strong><br>A MasterClass in Hockey</p>
+    </div>
+    <div>
+      <p><strong>Navigate</strong></p>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/itinerary27">2027 Tour Details</a></li>
+        <li><a href="https://lineupfh.com/" target="_blank" rel="noopener">LineUp</a></li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Contact Us</strong></p>
+      <ul>
+        <li><a href="mailto:Info@sporteurotour.com?subject=Inquiry">Info@sporteurotour.com</a></li>
+        <li><a href="https://www.instagram.com/sporteurotour/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <a href="/terms">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="/privacy">Privacy Policy</a><br>
+    &copy; Expanding Horizons, Inc. dba Sport EuroTour
+  </div>
+</footer>
+
+</body>
+</html>
