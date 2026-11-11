@@ -1205,3 +1205,42 @@ Conversational, professional, friendly. Direct, no fluff, no buzzwords, no em da
    CloudCannon: guests-intro, guest-tjerk and guest-thomas are separate editable regions.
    PREVIEW PAGE: guests-preview.html, noindex, holds the side-by-side and the stacked
    alternative. Disposable.
+
+NOV 10-11, 2026 - ASK PAGE (RecruitRoot chat)
+- New file ask.html -> sporteurotour.com/ask. The free field hockey recruiting chat from
+  RecruitRoot, shown in a frame between the normal header and footer. Built from privacy.html.
+- Deliberately UNLINKED: not in the nav, the footer or sitemap.xml, and marked noindex.
+- The chat itself lives on recruitroot.com (/field-hockey/ask?embed=1). Nothing on this site
+  needs editing when the chat changes. Details: runway-report PROJECT-NOTES.md,
+  "RecruitRoot chatbot".
+- Bob publishes it by dragging ask.html to GitHub (new file, cannot overwrite staff edits).
+- Nov 11 status: ask.html written but NOT yet on GitHub (sporteurotour.com/ask = 404). It also
+  needs RecruitRoot's embed version live first (Bob uploads runway-report deploy/ to Cloudflare).
+- Nov 11, later: ask.html is on GitHub and LIVE at sporteurotour.com/ask (checked; frame sizes itself).
+
+NOV 11, 2026 - FLOATING "REGISTER HERE" BUTTON (all 10 pages)
+- Red pill button, top right, stays put while you scroll. Modeled on the LineUp "AI Recruiting
+  Answers" button. Brand red #df202c, lightning icon, "REGISTER" over italic "Here".
+- On: index, itinerary27, teams, members26, members27, questions, terms, privacy, ask, 404.
+  Bob's call: ALL pages, including teams.html (B2B) and members26 (frozen). Claude flagged that
+  teams.html has no individual registration by design and members26 is frozen; Bob chose all.
+- LINK: straight to WeTravel ATHLETE registration, opens in a new tab:
+  https://eurotour.wetravel.com/trips/the-dutch-training-tour-for-high-school-athletes-2027-sport-eurotour-1804277905
+  (the same trip tri.ps/JUuOo redirects to). Bob's call. Claude flagged that this skips the
+  family link (MjcPd) and the "athlete first, family right after" instructions in #reg; Bob
+  chose the direct athlete link. Full URL used, not tri.ps, so the tri.ps counts on
+  itinerary27 are unchanged.
+- HOW IT IS BUILT: CSS block at the end of each page's <style> (class .fab-reg), the <a> and a
+  small <script> just before </body>. Outside every CloudCannon editable region, so staff
+  cannot break it. Search "Floating REGISTER HERE" to find both pieces on any page.
+- POSITION: the script measures header.site and nav.anchor-nav and parks the button 14px
+  below them (10px on phones), so it follows the header height on every page and never covers
+  the nav or the red anchor ribbon. No hard-coded heights to maintain.
+- PHONES (760px and under): hidden at the very top of the page, appears after ~160px of scroll.
+  At the top it sat on the hero eyebrow line and the topbar REGISTER HERE is right there anyway.
+- itinerary27 only: fades out while the #reg section is on screen (redundant there).
+- Hidden when printing.
+- Tested in Chromium at 1440, 820, iPhone 14 and iPhone SE widths on all pages: never overlaps
+  the header or ribbon, never off screen.
+- OPEN: Bob asked about removing the register link from the nav once this is live. See chat
+  recommendation; nothing removed yet.
