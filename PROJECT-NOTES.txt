@@ -1233,8 +1233,8 @@ NOV 11, 2026 - FLOATING "REGISTER HERE" BUTTON (all 10 pages)
 - HOW IT IS BUILT: CSS block at the end of each page's <style> (class .fab-reg), the <a> and a
   small <script> just before </body>. Outside every CloudCannon editable region, so staff
   cannot break it. Search "Floating REGISTER HERE" to find both pieces on any page.
-- POSITION: the script measures header.site and nav.anchor-nav and parks the button 14px
-  below them (10px on phones), so it follows the header height on every page and never covers
+- POSITION: the script measures header.site and nav.anchor-nav and parks the button 34px
+  below them (30px on phones; was 14/10, Bob lowered it 20px Nov 11), so it follows the header height on every page and never covers
   the nav or the red anchor ribbon. No hard-coded heights to maintain.
 - PHONES (760px and under): hidden at the very top of the page, appears after ~160px of scroll.
   At the top it sat on the hero eyebrow line and the topbar REGISTER HERE is right there anyway.
@@ -1244,3 +1244,6 @@ NOV 11, 2026 - FLOATING "REGISTER HERE" BUTTON (all 10 pages)
   the header or ribbon, never off screen.
 - OPEN: Bob asked about removing the register link from the nav once this is live. See chat
   recommendation; nothing removed yet.
+- Nov 11, later: Bob removed "Register" from the itinerary27 red anchor ribbon (nav.anchor-nav).
+  The floating button does that job now. Ribbon is Itinerary | Highlights | Details | FAQ |
+  Gallery. The topbar REGISTER HERE and hero "Register for 2027" CTA (both -> #reg) stay.

@@ -605,7 +605,7 @@
 (function(){var b=document.querySelector('.fab-reg');if(!b)return;
 var bars=document.querySelectorAll('header.site,nav.anchor-nav');if(!bars.length)return;
 function place(){var m=0;for(var i=0;i<bars.length;i++){var r=bars[i].getBoundingClientRect();if(r.bottom>m&&r.top<window.innerHeight/3)m=r.bottom;}
-b.style.top=Math.round(Math.max(m,0)+(window.innerWidth<=760?10:14))+'px';
+b.style.top=Math.round(Math.max(m,0)+(window.innerWidth<=760?30:34))+'px';
 /* Phones: wait until the visitor scrolls, so it never sits on the hero headline. */
 b.classList.toggle('is-top',window.innerWidth<=760&&window.scrollY<160);}
 place();window.addEventListener('scroll',place,{passive:true});window.addEventListener('resize',place);window.addEventListener('load',place);})();
