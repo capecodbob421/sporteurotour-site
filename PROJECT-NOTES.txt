@@ -1274,6 +1274,8 @@ NOV 23, 2026 - FACE OFF PAGE (Thanksgiving Tournament Stress Relief)
   (faceoff_snap, faceoff_share, faceoff_share_link, faceoff_cta, etc.) to the page's gtag, but
   they go nowhere until GA is installed. Decision for Bob: add GA4 (needs a Measurement ID and a
   privacy.html update) or Cloudflare Web Analytics (cookieless, page visits only).
-- Status Nov 23: files in the desktop folder, NOT yet on GitHub. Upload faceoff.html,
-  faceoff-app.html and PROJECT-NOTES.txt to the root, and images/faceoff-share.jpg to images/
-  (two commits). All new files except the notes, so no staff edits can be overwritten.
+- Status Nov 23: LIVE at sporteurotour.com/faceoff (Bob uploaded). The link preview image first
+  landed in the repo root as /faceoff-share.jpg; it belongs in images/ (the root copy is harmless).
+- Nov 23, later: faceoff-app.html replaced with Face Off v1.3 (sound-on tip in its top bar,
+  "Your name / Your team / Your #" labels, "Sound is off" button). Same upload: drag
+  faceoff-app.html to the root.
