@@ -1247,3 +1247,33 @@ NOV 11, 2026 - FLOATING "REGISTER HERE" BUTTON (all 10 pages)
 - Nov 11, later: Bob removed "Register" from the itinerary27 red anchor ribbon (nav.anchor-nav).
   The floating button does that job now. Ribbon is Itinerary | Highlights | Details | FAQ |
   Gallery. The topbar REGISTER HERE and hero "Register for 2027" CTA (both -> #reg) stay.
+
+NOV 23, 2026 - FACE OFF PAGE (Thanksgiving Tournament Stress Relief)
+- New files: faceoff.html -> sporteurotour.com/faceoff (the page), faceoff-app.html ->
+  /faceoff-app (the toy itself), images/faceoff-share.jpg (1200x630 link preview image).
+- What it is: Face Off, an interactive face toy (original cartoon field hockey player). Visitors
+  name her, set team colors, stretch and poke her face, snap pictures with the Sport EuroTour
+  logo and sporteurotour.com/faceoff on them, and share. Aimed at Thanksgiving tournament players.
+- Built from ask.html: normal topbar, header and footer, toy in a frame sized to fill the screen
+  under the header. Deliberately UNLINKED for testing: not in the nav, the footer or sitemap.xml,
+  and noindex (both files). Has og: tags so a texted link shows faceoff-share.jpg.
+- DO NOT EDIT faceoff-app.html HERE. It is one self-contained 1.1 MB file built in the Face Off
+  project (C:\Users\Bob\Desktop\AI PROJECTS\Face off, see DEPLOY.md there). To change the toy,
+  rebuild there and replace this file. Not a CloudCannon page in practice: no editable regions.
+- Frame src is /faceoff-app?cta=off&embed=1 (hides the toy's own tour button and logo) with
+  allow="clipboard-write; web-share" (without it, both Share buttons fail quietly).
+- Tour link on this page: desktop = red floating "2027 TOUR / See the details" pill, BOTTOM LEFT.
+  Phones = navy strip above the frame ("Heading to Amsterdam in 2027? See the tour"). Both go to
+  /itinerary27 with utm_source=faceoff. Search "FACE OFF PAGE" to find the pieces.
+- EXCEPTION TO THE NOV 11 RULE: this page has NO floating REGISTER HERE button. Top right it would
+  sit on the toy's Share and Sound buttons. The topbar REGISTER HERE is still there.
+- Seasonal headline: the toy shows "Thanksgiving Tournament Stress Relief" until Dec 1, 2026, then
+  plain FACE OFF by itself. The Face Off folder also keeps faceoff-standard.html (no seasonal line).
+- ANALYTICS FINDING: no Google Analytics tag was found on sporteurotour.com (checked the live
+  homepage and every local .html file; only Search Console is set up). The toy sends GA events
+  (faceoff_snap, faceoff_share, faceoff_share_link, faceoff_cta, etc.) to the page's gtag, but
+  they go nowhere until GA is installed. Decision for Bob: add GA4 (needs a Measurement ID and a
+  privacy.html update) or Cloudflare Web Analytics (cookieless, page visits only).
+- Status Nov 23: files in the desktop folder, NOT yet on GitHub. Upload faceoff.html,
+  faceoff-app.html and PROJECT-NOTES.txt to the root, and images/faceoff-share.jpg to images/
+  (two commits). All new files except the notes, so no staff edits can be overwritten.
