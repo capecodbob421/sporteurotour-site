@@ -1276,6 +1276,7 @@ NOV 23, 2026 - FACE OFF PAGE (Thanksgiving Tournament Stress Relief)
   privacy.html update) or Cloudflare Web Analytics (cookieless, page visits only).
 - Status Nov 23: LIVE at sporteurotour.com/faceoff (Bob uploaded). The link preview image first
   landed in the repo root as /faceoff-share.jpg; it belongs in images/ (the root copy is harmless).
-- Nov 23, later: faceoff-app.html replaced with Face Off v1.3 (sound-on tip in its top bar,
-  "Your name / Your team / Your #" labels, "Sound is off" button). Same upload: drag
-  faceoff-app.html to the root.
+- Nov 23, later: faceoff-app.html replaced with Face Off v1.4 (sound-on tip in its top bar,
+  "Your name / Your team / Your #" labels, "Sound is off" button, bigger character on phones).
+  faceoff.html: frame minimum height lowered from 560 to 420 px. On Bob's Galaxy the 560
+  minimum pushed the toy's Snap bar below the screen. Upload both files plus these notes.

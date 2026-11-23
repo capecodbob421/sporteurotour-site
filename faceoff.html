@@ -132,7 +132,7 @@
   function size(){var top=0,h=document.querySelector('header.site'),st=document.querySelector('.tourstrip');
     if(h)top=h.getBoundingClientRect().bottom+window.scrollY;
     if(st&&st.offsetHeight)top+=st.offsetHeight;
-    f.style.height=Math.max(560,Math.round(window.innerHeight-top))+'px';}
+    f.style.height=Math.max(420,Math.round(window.innerHeight-top))+'px';}
   size();window.addEventListener('resize',size);window.addEventListener('load',size);})();
 </script>
 
