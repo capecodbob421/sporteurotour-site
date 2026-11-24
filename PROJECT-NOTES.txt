@@ -1280,3 +1280,7 @@ NOV 23, 2026 - FACE OFF PAGE (Thanksgiving Tournament Stress Relief)
   "Your name / Your team / Your #" labels, "Sound is off" button, bigger character on phones).
   faceoff.html: frame minimum height lowered from 560 to 420 px. On Bob's Galaxy the 560
   minimum pushed the toy's Snap bar below the screen. Upload both files plus these notes.
+- Nov 24: v1.4 confirmed live. faceoff-app.html in this folder is now Face Off v1.5 (hides the faint
+  sporteurotour.com/faceoff line that sat under the FACE OFF title on phones). Upload faceoff-app.html
+  and these notes. To check what is live: open sporteurotour.com/faceoff-app and search the page source
+  for "const VERSION".
