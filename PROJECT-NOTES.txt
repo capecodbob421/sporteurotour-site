@@ -1298,3 +1298,6 @@ NOV 24, 2026 - GOOGLE ANALYTICS (GA4) INSTALLED
   Google's partner-sites link and the opt-out add-on.
 - Email links to /faceoff should carry UTM tags so they show up as their own source, e.g.
   https://sporteurotour.com/faceoff?utm_source=festival&utm_medium=email&utm_campaign=thanksgiving_faceoff
+- Nov 24, later: itinerary27 "Watch This" video section now has id="videos" (plus the same
+  scroll-margin as the other anchors), so links can jump to sporteurotour.com/itinerary27#videos.
+  The Thanksgiving Constant Contact email's "Behind The Scenes Videos" button uses it.
