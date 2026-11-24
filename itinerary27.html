@@ -9,16 +9,29 @@
   gtag('js', new Date());
   gtag('config', 'G-L22MEHB3NX');
 </script>
+<script>
+  /* GA: count clicks on registration links (tri.ps short links and the WeTravel trip page) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || !/tri\.ps\/|eurotour\.wetravel\.com\/trips\//.test(a.href)) return;
+    gtag('event', 'register_click', {
+      reg_type: /MjcPd/.test(a.href) ? 'family' : 'athlete',
+      link_url: a.href,
+      link_text: (a.innerText || a.getAttribute('aria-label') || '').trim().slice(0, 100),
+      transport_type: 'beacon'
+    });
+  }, true);
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/favicon-48.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<meta name="description" content="Full itinerary and pricing for the 2027 Dutch Training Tour: a 7-day field hockey camp in Amsterdam, Holland (the Netherlands), July 22 to 28, 2027, for female athletes in graduating classes 2028 to 2030. Elite Dutch field hockey coaching. Parents and family welcome.">
+<meta name="description" content="A 7-day summer field hockey camp in Amsterdam, Holland for high school girls, classes of 2028 to 2030. July 22 to 28, 2027. Elite Dutch coaching, families welcome. Full itinerary and pricing.">
 <link rel="canonical" href="https://sporteurotour.com/itinerary27">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sport EuroTour">
-<meta property="og:title" content="The 2027 Dutch Training Tour | Field Hockey Camp in Holland">
-<meta property="og:description" content="Full itinerary and pricing for the 2027 Dutch Training Tour: a 7-day field hockey camp in Amsterdam, Holland (the Netherlands), July 22 to 28, 2027, for female athletes in graduating classes 2028 to 2030. Elite Dutch field hockey coaching. Parents and family welcome.">
+<meta property="og:title" content="The 2027 Dutch Training Tour | Summer Field Hockey Camp in Holland">
+<meta property="og:description" content="A 7-day summer field hockey camp in Amsterdam, Holland for high school girls, classes of 2028 to 2030. July 22 to 28, 2027. Elite Dutch coaching, families welcome. Full itinerary and pricing.">
 <meta property="og:url" content="https://sporteurotour.com/itinerary27">
 <meta property="og:image" content="https://sporteurotour.com/images/eurotour-logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +39,7 @@
 {
  "@context": "https://schema.org",
  "@type": "SportsEvent",
- "name": "The 2027 Dutch Training Tour - Field Hockey Camp in Holland",
+ "name": "The 2027 Dutch Training Tour - Summer Field Hockey Camp in Holland",
  "sport": "Field Hockey",
  "startDate": "2027-07-22",
  "endDate": "2027-07-28",
@@ -179,7 +192,7 @@
  ]
 }
 </script>
-<title>2027 Field Hockey Training Tour in Holland | Sport EuroTour</title>
+<title>2027 Summer Field Hockey Camp in Holland for High School Girls | Sport EuroTour</title>
 <style>
   :root{
     --navy:#2e4d95;
@@ -561,7 +574,7 @@
       <div class="kick-rule"></div>
       <h1>The 2027<em>Dutch Field Hockey</em>Training Tour</h1>
       <p class="when">Amsterdam &bull; July 22 to 28, 2027</p>
-      <p class="who">For female field hockey athletes, graduating classes of 2028 to 2030. Parents and family welcome. Encouraged, actually.</p>
+      <p class="who">A summer field hockey camp for high school girls, graduating classes of 2028 to 2030. Parents and family welcome. Encouraged, actually.</p>
       <p class="who-short">Classes of 2028&ndash;2030 &middot; Families welcome</p>
     </div>
     <a class="cta" href="#reg">Register for 2027 <span>&rarr;</span></a>

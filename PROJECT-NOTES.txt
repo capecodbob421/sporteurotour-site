@@ -1301,3 +1301,25 @@ NOV 24, 2026 - GOOGLE ANALYTICS (GA4) INSTALLED
 - Nov 24, later: itinerary27 "Watch This" video section now has id="videos" (plus the same
   scroll-margin as the other anchors), so links can jump to sporteurotour.com/itinerary27#videos.
   The Thanksgiving Constant Contact email's "Behind The Scenes Videos" button uses it.
+- Nov 24, later: GA internal-traffic filter ON. Google tag settings > Define internal traffic, rule
+  "Bob home office": Bob's home Comcast IPv4 address and IPv6 /64 range (the actual addresses are
+  only in GA, not here, because this repo is public). Admin > Data filters > "Internal Traffic" switched from Testing to Active. Visits from
+  that connection are dropped permanently. NOT covered: Bob's phone on cellular, travel, staff
+  at other addresses. If the home IP changes (Comcast can reassign), update the rule.
+
+NOV 24, 2026 (evening) - REGISTRATION TRACKING + US-PARENT WORDING ON itinerary27
+- GOAL (from Bob): #1 get people to itinerary27, #2 anywhere else on the site. USA traffic is
+  what matters. UK-style searches ("school hockey tours") are not the target.
+- Every GA-tagged page now has a second small script right under the GA block: any click on a
+  registration link (tri.ps/... or eurotour.wetravel.com/trips/...) sends GA event
+  "register_click" with reg_type athlete|family (tri.ps/MjcPd = family, everything else =
+  athlete), link_url and link_text. "register_click" is marked as a KEY EVENT in GA (Admin >
+  Events). New registration links on other domains will NOT be counted unless the pattern in
+  that script is updated on every page.
+- itinerary27 wording for US parent searches ("summer", "girls", "high school"):
+  <title> 2027 Summer Field Hockey Camp in Holland for High School Girls | Sport EuroTour
+  meta description and og:description rewritten to match; og:title and the JSON-LD event
+  name gained "Summer"; hero .who line now "A summer field hockey camp for high school girls,
+  graduating classes of 2028 to 2030..." H1, founder letter and FAQ untouched.
+- Dec 1, 2026: first full week of GA data. Pull a US-only report (GA and Search Console,
+  Country = United States) next to the totals.

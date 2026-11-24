@@ -9,6 +9,19 @@
   gtag('js', new Date());
   gtag('config', 'G-L22MEHB3NX');
 </script>
+<script>
+  /* GA: count clicks on registration links (tri.ps short links and the WeTravel trip page) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || !/tri\.ps\/|eurotour\.wetravel\.com\/trips\//.test(a.href)) return;
+    gtag('event', 'register_click', {
+      reg_type: /MjcPd/.test(a.href) ? 'family' : 'athlete',
+      link_url: a.href,
+      link_text: (a.innerText || a.getAttribute('aria-label') || '').trim().slice(0, 100),
+      transport_type: 'beacon'
+    });
+  }, true);
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
