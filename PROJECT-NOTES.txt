@@ -1284,3 +1284,17 @@ NOV 23, 2026 - FACE OFF PAGE (Thanksgiving Tournament Stress Relief)
   sporteurotour.com/faceoff line that sat under the FACE OFF title on phones). Upload faceoff-app.html
   and these notes. To check what is live: open sporteurotour.com/faceoff-app and search the page source
   for "const VERSION".
+
+NOV 24, 2026 - GOOGLE ANALYTICS (GA4) INSTALLED
+- Property "sporteurotour.com - GA4" (account Expanding Horizons, property 399587524), web stream
+  5914018100, Measurement ID G-L22MEHB3NX. The stream existed already; only the tag was missing.
+- Tag added right after <head> on: index, itinerary27, teams, faceoff, ask, privacy, terms, 404,
+  members26, members27, questions. Search "Google Analytics (GA4)" to find it.
+- NOT on faceoff-app.html on purpose. The toy runs inside /faceoff's frame and sends its events
+  (faceoff_snap, faceoff_share, faceoff_cta, etc.) through the parent page's gtag. Tagging the
+  toy too would double-count page views. Direct visits to /faceoff-app are therefore not tracked.
+- ANY NEW PAGE: copy the GA block from the top of an existing page's head.
+- privacy.html: one paragraph added to "Cookies and Website Data" naming Google Analytics with
+  Google's partner-sites link and the opt-out add-on.
+- Email links to /faceoff should carry UTM tags so they show up as their own source, e.g.
+  https://sporteurotour.com/faceoff?utm_source=festival&utm_medium=email&utm_campaign=thanksgiving_faceoff
